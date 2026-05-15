@@ -84,7 +84,7 @@ export function FAQs() {
                   href={`#cat-${c.key}`}
                   onClick={() => setActiveCat(c.key)}
                   className={clsx(
-                    "group flex items-center justify-between gap-3 py-3 border-b transition-colors duration-300",
+                    "group flex items-center justify-between gap-3 py-3 border-b transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]",
                     activeCat === c.key
                       ? "border-[#58c3e8] text-[#58c3e8]"
                       : "border-[#eaf1f6]/12 text-[#eaf1f6]/75 hover:border-[#58c3e8]/60 hover:text-[#eaf1f6]"
@@ -191,6 +191,8 @@ export function FAQs() {
               <img
                 src="/zen/stock/sunset-pool.jpg"
                 alt=""
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#042b59]/85 via-[#042b59]/15 to-transparent" />

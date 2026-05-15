@@ -85,6 +85,8 @@ export function PoolBanner() {
         <img
           src="/zen/hero-pool.jpg"
           alt={tAlt("pool")}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>

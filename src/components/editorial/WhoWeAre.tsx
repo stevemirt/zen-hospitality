@@ -76,6 +76,8 @@ export function WhoWeAre() {
             <img
               src="/zen/interior-living.jpg"
               alt={t("bannerAlt")}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

@@ -61,6 +61,8 @@ export function Operations() {
           <img
             src="/zen/aerial-beach.jpg"
             alt={tOps("bannerAlt")}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -108,10 +110,10 @@ export function Operations() {
               key={i}
               href={c.href}
               className={clsx(
-                "group block px-8 md:px-12 py-14 md:py-20 transition-colors duration-300",
+                "group block px-8 md:px-12 py-14 md:py-20 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset",
                 cyanCard
-                  ? "bg-[#58c3e8] text-[#042b59] hover:bg-[#eaf1f6]"
-                  : "bg-[#042b59] text-[#eaf1f6] hover:bg-[#0a3a73] border-l border-r border-[#58c3e8]/0"
+                  ? "bg-[#58c3e8] text-[#042b59] hover:bg-[#eaf1f6] focus-visible:ring-[#042b59]"
+                  : "bg-[#042b59] text-[#eaf1f6] hover:bg-[#0a3a73] border-l border-r border-[#58c3e8]/0 focus-visible:ring-[#58c3e8]"
               )}
             >
               <h3 className="h-title text-xl md:text-2xl mb-4 leading-tight max-w-md">

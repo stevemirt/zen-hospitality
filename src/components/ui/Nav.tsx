@@ -68,7 +68,8 @@ export function Nav() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              className="relative w-12 h-12 inline-flex items-center justify-center group"
+              aria-controls="primary-nav-menu"
+              className="relative w-12 h-12 inline-flex items-center justify-center group rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]"
             >
               <span
                 className={clsx(
@@ -89,6 +90,7 @@ export function Nav() {
 
       {/* Fullscreen overlay menu */}
       <div
+        id="primary-nav-menu"
         className={clsx(
           "fixed inset-0 z-40 transition-all duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]",
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -177,7 +179,7 @@ function LocaleSwitch({ current, pathname }: { current: string; pathname: string
     <Link
       href={pathname || "/"}
       locale={other}
-      className="group inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.32em] text-[#eaf1f6]/85 hover:text-[#58c3e8] transition-colors"
+      className="group inline-flex items-center gap-1 min-h-11 px-2 text-[10px] uppercase tracking-[0.32em] text-[#eaf1f6]/85 hover:text-[#58c3e8] transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]"
       aria-label={`Switch language to ${other.toUpperCase()}`}
     >
       <span className="text-[#58c3e8]">{current.toUpperCase()}</span>

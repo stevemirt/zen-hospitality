@@ -75,6 +75,8 @@ export function Collection() {
                   <img
                     src={place.photo}
                     alt={place.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.08]"
                   />
                   {/* Soft mask veil */}

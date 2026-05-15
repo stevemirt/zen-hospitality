@@ -139,7 +139,7 @@ export function Hero() {
           >
             <a
               href="#join"
-              className="group inline-flex items-center gap-3 bg-[#58c3e8] hover:bg-[#eaf1f6] text-[#042b59] px-9 py-4 text-sm md:text-base font-medium tracking-[0.04em] rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(88,195,232,0.35)]"
+              className="group inline-flex items-center gap-3 bg-[#58c3e8] hover:bg-[#eaf1f6] text-[#042b59] px-9 py-4 text-sm md:text-base font-medium tracking-[0.04em] rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(88,195,232,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eaf1f6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]"
             >
               {t("cta")}
               <span

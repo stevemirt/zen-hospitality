@@ -133,6 +133,7 @@ export function JoinForm() {
                 <input
                   type="email"
                   autoComplete="email"
+                  inputMode="email"
                   {...register("email")}
                   className={floatingInputCls(!!errors.email)}
                 />
@@ -147,6 +148,7 @@ export function JoinForm() {
                 <input
                   type="tel"
                   autoComplete="tel"
+                  inputMode="tel"
                   {...register("phone")}
                   className={floatingInputCls(!!errors.phone)}
                 />
@@ -160,6 +162,7 @@ export function JoinForm() {
               >
                 <input
                   type="text"
+                  autoComplete="address-level2"
                   {...register("location")}
                   className={floatingInputCls(!!errors.location)}
                 />
@@ -176,6 +179,7 @@ export function JoinForm() {
                   <input
                     type="number"
                     min={1}
+                    inputMode="numeric"
                     {...register("rooms")}
                     className={floatingInputCls(!!errors.rooms)}
                   />
@@ -190,6 +194,7 @@ export function JoinForm() {
                   <input
                     type="number"
                     min={1}
+                    inputMode="numeric"
                     {...register("bathrooms")}
                     className={floatingInputCls(!!errors.bathrooms)}
                   />
@@ -216,7 +221,7 @@ export function JoinForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group inline-flex items-center gap-3 bg-[#58c3e8] hover:bg-[#eaf1f6] text-[#042b59] px-9 py-4 text-sm font-medium tracking-[0.04em] rounded-full transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed shadow-[0_8px_32px_rgba(88,195,232,0.18)] hover:shadow-[0_12px_48px_rgba(88,195,232,0.32)]"
+                  className="group inline-flex items-center gap-3 bg-[#58c3e8] hover:bg-[#eaf1f6] text-[#042b59] px-9 py-4 text-sm font-medium tracking-[0.04em] rounded-full transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed shadow-[0_8px_32px_rgba(88,195,232,0.18)] hover:shadow-[0_12px_48px_rgba(88,195,232,0.32)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eaf1f6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]"
                 >
                   {isSubmitting ? t("submitting") : t("submit")}
                   <span
@@ -232,7 +237,9 @@ export function JoinForm() {
               </div>
 
               {submitted === "err" && (
-                <p className="mt-4 text-sm text-[#ff9a82]">{t("error")}</p>
+                <p role="alert" aria-live="polite" className="mt-4 text-sm text-[#ff9a82]">
+                  {t("error")}
+                </p>
               )}
             </form>
           )}

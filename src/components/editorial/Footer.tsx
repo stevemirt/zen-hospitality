@@ -29,11 +29,11 @@ export function Footer() {
               {t("navigate")}
             </div>
             <ul className="space-y-3 text-sm">
-              <li><a href="#who-we-are" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("whoWeAre")}</a></li>
-              <li><a href="#packages" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("services")}</a></li>
-              <li><a href="#operations" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("operations")}</a></li>
-              <li><a href="#join" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("join")}</a></li>
-              <li><a href="#faqs" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("faqs")}</a></li>
+              <li><a href="#who-we-are" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]">{nav("whoWeAre")}</a></li>
+              <li><a href="#packages" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]">{nav("services")}</a></li>
+              <li><a href="#operations" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]">{nav("operations")}</a></li>
+              <li><a href="#join" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]">{nav("join")}</a></li>
+              <li><a href="#faqs" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]">{nav("faqs")}</a></li>
             </ul>
           </div>
 

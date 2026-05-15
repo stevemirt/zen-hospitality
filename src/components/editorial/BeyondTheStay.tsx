@@ -149,6 +149,8 @@ export function BeyondTheStay() {
                             <img
                               src={logo}
                               alt={`${p.name} logo`}
+                              loading="lazy"
+                              decoding="async"
                               className="max-w-full max-h-full object-contain"
                             />
                           )}

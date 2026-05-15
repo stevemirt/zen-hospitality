@@ -19,14 +19,14 @@ export function WhyCostaRica() {
           <Reveal>
             <div className="h-kicker text-[#58c3e8] mb-5 inline-flex items-center gap-3">
               <span aria-hidden className="h-px w-10 bg-[#58c3e8]" />
-              The Location
+              {t("locationKicker")}
             </div>
           </Reveal>
           <Reveal delayMs={80}>
             <h2 className="h-display text-[clamp(2.4rem,5.6vw,5rem)] text-[#eaf1f6] mb-8">
-              Why
+              {t("headlineLine1")}
               <br />
-              <span className="h-italic text-[#58c3e8]">Costa Rica?</span>
+              <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
             </h2>
           </Reveal>
           {paragraphs.map((p, i) => (

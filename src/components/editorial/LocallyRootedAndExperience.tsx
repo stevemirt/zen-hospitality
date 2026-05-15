@@ -151,6 +151,8 @@ export function LocallyRootedAndExperience() {
                   <img
                     src="/zen/stock/mountain-pacific.jpg"
                     alt={local("photoAlt")}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>

@@ -36,6 +36,8 @@ export function TwoPaths() {
               <img
                 src={PATH_PHOTOS[i % 2]}
                 alt={tab.title}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2500ms] ease-out group-hover:scale-105"
               />
               {/* Veil */}

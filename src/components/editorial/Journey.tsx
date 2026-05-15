@@ -124,6 +124,8 @@ export function Journey() {
                   key={src}
                   src={src}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   // eslint-disable-next-line jsx-a11y/alt-text
                   className={clsx(
                     "absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)]",

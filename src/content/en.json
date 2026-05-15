@@ -52,6 +52,9 @@
   "whyCostaRica": {
     "kicker": "Why Costa Rica?",
     "headline": "A rare balance.",
+    "locationKicker": "The Location",
+    "headlineLine1": "Why",
+    "headlineLine2": "Costa Rica?",
     "pacificOceanLabel": "Pacific Ocean",
     "caribbeanLabel": "Caribbean",
     "paragraphs": [
@@ -93,7 +96,7 @@
     "headline": "End-to-end operations",
     "items": [
       "Property Management",
-      "Concierge & Guest operations",
+      "Concierge & Guest Operations",
       "Housekeeping",
       "Maintenance",
       "Emergencies",
@@ -193,7 +196,7 @@
           "All of Zen Care or Zen Preserve",
           "Listing & optimization across OTAs",
           "Dynamic pricing & digital marketing",
-          "Reservation management end-to-end",
+          "End-to-end reservation management",
           "Pre-arrival, in-stay, and post-stay guest care",
           "24/7 customer support center"
         ],
@@ -229,10 +232,10 @@
     "findCta": "Find perfect destination",
     "bannerAlt": "Aerial of a Costa Rica Pacific beach",
     "cards": [
-      { "title": "A Locally Rooted Approach that Enriches Every Stay" },
+      { "title": "A locally rooted approach that enriches every stay" },
       { "title": "What would your guest experience look like?" },
-      { "title": "Beyond the Stay Program" },
-      { "title": "FAQS" }
+      { "title": "Beyond the Stay program" },
+      { "title": "FAQs" }
     ]
   },
   "locallyRooted": {

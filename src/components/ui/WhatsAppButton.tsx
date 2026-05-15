@@ -40,9 +40,10 @@ export function WhatsAppButton() {
   const message = encodeURIComponent(t("message") || "");
   const href = `https://wa.me/${phone.replace(/^\+/, "")}${message ? `?text=${message}` : ""}`;
 
+  const hidden = !armed || overForm;
   return (
     <div
-      aria-hidden={!armed}
+      aria-hidden={hidden}
       className={clsx(
         "fixed z-40 bottom-5 right-5 md:bottom-8 md:right-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
         armed && !overForm
@@ -55,7 +56,8 @@ export function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("aria")}
-        className="group relative flex items-center"
+        tabIndex={hidden ? -1 : 0}
+        className="group relative flex items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]"
       >
         {/* Pulsing halo */}
         <span
