@@ -60,7 +60,7 @@ export function Operations() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/zen/aerial-beach.jpg"
-            alt="Aerial of a Costa Rica Pacific beach"
+            alt={tOps("bannerAlt")}
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>

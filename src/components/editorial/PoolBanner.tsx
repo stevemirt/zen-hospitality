@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * Cinematic fullbleed pool banner with scroll-driven motion:
@@ -11,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
  * - Coordinate overlay top-right, dimension top-left
  */
 export function PoolBanner() {
+  const tAlt = useTranslations("alt");
   const wrap = useRef<HTMLDivElement | null>(null);
   const img = useRef<HTMLDivElement | null>(null);
   const captionRef = useRef<HTMLDivElement | null>(null);
@@ -81,7 +83,7 @@ export function PoolBanner() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/zen/hero-pool.jpg"
-          alt="Infinity pool overlooking the Pacific Ocean at a Zen Reserve residence"
+          alt={tAlt("pool")}
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>

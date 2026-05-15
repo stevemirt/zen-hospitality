@@ -75,7 +75,7 @@ export function WhoWeAre() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/zen/interior-living.jpg"
-              alt="Open plan living room with ocean view at a Zen Reserve"
+              alt={t("bannerAlt")}
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

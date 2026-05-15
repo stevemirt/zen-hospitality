@@ -150,7 +150,7 @@ export function LocallyRootedAndExperience() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/zen/stock/mountain-pacific.jpg"
-                    alt="Golden hour over a Costa Rica Pacific cove"
+                    alt={local("photoAlt")}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>

@@ -25,6 +25,7 @@
     "bannerKicker": "Residencia · Interior",
     "bannerTitle": "Zen Reserve · Nosara",
     "bannerFrameLabel": "Cuadro",
+    "bannerAlt": "Sala de estar de planta abierta con vista al océano en una Zen Reserve",
     "values": [
       {
         "title": "Cuidado en cada detalle",
@@ -217,6 +218,7 @@
     "nextHeading": "Su jornada con Zen Hospitality",
     "nextChapter": "Siguiente capítulo",
     "findCta": "Descubrir destino",
+    "bannerAlt": "Vista aérea de una playa del Pacífico costarricense",
     "cards": [
       { "title": "Un enfoque local que enriquece cada estancia" },
       { "title": "¿Cómo sería la experiencia de su huésped?" },
@@ -231,6 +233,7 @@
     "headlineLine2": "que enriquece cada estancia.",
     "photoLocale": "Localidad",
     "photoLocation": "Pacífico · Guanacaste",
+    "photoAlt": "Hora dorada sobre una cala del Pacífico en Costa Rica",
     "iconLabels": [
       "Red curada",
       "Origen local",
@@ -362,6 +365,12 @@
     "afterWhoAttr": "Nuestra promesa",
     "afterCollection": "No gestionamos casas. Protegemos lo que pueden llegar a ser.",
     "afterPackages": "Precisión silenciosa. Retornos medibles. Un estándar, no un servicio."
+  },
+  "alt": {
+    "pool": "Piscina infinita con vista al Océano Pacífico en una residencia Zen Reserve",
+    "operationsBeach": "Vista aérea de una playa del Pacífico costarricense",
+    "locallyRootedPhoto": "Hora dorada sobre una cala del Pacífico en Costa Rica",
+    "whoWeAreInterior": "Sala de planta abierta con vista al océano en una Zen Reserve"
   },
   "marquee": {
     "items": [

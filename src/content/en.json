@@ -25,6 +25,7 @@
     "bannerKicker": "Residence · Interior",
     "bannerTitle": "Zen Reserve · Nosara",
     "bannerFrameLabel": "Frame",
+    "bannerAlt": "Open plan living room with ocean view at a Zen Reserve",
     "values": [
       {
         "title": "Curated excellence",
@@ -226,6 +227,7 @@
     "nextHeading": "Your Property Journey with Zen Hospitality",
     "nextChapter": "Next chapter",
     "findCta": "Find perfect destination",
+    "bannerAlt": "Aerial of a Costa Rica Pacific beach",
     "cards": [
       { "title": "A Locally Rooted Approach that Enriches Every Stay" },
       { "title": "What would your guest experience look like?" },
@@ -240,6 +242,7 @@
     "headlineLine2": "that enriches every stay.",
     "photoLocale": "Locale",
     "photoLocation": "Pacific · Guanacaste",
+    "photoAlt": "Golden hour over a Costa Rica Pacific cove",
     "iconLabels": [
       "Curated network",
       "Local sourcing",
@@ -380,6 +383,12 @@
     "afterWhoAttr": "Our promise",
     "afterCollection": "We don't manage homes. We protect what they could become.",
     "afterPackages": "Quiet precision. Measurable returns. A standard, not a service."
+  },
+  "alt": {
+    "pool": "Infinity pool overlooking the Pacific Ocean at a Zen Reserve residence",
+    "operationsBeach": "Aerial of a Costa Rica Pacific beach",
+    "locallyRootedPhoto": "Golden hour over a Costa Rica Pacific cove",
+    "whoWeAreInterior": "Open plan living room with ocean view at a Zen Reserve"
   },
   "marquee": {
     "items": [
