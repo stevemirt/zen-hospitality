@@ -390,6 +390,14 @@
     "locallyRootedPhoto": "Golden hour over a Costa Rica Pacific cove",
     "whoWeAreInterior": "Open plan living room with ocean view at a Zen Reserve"
   },
+  "poolBanner": {
+    "frameLabel": "Frame · 02 / 05",
+    "frameTitle": "Infinity · Zen Reserve",
+    "coordsLabel": "Coordinates",
+    "headlineLine1": "Where the horizon",
+    "headlineLine2": "never closes.",
+    "body": "Every Zen Reserve frames the Pacific differently — but the silence is always the same."
+  },
   "marquee": {
     "items": [
       "Refined hospitality",

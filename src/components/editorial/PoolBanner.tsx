@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
  */
 export function PoolBanner() {
   const tAlt = useTranslations("alt");
+  const t = useTranslations("poolBanner");
   const wrap = useRef<HTMLDivElement | null>(null);
   const img = useRef<HTMLDivElement | null>(null);
   const captionRef = useRef<HTMLDivElement | null>(null);
@@ -122,11 +123,11 @@ export function PoolBanner() {
         {/* Top — meta strip */}
         <div className="flex items-start justify-between">
           <div className="text-[#eaf1f6]">
-            <div className="h-kicker opacity-65 mb-2">Frame · 02 / 05</div>
-            <div className="h-italic text-base md:text-lg">Infinity · Zen Reserve</div>
+            <div className="h-kicker opacity-65 mb-2">{t("frameLabel")}</div>
+            <div className="h-italic text-base md:text-lg">{t("frameTitle")}</div>
           </div>
           <div className="text-right text-[#eaf1f6]">
-            <div className="h-kicker opacity-65 mb-2">Coordinates</div>
+            <div className="h-kicker opacity-65 mb-2">{t("coordsLabel")}</div>
             <div className="h-eyebrow text-[#58c3e8]">9°44′ N · 85°67′ W</div>
           </div>
         </div>
@@ -138,12 +139,12 @@ export function PoolBanner() {
           style={{ opacity: 0, transform: "translate3d(0, 24px, 0)" }}
         >
           <h2 className="h-display text-[#eaf1f6] text-[clamp(2.5rem,6.5vw,6.5rem)] mb-4">
-            Where the horizon
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">never closes.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
           <p className="body-luxe text-[#eaf1f6]/85 text-base md:text-lg max-w-xl">
-            Every Zen Reserve frames the Pacific differently — but the silence is always the same.
+            {t("body")}
           </p>
         </div>
       </div>

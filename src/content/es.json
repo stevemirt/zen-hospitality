@@ -372,6 +372,14 @@
     "locallyRootedPhoto": "Hora dorada sobre una cala del Pacífico en Costa Rica",
     "whoWeAreInterior": "Sala de planta abierta con vista al océano en una Zen Reserve"
   },
+  "poolBanner": {
+    "frameLabel": "Cuadro · 02 / 05",
+    "frameTitle": "Infinito · Zen Reserve",
+    "coordsLabel": "Coordenadas",
+    "headlineLine1": "Donde el horizonte",
+    "headlineLine2": "nunca se cierra.",
+    "body": "Cada Zen Reserve enmarca el Pacífico de forma distinta — pero el silencio siempre es el mismo."
+  },
   "marquee": {
     "items": [
       "Hospitalidad refinada",
