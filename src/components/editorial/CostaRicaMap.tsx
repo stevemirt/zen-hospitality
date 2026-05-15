@@ -17,8 +17,8 @@ const OUTLINE = "M520,308.358L519.483,310.884L516.9,313.916L513.283,316.695L508.
 // projection that produced the outline.
 const REGIONS = [
   { x: 77, y: 145, name: "Papagayo", subtitle: "Bahía Papagayo · NW", delay: 0 },
-  { x: 70, y: 203, name: "Guanacaste", subtitle: "Tamarindo · Liberia", delay: 0.35 },
-  { x: 77, y: 251, name: "Nosara", subtitle: "Nicoya Peninsula", delay: 0.7 },
+  { x: 70, y: 203, name: "Guanacaste", subtitle: "Tamarindo · Liberia", delay: 0.15 },
+  { x: 77, y: 251, name: "Nosara", subtitle: "Nicoya Peninsula", delay: 0.3 },
 ];
 
 export function CostaRicaMap() {
@@ -30,7 +30,9 @@ export function CostaRicaMap() {
     const svg = ref.current;
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+    // Arm if any part of the map is within ~95% of viewport — fires earlier
+    // than 85% so the animation is well underway by the time the user reaches it.
+    if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
       setArmed(true);
       return;
     }
@@ -43,7 +45,7 @@ export function CostaRicaMap() {
           }
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: "200px 0px 200px 0px" }
     );
     obs.observe(svg);
     return () => obs.disconnect();
@@ -135,7 +137,7 @@ export function CostaRicaMap() {
           fillOpacity={armed ? 0.18 : 0}
           stroke="none"
           filter="url(#zen-topo)"
-          style={{ transition: "fill-opacity 1.4s ease-out 0.6s" }}
+          style={{ transition: "fill-opacity 0.8s ease-out 0.3s" }}
         />
 
         {/* Country body fill */}
@@ -144,7 +146,7 @@ export function CostaRicaMap() {
           fill="url(#zen-country-fill)"
           fillOpacity={armed ? 1 : 0}
           stroke="none"
-          style={{ transition: "fill-opacity 1.4s ease-out 0.4s" }}
+          style={{ transition: "fill-opacity 0.8s ease-out 0.2s" }}
         />
 
         {/* Country outline — animated draw */}
@@ -159,7 +161,7 @@ export function CostaRicaMap() {
           style={{
             strokeDasharray: 3200,
             strokeDashoffset: armed ? 0 : 3200,
-            transition: "stroke-dashoffset 3.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s",
+            transition: "stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
           }}
         />
 
@@ -167,7 +169,7 @@ export function CostaRicaMap() {
         <g
           fill="#58c3e8"
           opacity={armed ? 0.70 : 0}
-          style={{ transition: "opacity 1s ease-out 3.6s" }}
+          style={{ transition: "opacity 0.6s ease-out 1.4s" }}
           fontFamily="Gotham, sans-serif"
           fontSize="10"
           letterSpacing="4"
@@ -184,7 +186,7 @@ export function CostaRicaMap() {
           textAnchor="middle"
           fill="#58c3e8"
           opacity={armed ? 0.95 : 0}
-          style={{ transition: "opacity 1s ease-out 3.8s" }}
+          style={{ transition: "opacity 0.6s ease-out 1.5s" }}
           fontFamily="Gotham, sans-serif"
           fontSize="15"
           fontWeight="500"
@@ -198,7 +200,7 @@ export function CostaRicaMap() {
           textAnchor="middle"
           fill="#eaf1f6"
           opacity={armed ? 0.55 : 0}
-          style={{ transition: "opacity 1s ease-out 4s" }}
+          style={{ transition: "opacity 0.6s ease-out 1.6s" }}
           fontFamily="Gotham, sans-serif"
           fontSize="8"
           letterSpacing="3"
@@ -220,9 +222,9 @@ export function CostaRicaMap() {
               style={{
                 transformOrigin: `${r.x}px ${r.y}px`,
                 animation: armed
-                  ? `zen-marker-pulse 2.8s ease-out ${3.8 + r.delay}s infinite`
+                  ? `zen-marker-pulse 2.8s ease-out ${1.7 + r.delay}s infinite`
                   : "none",
-                transition: "opacity 0.4s ease-out",
+                transition: "opacity 0.3s ease-out",
               }}
             />
             <circle
@@ -236,9 +238,9 @@ export function CostaRicaMap() {
               style={{
                 transformOrigin: `${r.x}px ${r.y}px`,
                 animation: armed
-                  ? `zen-marker-pulse 2.8s ease-out ${4 + r.delay}s infinite`
+                  ? `zen-marker-pulse 2.8s ease-out ${1.85 + r.delay}s infinite`
                   : "none",
-                transition: "opacity 0.4s ease-out",
+                transition: "opacity 0.3s ease-out",
               }}
             />
             <circle
@@ -247,13 +249,13 @@ export function CostaRicaMap() {
               r={armed ? 4 : 0}
               fill="#58c3e8"
               filter="url(#zen-glow)"
-              style={{ transition: `r 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${3.8 + r.delay}s` }}
+              style={{ transition: `r 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${1.7 + r.delay}s` }}
             />
             {/* Leader + label to the RIGHT of the marker (off the country, into the ocean) */}
             <g
               style={{
                 opacity: armed ? 1 : 0,
-                transition: `opacity 0.7s ease-out ${4 + r.delay}s`,
+                transition: `opacity 0.5s ease-out ${1.85 + r.delay}s`,
               }}
             >
               <line

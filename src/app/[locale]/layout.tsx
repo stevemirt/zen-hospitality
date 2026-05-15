@@ -103,7 +103,7 @@ export default async function LocaleLayout({
             Hash anchors preserved for deep links. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if("scrollRestoration" in history){history.scrollRestoration="manual"}if(location.hash)return;var u=false;var m=function(){u=true};window.addEventListener("touchstart",m,{passive:true,once:true});window.addEventListener("wheel",m,{passive:true,once:true});window.addEventListener("keydown",m,{once:true});var p=function(){if(u||location.hash)return;if(window.scrollY!==0)window.scrollTo(0,0)};window.scrollTo(0,0);document.addEventListener("DOMContentLoaded",p);window.addEventListener("load",p);setTimeout(p,0);setTimeout(p,50);setTimeout(p,150);setTimeout(p,300);setTimeout(p,600)}catch(e){}})();`,
+            __html: `(function(){try{if("scrollRestoration" in history){history.scrollRestoration="manual"}var isReload=false;try{var n=performance.getEntriesByType("navigation")[0];isReload=n&&n.type==="reload"}catch(_){}if(!isReload&&location.hash)return;var u=false;var m=function(){u=true};window.addEventListener("touchstart",m,{passive:true,once:true});window.addEventListener("wheel",m,{passive:true,once:true});window.addEventListener("keydown",m,{once:true});var p=function(){if(u)return;if(location.hash){try{history.replaceState(null,"",location.pathname+location.search)}catch(_){}}if(window.scrollY!==0)window.scrollTo(0,0)};p();document.addEventListener("DOMContentLoaded",p);window.addEventListener("load",p);setTimeout(p,0);setTimeout(p,50);setTimeout(p,150);setTimeout(p,300);setTimeout(p,600)}catch(e){}})();`,
           }}
         />
       </head>
