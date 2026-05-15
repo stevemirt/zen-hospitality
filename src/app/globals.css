@@ -1,0 +1,407 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-Thin.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/brand/fonts-src/Gotham-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-zen-ink: #000000;
+  --color-zen-navy: #042b59;
+  --color-zen-sky: #58c3e8;
+  --color-zen-mist: #eaf1f6;
+  --color-zen-sand: #c9b79a;
+  --color-zen-bone: #f4efe6;
+
+  --font-display: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Gotham", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #eaf1f6;
+  color-scheme: dark;
+}
+
+html {
+  background: #000000;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brandbook rule: Bold is for titles only */
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+::selection {
+  background: #58c3e8;
+  color: #042b59;
+}
+
+/* Typography hierarchy utilities */
+.h-display {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  line-height: 0.92;
+}
+.h-title {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.014em;
+  line-height: 1.02;
+}
+.h-italic {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.010em;
+  line-height: 1.05;
+}
+.h-kicker {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+.h-eyebrow {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+.body-luxe {
+  font-family: "Gotham", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+}
+
+/* Reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Cinematic word reveal */
+.word-reveal > span {
+  display: inline-block;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(0.2em);
+  transition: clip-path 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.word-reveal.is-in > span {
+  clip-path: inset(0 0 -10% 0);
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .word-reveal > span {
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .word-reveal > span { clip-path: none; transform: none; }
+}
+
+/* Cinematic backdrop layer */
+.cinematic-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Glass nav */
+.glass {
+  background: color-mix(in oklab, #000000 55%, transparent);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+}
+
+/* Focus ring (a11y) */
+:focus-visible {
+  outline: 2px solid #58c3e8;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide scrollbar on horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Breathing scroll indicator */
+@keyframes zen-breath {
+  0%, 100% { transform: scaleY(1); opacity: 0.55; }
+  50% { transform: scaleY(1.4); opacity: 1; }
+}
+.animate-zen-breath {
+  transform-origin: top;
+  animation: zen-breath 2.6s ease-in-out infinite;
+}
+
+/* Marquee for brand affirmation ticker */
+@keyframes zen-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.animate-zen-marquee {
+  animation: zen-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Ken-burns subtle on Collection cards */
+@keyframes zen-ken-burns {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
+}
+.animate-zen-kenburns:hover {
+  animation: zen-ken-burns 6s ease-out forwards;
+}
+
+/* Intermission "moment" — pinless cinematic section */
+.intermission {
+  position: relative;
+  z-index: 10;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(4rem, 12vh, 9rem) 1.5rem;
+  overflow: hidden;
+}
+.intermission .photo-bed {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.intermission .photo-bed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 35%,
+    rgba(0, 0, 0, 0.45) 65%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+/* Ken Burns — slow, slow zoom for hero photo */
+@keyframes zen-kenburns-hero {
+  0% { transform: scale(1.05) translate3d(-0.5%, -0.5%, 0); }
+  50% { transform: scale(1.12) translate3d(0.5%, 1%, 0); }
+  100% { transform: scale(1.05) translate3d(-0.5%, -0.5%, 0); }
+}
+.kenburns-hero {
+  animation: zen-kenburns-hero 28s ease-in-out infinite;
+  will-change: transform;
+}
+/* Breathing glow for highlighted Packages card */
+@keyframes zen-glow-breath {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1.0; transform: scale(1.08); }
+}
+.zen-glow-breath {
+  animation: zen-glow-breath 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Step photo affordance flash */
+@keyframes zen-step-flash {
+  0%   { opacity: 0; transform: translateY(-6px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  80%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-2px); }
+}
+.zen-step-flash {
+  animation: zen-step-flash 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Sweep flash across photo banners */
+@keyframes zen-sweep-flash {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  20%  { opacity: 0.9; }
+  100% { transform: translateX(220%); opacity: 0; }
+}
+.zen-sweep-flash {
+  animation: zen-sweep-flash 5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: 1.5s;
+}
+
+/* Costa Rica radar map */
+@keyframes zen-radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes zen-marker-pulse {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  70%  { transform: scale(2.6); opacity: 0;   }
+  100% { transform: scale(2.6); opacity: 0;   }
+}
+
+@keyframes zen-kenburns-slow {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
+}
+.kenburns-slow {
+  animation: zen-kenburns-slow 16s ease-out forwards;
+  will-change: transform;
+}
+
+/* Cinematic letterbox reveal — top + bottom bars receding */
+@keyframes zen-letterbox-top {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+@keyframes zen-letterbox-bottom {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+.letterbox-top {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 50vh;
+  background: #000;
+  z-index: 100;
+  pointer-events: none;
+  animation: zen-letterbox-top 1.8s cubic-bezier(0.7, 0, 0.3, 1) 0.3s forwards;
+}
+.letterbox-bottom {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 50vh;
+  background: #000;
+  z-index: 100;
+  pointer-events: none;
+  animation: zen-letterbox-bottom 1.8s cubic-bezier(0.7, 0, 0.3, 1) 0.3s forwards;
+}
+
+/* Curtain mask reveal — for hero typography appearing after the photo */
+@keyframes zen-curtain {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.curtain-reveal {
+  animation: zen-curtain 1.4s cubic-bezier(0.7, 0, 0.3, 1) 1.4s both;
+}
+
+/* Scroll-driven photo zoom container */
+.photo-zoom-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.photo-zoom-bg > * {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+}
+
+/* Photo with soft dark gradient overlay */
+.photo-with-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+/* Custom luxury cursor */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor {
+    cursor: none;
+  }
+  .zen-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #58c3e8;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: width 200ms ease, height 200ms ease, border-color 200ms ease;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .zen-cursor.is-active {
+    width: 40px;
+    height: 40px;
+    border-color: #eaf1f6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-zen-breath,
+  .animate-zen-marquee,
+  .animate-zen-kenburns:hover {
+    animation: none;
+  }
+}

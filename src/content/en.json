@@ -1,0 +1,305 @@
+{
+  "nav": {
+    "whoWeAre": "Who we are",
+    "services": "Services & Packages",
+    "operations": "Our Operations",
+    "join": "Join our Collection",
+    "faqs": "FAQs",
+    "login": "Log In"
+  },
+  "hero": {
+    "eyebrow": "Zen Hospitality",
+    "headline": "Discover the potential of your property.",
+    "sub": "Luxury residential management in Costa Rica — refined hospitality, sustainable operations, and enduring value for property owners.",
+    "cta": "Join our Collection",
+    "scrollHint": "Scroll to begin"
+  },
+  "whoWeAre": {
+    "kicker": "Who we are",
+    "lead": "Zen Hospitality was born from the need for a luxury residential operator that unites refined hospitality with sustainability, positive community impact, and long-term value creation for property owners.",
+    "body": "We manage exceptional private residences with a thoughtful, performance-driven approach — enhancing guest experiences, supporting local communities, and maximizing the enduring value of every home we operate.",
+    "values": [
+      {
+        "title": "Curated excellence",
+        "body": "We thoughtfully operate spaces and offer experiences that elevate well-being while honoring the environment. Every detail is intentionally curated to deliver conscious luxury, balance, and lasting value."
+      },
+      {
+        "title": "Effortless hospitality",
+        "body": "Luxury should feel seamless. We anticipate needs with quiet precision, offering attentive service that allows guests and owners to experience complete ease and peace of mind."
+      },
+      {
+        "title": "Trust through integrity",
+        "body": "We build enduring relationships through transparency, accountability, and performance — aligning operational excellence with measurable returns and protecting the long-term value of every property we manage."
+      }
+    ],
+    "vision": {
+      "label": "Our vision",
+      "text": "To redefine luxury property management by creating sustainable, wellness-driven experiences that elevate guest satisfaction while delivering consistent, long-term returns for property owners — setting a new standard where conscious design, operational excellence, and financial performance coexist seamlessly."
+    },
+    "promise": {
+      "label": "Our promise",
+      "text": "We elevate luxury stays for discerning guests while maximizing long-term value and returns for property owners — through thoughtful, sustainable management and refined hospitality."
+    }
+  },
+  "whyCostaRica": {
+    "kicker": "Why Costa Rica?",
+    "headline": "A rare balance.",
+    "paragraphs": [
+      "Costa Rica offers a rare balance of effortless beauty and meaningful experiences. From sunlit Pacific beaches to lush tropical forests, the country invites guests to slow down, reconnect, and immerse themselves in nature — without sacrificing comfort or sophistication. Its warm culture, year-round climate, and easy international access make it a natural choice for travelers seeking both escape and authenticity.",
+      "This enduring appeal translates into consistent, high-quality demand for well-curated stays. As more travelers prioritize privacy, personalization, and longer stays, Costa Rica continues to stand out as a destination where exceptional guest experiences naturally align with strong and sustained performance for thoughtfully managed homes."
+    ],
+    "stats": [
+      { "value": "87%", "label": "Avg. occupancy" },
+      { "value": "1,250+", "label": "Guests served" },
+      { "value": "24/7", "label": "Support" },
+      { "value": "99.9%", "label": "Uptime" }
+    ]
+  },
+  "collection": {
+    "kicker": "Our Collection",
+    "headline": "Exclusive residences",
+    "cards": [
+      {
+        "name": "Zen Reserve · Guanacaste",
+        "body": "Exceptional residences defined by their architecture, setting, and seamless connection to the surrounding environment."
+      },
+      {
+        "name": "Zen Reserve · Nosara",
+        "body": "Coastal sanctuaries shaped by light, wood, and stone — moments from surf and rainforest."
+      },
+      {
+        "name": "Zen Reserve · Papagayo",
+        "body": "Cliffside residences with infinity pools framing the Pacific horizon."
+      }
+    ]
+  },
+  "services": {
+    "kicker": "Services",
+    "headline": "End-to-end operations",
+    "items": [
+      "Property Management",
+      "Concierge & Guest operations",
+      "Housekeeping",
+      "Maintenance",
+      "Emergencies",
+      "Sales & Marketing",
+      "Monthly Reports",
+      "Security",
+      "Quality Management",
+      "Special Projects"
+    ],
+    "descriptors": [
+      "Asset oversight, vendor coordination, and contract administration.",
+      "24/7 guest care from pre-arrival through departure.",
+      "Routine and deep cleaning, presentation, and laundered linens.",
+      "Preventive programs covering HVAC, pool, landscaping, structure.",
+      "Immediate response and incident resolution, day or night.",
+      "Listings, OTAs, dynamic pricing, and luxury travel partners.",
+      "Detailed performance, financial, and operational transparency.",
+      "Access control, on-site protocols, and compliance oversight.",
+      "Audits, supplier oversight, and continuous improvement plans.",
+      "Custom requests beyond the standard scope, coordinated end-to-end."
+    ]
+  },
+  "twoPaths": {
+    "kicker": "Two paths",
+    "headline": "Choose how Zen Hospitality serves your asset",
+    "tabs": [
+      {
+        "label": "Property Management",
+        "title": "Property Management",
+        "intro": "At Zen Hospitality, we manage luxury residences with a performance-driven approach that protects your assets, elevates the guest experience, and maximizes long-term value.",
+        "blocks": [
+          { "h": "Maintenance", "b": "Proactive and preventive programs covering garden and landscaping, HVAC, swimming pools, structural infrastructure, and high-end furnishings — with responsible and sustainable pest control." },
+          { "h": "Housekeeping", "b": "Luxury-level housekeeping delivered with precision and consistency — routine cleanings, deep cleanings, and specialized services tailored to each residence." },
+          { "h": "Security & Safety", "b": "Comprehensive oversight: access control, on-site procedures, preventive measures, and strict compliance with local regulations." },
+          { "h": "Quality Management", "b": "Regular audits and detailed reporting to preserve property value while preventing guest complaints through inspections, performance evaluations, and corrective action plans." },
+          { "h": "Reporting & Transparency", "b": "Updates on property, community developments, and the operational + sustainability initiatives generating positive impact locally — supporting informed decisions and long-term value creation." }
+        ]
+      },
+      {
+        "label": "Vacation Rentals Program",
+        "title": "Vacation Rentals Program",
+        "intro": "Designed to attract discerning travelers who value well-being, sustainability, and refined experiences — while protecting each residence and delivering long-term performance for owners.",
+        "blocks": [
+          { "h": "Direct Bookings & Contact Center", "b": "Direct bookings via our website and social channels — avoiding costly third-party commissions. Backed by a 24/7 contact center for exceptional guest support." },
+          { "h": "Marriott Homes & Villas Integration", "b": "Partnership with Marriott Homes & Villas, accessing 237M+ Marriott Bonvoy members — higher average spend, longer stays, preference for exclusive properties." },
+          { "h": "Dynamic Pricing", "b": "Data-driven pricing strategy based on demand, booking windows, competitor pricing, and historical performance to maximize revenue." },
+          { "h": "Luxury Travel Agencies", "b": "Curated partnerships with adventure, wellness, and family-focused luxury travel agencies — attracting guests who match each residence." },
+          { "h": "OTAs", "b": "Airbnb, Vrbo, Expedia, Booking.com — maintained with market managers to optimize rates and participate in international campaigns." }
+        ]
+      }
+    ]
+  },
+  "packages": {
+    "kicker": "Packages",
+    "headline": "Choose your engagement",
+    "cards": [
+      {
+        "name": "Zen Care",
+        "price": "USD $389",
+        "unit": "+ VAT / month",
+        "objective": "Comprehensive management of the real estate asset — protecting capital value, guaranteeing organized operations, and providing transparency for owners.",
+        "includes": [
+          "Operational management & vendor supervision",
+          "Periodic property inspections",
+          "Operating income & expense oversight",
+          "Annual operating budgets",
+          "Monthly financial reporting",
+          "Contract administration & SLA alignment"
+        ]
+      },
+      {
+        "name": "Zen Preserve",
+        "price": "USD $1,259",
+        "unit": "+ VAT / month",
+        "objective": "Preserve the physical condition of the property, prevent major failures, and ensure optimal safety, functionality, and presentation. Includes Zen Care.",
+        "includes": [
+          "All of Zen Care",
+          "Onboarding inspection & full inventory",
+          "Weekly technical visit + monthly inspection",
+          "Housekeeping: weekly + monthly deep clean",
+          "Landscaping, pool, and HVAC oversight",
+          "Real-time operational reporting"
+        ]
+      },
+      {
+        "name": "Zen Legacy",
+        "price": "USD $1,659",
+        "unit": "+ VAT / month",
+        "objective": "Maximize asset performance through professional short-term rental management — aligned with hospitality standards and commercial optimization. Includes Zen Care or Zen Preserve.",
+        "includes": [
+          "All of Zen Care or Zen Preserve",
+          "Listing & optimization across OTAs",
+          "Dynamic pricing & digital marketing",
+          "Reservation management end-to-end",
+          "Pre-arrival, in-stay, and post-stay guest care",
+          "24/7 customer support center"
+        ],
+        "highlight": true
+      }
+    ]
+  },
+  "journey": {
+    "kicker": "Our Operations",
+    "headline": "Your property journey with Zen Hospitality",
+    "steps": [
+      { "n": "01", "title": "Strategic Alignment", "when": "Week 1", "body": "Align goals, execute the management agreement, and conduct a detailed assessment to define the optimal revenue strategy." },
+      { "n": "02", "title": "Property Readiness", "when": "Week 2", "body": "Prepare the property to hospitality standards — coordinating improvements, setup, and operational readiness." },
+      { "n": "03", "title": "Market Positioning", "when": "Week 3", "body": "Build a strong market presence with professional photography, compelling listing content, and pricing strategy." },
+      { "n": "04", "title": "Market Launch", "when": "Week 4", "body": "Activate listings across key channels and open bookings with close monitoring from the start." },
+      { "n": "05", "title": "Performance Optimization", "when": "First Month", "body": "Continuously refine pricing and operations to maximize revenue and guest satisfaction." }
+    ]
+  },
+  "locallyRooted": {
+    "kicker": "A locally rooted approach",
+    "headline": "Enriching every stay",
+    "bullets": [
+      "A thoughtfully cultivated network of local partners — each collaboration supports livelihoods, nurtures talent, and brings authenticity into every guest interaction.",
+      "A deliberate commitment to sourcing from high-quality local suppliers, ensuring every detail reflects both excellence and a true sense of place.",
+      "Integration of locally crafted products and ingredients, allowing guests to experience the destination through texture, scent, and story.",
+      "Seamless partnerships that create a living ecosystem around the property — service flows naturally and every touchpoint feels intentional.",
+      "A philosophy that values meaningful local impact, resonating with a new generation of travelers who seek depth, purpose, and genuine connection."
+    ]
+  },
+  "guestExperience": {
+    "kicker": "Guest experience",
+    "headline": "What would your guest experience look like?",
+    "bullets": [
+      "A curated welcome experience that elevates perceived value — supporting stronger first impressions, better reviews, and higher nightly rates.",
+      "Seamless self check-in and check-out, reducing operational friction.",
+      "A 24/7 digital concierge that drives satisfaction and repeat bookings without increasing fixed costs.",
+      "Curated tours and experiences that deepen engagement and extend length of stay.",
+      "Optional grocery pre-stocking, increasing ancillary revenue.",
+      "On-demand housekeeping during the stay.",
+      "High-end, organic, locally sourced amenities — and superior quality linens and towels.",
+      "24/7 security, protecting the asset and elevating overall experience."
+    ]
+  },
+  "beyondTheStay": {
+    "kicker": "Beyond the Stay",
+    "headline": "Hospitality as legacy",
+    "intro": "At Zen Hospitality, we believe true luxury goes beyond beautiful spaces — it is rooted in the positive impact we create. We invite our guests to be part of the sponsors of non-profit organizations we support:",
+    "partners": [
+      {
+        "name": "CEPIA",
+        "body": "Costa Rican nationally accredited non-profit, since 2005 promoting culture, education and labor opportunities, mental and physical health, participation, and social cohesion for vulnerable children, teenagers, and families in Guanacaste."
+      },
+      {
+        "name": "The Clean Wave",
+        "body": "Community-driven nonprofit based in Tamarindo, Guanacaste. Founded in 2017, it works to protect and restore coastal and marine ecosystems by mobilizing volunteers against pollution and environmental degradation."
+      },
+      {
+        "name": "Sibu Wildlife Sanctuary",
+        "body": "Nonprofit wildlife rescue and rehabilitation center near Nosara on the Nicoya Peninsula — caring for injured, orphaned, displaced, or vulnerable native wildlife with medical treatment and a safe environment."
+      }
+    ]
+  },
+  "faqs": {
+    "kicker": "FAQs",
+    "headline": "Questions, answered",
+    "items": [
+      { "q": "What is the expected return of the property?", "a": "Returns depend on variables such as location, property type, average daily rate (ADR), and occupancy. Zen Hospitality actively optimizes these factors through dynamic pricing and hands-on management, with the objective of maximizing annual net income." },
+      { "q": "How is net income calculated?", "a": "Net income is defined as gross booking revenue minus operating costs (cleaning, maintenance, utilities), management fees, and extraordinary expenses (if applicable). A detailed monthly financial report is provided." },
+      { "q": "What is the level of risk?", "a": "The model reduces operational risk through full operational control, continuous maintenance, and diversified distribution channels. However, revenue remains subject to market conditions such as seasonality and tourism demand." },
+      { "q": "Can I project ROI before investing?", "a": "Yes. Financial projections can be developed based on assumptions around ADR, occupancy, and operating costs — including conservative, base, and optimistic scenarios." },
+      { "q": "How is operational quality controlled?", "a": "Through structured processes including operational checklists, weekly supervision, supplier oversight, and periodic reporting." },
+      { "q": "How are maintenance issues handled?", "a": "Through a preventive maintenance program combined with 24/7 corrective support — continuous monitoring and resolution of any incidents." },
+      { "q": "What happens if a supplier underperforms?", "a": "Zen Hospitality coordinates immediate replacement and maintains strict quality control over all services delivered." },
+      { "q": "Is there operational transparency?", "a": "Yes. All operational and financial activities are tracked and documented through structured, recurring reports." },
+      { "q": "Can I operate my property remotely?", "a": "Yes. The model is designed for full remote operation — guest management, maintenance, daily operations, and financial administration." },
+      { "q": "How do I receive my income?", "a": "Income is distributed through periodic transfers, accompanied by clear and detailed financial reporting." },
+      { "q": "Do I need a legal structure in Costa Rica?", "a": "It depends on each case. Local tax advisory is recommended to determine the most appropriate structure." },
+      { "q": "How are taxes handled?", "a": "Tax compliance is the responsibility of the property owner. Zen Hospitality provides the necessary information to facilitate this process." },
+      { "q": "Can I still use my property?", "a": "Yes — within a defined number of nights per year and subject to calendar availability." },
+      { "q": "Can I manage direct bookings or referrals?", "a": "Yes, however all bookings must be channeled through Zen Hospitality to ensure operational control, traceability, and consistency in the guest experience." },
+      { "q": "What if I require additional services?", "a": "Zen Hospitality can coordinate additional services under a cost-plus structure with a logistical fee, particularly for requests outside the standard operating radius." },
+      { "q": "What happens if I sell the property?", "a": "The contract may be transferred to the new owner. If not, termination terms as defined in the agreement will apply." },
+      { "q": "Why does Zen Legacy require Zen Preserve?", "a": "Because service quality, property reputation, and commercial performance depend directly on consistent execution in cleaning, maintenance, and operational control." },
+      { "q": "Can I work with my own suppliers?", "a": "Not within Zen Legacy. The model requires full operational control to guarantee standards and results." },
+      { "q": "How is Zen Hospitality different from a traditional property manager?", "a": "Zen Hospitality integrates operations, maintenance, and commercialization under a structured model focused on standardization, control, and performance — treating the property as an investment asset, not just a home." }
+    ]
+  },
+  "form": {
+    "kicker": "Join our Collection",
+    "headline": "Discover the potential of your property",
+    "sub": "Share a few details and a Zen Hospitality advisor will reach out within 24 hours.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Where is your property located?",
+      "rooms": "How many rooms?",
+      "bathrooms": "How many bathrooms?",
+      "amenities": "Please describe the amenities in your property"
+    },
+    "submit": "Send",
+    "submitting": "Sending…",
+    "success": "Thank you — a Zen Hospitality advisor will reach out within 24 hours.",
+    "error": "Something went wrong. Please try again or email hello@zenhospitality.com.",
+    "privacy": "Your information is private and never shared."
+  },
+  "intermissions": {
+    "afterWho": "Even before your stay begins, every aspect is considered carefully and managed holistically.",
+    "afterWhoAttr": "Our promise",
+    "afterCollection": "We don't manage homes. We protect what they could become.",
+    "afterPackages": "Quiet precision. Measurable returns. A standard, not a service."
+  },
+  "marquee": {
+    "items": [
+      "Refined hospitality",
+      "Conscious luxury",
+      "Costa Rica",
+      "Curated excellence",
+      "Effortless service",
+      "Trust through integrity",
+      "Sustainable operations",
+      "Long-term value"
+    ]
+  },
+  "footer": {
+    "tagline": "Refined hospitality, sustainable operations.",
+    "legal": "© 2026 Zen Hospitality. All rights reserved.",
+    "language": "Language"
+  }
+}
