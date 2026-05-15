@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -56,8 +57,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="h-full antialiased">
+      <head>
+        {/* Hero image preload — the single most impactful LCP optimization */}
+        <link
+          rel="preload"
+          as="image"
+          href="/zen/aerial-resort.jpg"
+          // @ts-expect-error - fetchpriority is a valid HTML attribute, not yet typed in React
+          fetchpriority="high"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <ScrollToTop />
           {children}
           <WhatsAppButton />
         </NextIntlClientProvider>
