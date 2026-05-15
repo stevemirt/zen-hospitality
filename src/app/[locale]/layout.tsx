@@ -93,12 +93,17 @@ export default async function LocaleLayout({
           fetchpriority="high"
         />
         {/* Pre-hydration scroll lock — disables browser's scroll restoration
-            and pins to top BEFORE React mounts. Mobile Safari/Chrome queue
-            the auto-restore before useEffect can run, so we must beat them
-            inline. Hash anchors are preserved for deep links. */}
+            and pins scroll to 0 at MULTIPLE phases to defeat iOS Safari's
+            late restore (which fires AFTER body paint, even with
+            scrollRestoration=manual on some versions).
+
+            Strategy: pin at head-time, DOMContentLoaded, load, and four
+            setTimeout milestones (0/50/150/300ms). Stops as soon as the
+            user touches/scrolls so we never fight a real interaction.
+            Hash anchors preserved for deep links. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if("scrollRestoration" in history){history.scrollRestoration="manual"}if(!location.hash){window.scrollTo(0,0)}}catch(e){}`,
+            __html: `(function(){try{if("scrollRestoration" in history){history.scrollRestoration="manual"}if(location.hash)return;var u=false;var m=function(){u=true};window.addEventListener("touchstart",m,{passive:true,once:true});window.addEventListener("wheel",m,{passive:true,once:true});window.addEventListener("keydown",m,{once:true});var p=function(){if(u||location.hash)return;if(window.scrollY!==0)window.scrollTo(0,0)};window.scrollTo(0,0);document.addEventListener("DOMContentLoaded",p);window.addEventListener("load",p);setTimeout(p,0);setTimeout(p,50);setTimeout(p,150);setTimeout(p,300);setTimeout(p,600)}catch(e){}})();`,
           }}
         />
       </head>
