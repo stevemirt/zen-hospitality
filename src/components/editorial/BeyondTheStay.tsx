@@ -82,7 +82,7 @@ export function BeyondTheStay() {
             return (
               <Reveal key={p.name} delayMs={i * 130}>
                 <article className="group relative overflow-hidden">
-                  <div className="relative bg-gradient-to-br from-[#0a3a73]/60 to-[#042b59]/30 backdrop-blur-sm border border-[#58c3e8]/20 hover:border-[#58c3e8]/50 transition-all duration-500 p-6 md:p-12 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-[#0a3a73]/60 to-[#042b59]/30 backdrop-blur-sm border border-[#58c3e8]/20 hover:border-[#58c3e8]/50 transition-all duration-500 p-5 sm:p-8 md:p-12 overflow-hidden">
                     {/* Thematic photo backdrop — clearly visible, not just decorative */}
                     {backdrop && (
                       <div
@@ -106,11 +106,11 @@ export function BeyondTheStay() {
                       className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#58c3e8]/0 group-hover:bg-[#58c3e8]/15 blur-3xl transition-all duration-700 pointer-events-none"
                     />
 
-                    <div className="grid gap-10 md:grid-cols-[220px_1fr] items-center">
+                    <div className="grid gap-5 sm:gap-8 md:gap-10 grid-cols-[96px_1fr] sm:grid-cols-[140px_1fr] md:grid-cols-[220px_1fr] items-center">
                       {/* Logo — bigger, lit, refined */}
-                      <div className="shrink-0 flex items-center justify-center md:justify-start">
+                      <div className="shrink-0 flex items-center justify-start">
                         <div
-                          className="w-36 h-36 md:w-52 md:h-52 rounded-2xl p-5 md:p-8 flex items-center justify-center ring-1 ring-[#58c3e8]/30 group-hover:ring-[#58c3e8]/70 shadow-[0_12px_40px_rgba(4,43,89,0.45)] group-hover:shadow-[0_20px_60px_rgba(88,195,232,0.35)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1"
+                          className="w-24 h-24 sm:w-32 sm:h-32 md:w-52 md:h-52 rounded-xl md:rounded-2xl p-3 sm:p-5 md:p-8 flex items-center justify-center ring-1 ring-[#58c3e8]/30 group-hover:ring-[#58c3e8]/70 shadow-[0_8px_24px_rgba(4,43,89,0.45)] md:shadow-[0_12px_40px_rgba(4,43,89,0.45)] group-hover:shadow-[0_20px_60px_rgba(88,195,232,0.35)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1"
                           style={{
                             background:
                               "radial-gradient(circle at 30% 30%, #ffffff 0%, #eaf1f6 100%)",
@@ -129,11 +129,11 @@ export function BeyondTheStay() {
 
                       {/* Content */}
                       <div className="md:border-l md:border-[#58c3e8]/15 md:pl-10">
-                        <div className="flex flex-wrap items-center gap-4 mb-4">
-                          <span className="inline-flex items-center gap-2 h-kicker text-[#58c3e8]">
+                        <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                          <span className="inline-flex items-center gap-2 h-kicker text-[#58c3e8] text-[9px] md:text-[10px]">
                             <svg
-                              width="12"
-                              height="12"
+                              width="11"
+                              height="11"
                               viewBox="0 0 12 12"
                               fill="none"
                               stroke="currentColor"
@@ -146,21 +146,21 @@ export function BeyondTheStay() {
                             Verified Partner · Zen Hospitality
                           </span>
                         </div>
-                        <div className="flex flex-wrap items-center gap-4 mb-3">
+                        <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3">
                           {est && (
-                            <span className="h-kicker text-[#58c3e8]/85">Est. {est}</span>
+                            <span className="h-kicker text-[#58c3e8]/85 text-[9px] md:text-[10px]">Est. {est}</span>
                           )}
                           {focus && (
                             <>
                               <span aria-hidden className="text-[#58c3e8]/40">·</span>
-                              <span className="h-kicker text-[#eaf1f6]/55">{focus}</span>
+                              <span className="h-kicker text-[#eaf1f6]/55 text-[9px] md:text-[10px]">{focus}</span>
                             </>
                           )}
                         </div>
-                        <h3 className="h-display text-3xl md:text-4xl text-[#eaf1f6] mb-4">
+                        <h3 className="h-display text-xl sm:text-2xl md:text-4xl text-[#eaf1f6] mb-3 md:mb-4">
                           {p.name}
                         </h3>
-                        <p className="body-luxe text-sm md:text-base text-[#eaf1f6]/75 leading-relaxed max-w-xl mb-6">
+                        <p className="body-luxe text-xs sm:text-sm md:text-base text-[#eaf1f6]/75 leading-relaxed max-w-xl mb-4 md:mb-6">
                           {p.body}
                         </p>
                         <a

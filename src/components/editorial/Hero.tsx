@@ -65,7 +65,7 @@ export function Hero() {
           <img
             src="/zen/aerial-resort.jpg"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-[50%_38%]"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_28%] md:object-[50%_38%]"
             fetchPriority="high"
             decoding="async"
           />
@@ -84,9 +84,17 @@ export function Hero() {
           />
         </div>
 
-        {/* Cinematic gradient veil for legibility */}
+        {/* Cinematic gradient veil for legibility — stronger on mobile so the
+            headline reads against the dramatic landscape crop */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none md:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(4,43,89,0.55) 0%, rgba(4,43,89,0.15) 35%, rgba(0,0,0,0.40) 60%, rgba(0,0,0,0.90) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none hidden md:block"
           style={{
             background:
               "linear-gradient(180deg, rgba(4,43,89,0.30) 0%, rgba(4,43,89,0.05) 40%, rgba(0,0,0,0.65) 100%)",

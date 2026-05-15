@@ -258,6 +258,18 @@ h1, h2, h3, h4, h5, h6, .title {
   animation: zen-kenburns-hero 28s ease-in-out infinite;
   will-change: transform;
 }
+
+/* Mobile — more dramatic motion for spectacular feel on portrait viewports */
+@media (max-width: 767px) {
+  @keyframes zen-kenburns-hero-mobile {
+    0%   { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
+    50%  { transform: scale(1.22) translate3d(1.5%, 2%, 0); }
+    100% { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
+  }
+  .kenburns-hero {
+    animation: zen-kenburns-hero-mobile 22s ease-in-out infinite;
+  }
+}
 /* Breathing glow for highlighted Packages card */
 @keyframes zen-glow-breath {
   0%, 100% { opacity: 0.6; transform: scale(1); }
