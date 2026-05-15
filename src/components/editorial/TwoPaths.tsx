@@ -28,7 +28,7 @@ export function TwoPaths() {
             <button
               type="button"
               onClick={() => setOpenIdx(openIdx === i ? null : i)}
-              className="group relative w-full text-left overflow-hidden aspect-[4/3] md:aspect-[5/4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-4 focus-visible:ring-offset-[#042b59]"
+              className="group relative w-full text-left overflow-hidden aspect-[3/4] md:aspect-[5/4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-4 focus-visible:ring-offset-[#042b59]"
               aria-expanded={openIdx === i}
             >
               {/* Background photo */}
@@ -42,12 +42,12 @@ export function TwoPaths() {
               />
               {/* Veil */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#042b59] via-[#042b59]/30 to-transparent" />
-              {/* Cyan plate at the bottom */}
-              <div className="absolute inset-x-0 bottom-0 bg-[#58c3e8] py-8 px-8 md:px-10 transition-colors duration-300 group-hover:bg-[#eaf1f6]">
-                <h3 className="title font-medium text-2xl md:text-3xl text-[#042b59] mb-2">
+              {/* Cyan plate at the bottom — slimmer on mobile so the photo can breathe */}
+              <div className="absolute inset-x-0 bottom-0 bg-[#58c3e8] py-5 px-6 md:py-8 md:px-10 transition-colors duration-300 group-hover:bg-[#eaf1f6]">
+                <h3 className="title font-medium text-lg md:text-3xl text-[#042b59] mb-1.5 md:mb-2">
                   {tab.title}
                 </h3>
-                <p className="text-xs md:text-sm uppercase tracking-[0.22em] text-[#042b59]/80">
+                <p className="text-[10px] md:text-sm uppercase tracking-[0.18em] md:tracking-[0.22em] text-[#042b59]/80">
                   {openIdx === i ? t("closeLabel") : t("openLabel")}
                   <span aria-hidden className="ml-3 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </p>

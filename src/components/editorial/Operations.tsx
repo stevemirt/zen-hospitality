@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 
-type Card = { title: string };
+type Card = { title: string; cta: string };
 
 /**
  * "Our Operations" — wide aerial beach banner with brand mark + tagline.
@@ -14,7 +14,6 @@ export function Operations() {
   const tOps = useTranslations("operations");
   const tTwoPaths = useTranslations("twoPaths");
   const opsCards = tOps.raw("cards") as Card[];
-  const findCta = tOps("findCta");
   const HREFS = ["#locally-rooted", "#guest-experience", "#beyond-the-stay", "#faqs"];
   const banner = useRef<HTMLDivElement | null>(null);
   const photo = useRef<HTMLDivElement | null>(null);
@@ -45,7 +44,7 @@ export function Operations() {
 
   const cards = opsCards.map((c, i) => ({
     title: c.title,
-    cta: findCta,
+    cta: c.cta,
     href: HREFS[i] ?? "#",
   }));
 

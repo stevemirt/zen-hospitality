@@ -92,6 +92,15 @@ export default async function LocaleLayout({
           // @ts-expect-error - fetchpriority is a valid HTML attribute, not yet typed in React
           fetchpriority="high"
         />
+        {/* Pre-hydration scroll lock — disables browser's scroll restoration
+            and pins to top BEFORE React mounts. Mobile Safari/Chrome queue
+            the auto-restore before useEffect can run, so we must beat them
+            inline. Hash anchors are preserved for deep links. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if("scrollRestoration" in history){history.scrollRestoration="manual"}if(!location.hash){window.scrollTo(0,0)}}catch(e){}`,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>

@@ -223,10 +223,10 @@
     "findCta": "Descubra el destino perfecto",
     "bannerAlt": "Vista aérea de una playa del Pacífico costarricense",
     "cards": [
-      { "title": "Un enfoque de raíz local que enriquece cada estancia" },
-      { "title": "¿Cómo sería la experiencia de su huésped?" },
-      { "title": "Programa Más allá de la estancia" },
-      { "title": "Preguntas frecuentes" }
+      { "title": "Un enfoque de raíz local que enriquece cada estancia", "cta": "Conocer la red local" },
+      { "title": "¿Cómo sería la experiencia de su huésped?", "cta": "Ver la experiencia" },
+      { "title": "Programa Más allá de la estancia", "cta": "Conocer el impacto" },
+      { "title": "Preguntas frecuentes", "cta": "Ver las respuestas" }
     ]
   },
   "locallyRooted": {

@@ -232,10 +232,10 @@
     "findCta": "Find perfect destination",
     "bannerAlt": "Aerial of a Costa Rica Pacific beach",
     "cards": [
-      { "title": "A locally rooted approach that enriches every stay" },
-      { "title": "What would your guest experience look like?" },
-      { "title": "Beyond the Stay program" },
-      { "title": "FAQs" }
+      { "title": "A locally rooted approach that enriches every stay", "cta": "Discover the network" },
+      { "title": "What would your guest experience look like?", "cta": "See the experience" },
+      { "title": "Beyond the Stay program", "cta": "Discover the impact" },
+      { "title": "FAQs", "cta": "Read the FAQs" }
     ]
   },
   "locallyRooted": {
