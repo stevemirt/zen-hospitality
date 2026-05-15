@@ -57,9 +57,9 @@ export function JoinForm() {
           </Reveal>
           <Reveal delayMs={80}>
             <h2 className="title font-medium text-[clamp(2.4rem,5.2vw,4.6rem)] leading-[0.98] tracking-[-0.018em] text-[#eaf1f6] mb-8">
-              Discover the potential
+              {t("headlineLine1")}
               <br />
-              <span className="italic font-light text-[#58c3e8]">of your property.</span>
+              <span className="italic font-light text-[#58c3e8]">{t("headlineLine2")}</span>
             </h2>
           </Reveal>
           <Reveal delayMs={160}>
@@ -71,15 +71,15 @@ export function JoinForm() {
             <div className="space-y-4 text-sm text-[#eaf1f6]/65 max-w-md">
               <div className="flex items-start gap-3">
                 <span aria-hidden className="mt-2 inline-block w-1 h-1 rounded-full bg-[#58c3e8]" />
-                <span>A dedicated Zen Hospitality advisor responds within 24 hours.</span>
+                <span>{t("trustLine3")}</span>
               </div>
               <div className="flex items-start gap-3">
                 <span aria-hidden className="mt-2 inline-block w-1 h-1 rounded-full bg-[#58c3e8]" />
-                <span>Confidential — your information is never shared.</span>
+                <span>{t("trustLine1")}</span>
               </div>
               <div className="flex items-start gap-3">
                 <span aria-hidden className="mt-2 inline-block w-1 h-1 rounded-full bg-[#58c3e8]" />
-                <span>No commitment — initial conversation is complimentary.</span>
+                <span>{t("trustLine2")}</span>
               </div>
             </div>
           </Reveal>
@@ -91,7 +91,7 @@ export function JoinForm() {
             <Reveal>
               <div className="border-l-2 border-[#58c3e8] pl-8 py-10 max-w-xl">
                 <div className="text-[10px] tracking-[0.42em] uppercase text-[#58c3e8] mb-4">
-                  Received
+                  {t("receivedLabel")}
                 </div>
                 <p className="title font-medium text-2xl md:text-3xl text-[#eaf1f6] leading-tight">
                   {t("success")}

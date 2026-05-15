@@ -46,7 +46,7 @@ export function TwoPaths() {
                   {tab.title}
                 </h3>
                 <p className="text-xs md:text-sm uppercase tracking-[0.22em] text-[#042b59]/80">
-                  {openIdx === i ? "Close" : "Click to see more information"}
+                  {openIdx === i ? t("closeLabel") : t("openLabel")}
                   <span aria-hidden className="ml-3 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </p>
               </div>

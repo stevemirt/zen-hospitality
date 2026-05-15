@@ -50,14 +50,14 @@ export function Collection() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.8rem,6.4vw,6rem)] text-[#eaf1f6] mb-6">
-            Exceptional residences,
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">privately curated.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
           <p className="body-luxe text-base md:text-lg text-[#eaf1f6]/65 max-w-xl mx-auto">
-            Three locations along the Pacific — each defined by its architecture, setting, and the rhythm of its coast.
+            {t("lead")}
           </p>
         </Reveal>
       </div>
@@ -87,7 +87,7 @@ export function Collection() {
 
                   {/* Top label */}
                   <div className="absolute top-7 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.42em] uppercase text-[#eaf1f6]/85 text-center">
-                    <div className="text-[9px] opacity-60 mb-1">Zen Reserve</div>
+                    <div className="text-[9px] opacity-60 mb-1">{t("reserveLabel")}</div>
                     <div className="title font-medium tracking-[0.32em]">№ 0{i + 1}</div>
                   </div>
 
@@ -102,7 +102,7 @@ export function Collection() {
                     <div className="h-px bg-[#eaf1f6]/30 transition-all duration-500 group-hover:bg-[#58c3e8]" />
                     <div className="mt-5 flex items-center justify-between">
                       <span className="text-[11px] tracking-[0.32em] uppercase text-[#eaf1f6]/70 group-hover:text-[#58c3e8] transition-colors">
-                        Discover
+                        {t("discoverCta")}
                       </span>
                       <span
                         aria-hidden

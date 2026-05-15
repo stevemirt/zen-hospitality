@@ -9,16 +9,21 @@ import clsx from "clsx";
 type Item = { q: string; a: string };
 
 // Group the 19 questions into 4 thematic buckets by index
-const CATEGORIES: Array<{ key: string; label: string; indices: number[] }> = [
-  { key: "returns", label: "Returns & Performance", indices: [0, 1, 2, 3] },
-  { key: "operations", label: "Operations", indices: [4, 5, 6, 7, 8] },
-  { key: "income", label: "Income & Property Use", indices: [9, 12, 13, 14, 15] },
-  { key: "legal", label: "Legal & Model", indices: [10, 11, 16, 17, 18] },
+type CategoryKey = "returns" | "operations" | "income" | "legal";
+const CATEGORY_DEFS: Array<{ key: CategoryKey; indices: number[] }> = [
+  { key: "returns", indices: [0, 1, 2, 3] },
+  { key: "operations", indices: [4, 5, 6, 7, 8] },
+  { key: "income", indices: [9, 12, 13, 14, 15] },
+  { key: "legal", indices: [10, 11, 16, 17, 18] },
 ];
 
 export function FAQs() {
   const t = useTranslations("faqs");
   const items = t.raw("items") as Item[];
+  const categories = CATEGORY_DEFS.map((c) => ({
+    ...c,
+    label: t(`categories.${c.key}`),
+  }));
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [activeCat, setActiveCat] = useState<string>("returns");
   const catRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -55,14 +60,14 @@ export function FAQs() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.4rem,5.4vw,4.8rem)] text-[#eaf1f6] mb-6">
-            Questions,
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">answered.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
           <p className="body-luxe text-base md:text-lg text-[#eaf1f6]/65">
-            {items.length} of the most common questions about working with Zen Hospitality.
+            {t("descriptorTemplate", { count: items.length })}
           </p>
         </Reveal>
       </div>
@@ -71,9 +76,9 @@ export function FAQs() {
         {/* Left — sticky category navigator */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-32">
-            <div className="h-kicker text-[#58c3e8]/65 mb-5">Browse by</div>
+            <div className="h-kicker text-[#58c3e8]/65 mb-5">{t("browseBy")}</div>
             <nav className="space-y-3">
-              {CATEGORIES.map((c) => (
+              {categories.map((c) => (
                 <a
                   key={c.key}
                   href={`#cat-${c.key}`}
@@ -97,7 +102,7 @@ export function FAQs() {
 
         {/* Middle — categorized accordion */}
         <div className="lg:col-span-6">
-          {CATEGORIES.map((c, cIdx) => (
+          {categories.map((c, cIdx) => (
             <div
               key={c.key}
               id={`cat-${c.key}`}
@@ -192,11 +197,11 @@ export function FAQs() {
               <div className="absolute inset-0 p-6 flex flex-col justify-between">
                 <span className="h-kicker text-[#eaf1f6]/85 inline-flex items-center gap-2">
                   <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-[#58c3e8] animate-pulse" />
-                  Direct contact
+                  {t("directContact")}
                 </span>
                 <div>
                   <p className="h-italic text-lg text-[#eaf1f6] mb-3 leading-tight">
-                    Still curious?
+                    {t("stillCurious")}
                   </p>
                   <a
                     href="mailto:hello@zenhospitality.com"
@@ -208,7 +213,7 @@ export function FAQs() {
               </div>
             </div>
             <p className="body-luxe text-xs text-[#eaf1f6]/55 leading-relaxed">
-              A Zen Hospitality advisor responds within 24 hours. Initial conversations are complimentary and confidential.
+              {t("contactBody")}
             </p>
           </div>
         </aside>

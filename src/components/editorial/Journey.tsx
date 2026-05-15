@@ -95,20 +95,20 @@ export function Journey() {
         <Reveal>
           <div className="h-kicker text-[#58c3e8] mb-6 inline-flex items-center gap-3">
             <span aria-hidden className="h-px w-10 bg-[#58c3e8]" />
-            {t("kicker")} · 05 Stages
+            {t("kicker")} · {t("stagesLabel")}
             <span aria-hidden className="h-px w-10 bg-[#58c3e8]" />
           </div>
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.6rem,6vw,5.6rem)] text-[#042b59] mb-6">
-            Your property journey
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">with Zen Hospitality.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
           <p className="body-luxe text-base md:text-lg text-[#042b59]/65">
-            A structured approach designed to launch your property efficiently and maximize performance from day one.
+            {t("introBody")}
           </p>
         </Reveal>
       </div>
@@ -134,12 +134,12 @@ export function Journey() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#042b59]/40 via-transparent to-transparent" />
               <div className="absolute top-6 left-6 right-6 flex items-start justify-between text-[#eaf1f6]">
                 <div>
-                  <div className="h-kicker opacity-65 mb-1">Active Step</div>
+                  <div className="h-kicker opacity-65 mb-1">{t("activeStepLabel")}</div>
                   <div className="h-display text-3xl tabular-nums">{steps[activeStep]?.n}</div>
                 </div>
                 <span aria-hidden className="inline-flex items-center gap-2 h-kicker">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#58c3e8] animate-pulse" />
-                  Live
+                  {t("liveLabel")}
                 </span>
               </div>
               {/* Step flash ribbon — animates each time activeStep changes */}
@@ -149,7 +149,7 @@ export function Journey() {
               >
                 <div className="bg-[#042b59]/85 backdrop-blur-sm border border-[#58c3e8]/40 px-6 py-3 rounded-full">
                   <span className="h-kicker text-[#58c3e8] tabular-nums">
-                    Step {activeStep + 1} / {steps.length}
+                    {t("stepBadge")} {activeStep + 1} / {steps.length}
                   </span>
                 </div>
               </div>
@@ -263,7 +263,7 @@ export function Journey() {
                         >
                           <path d="M2 7l3 3 7-7" />
                         </svg>
-                        Approved Milestone
+                        {t("approvedMilestone")}
                       </div>
                     </div>
                   </article>

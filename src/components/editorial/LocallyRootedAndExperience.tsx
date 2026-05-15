@@ -38,13 +38,6 @@ const LOCAL_ICONS = [
   </svg>,
 ];
 
-const LOCAL_TITLES = [
-  "Curated network",
-  "Local sourcing",
-  "Crafted goods",
-  "Living ecosystem",
-  "Meaningful impact",
-];
 
 // 8 guest experience cards
 const GUEST_ICONS = [
@@ -93,22 +86,14 @@ const GUEST_ICONS = [
   </svg>,
 ];
 
-const GUEST_TITLES = [
-  "Curated welcome",
-  "Seamless arrival",
-  "24/7 concierge",
-  "Tours & experiences",
-  "Pre-stocked groceries",
-  "On-demand housekeeping",
-  "Local amenities",
-  "24/7 security",
-];
 
 export function LocallyRootedAndExperience() {
   const local = useTranslations("locallyRooted");
   const guest = useTranslations("guestExperience");
   const localBullets = local.raw("bullets") as string[];
   const guestBullets = guest.raw("bullets") as string[];
+  const localTitles = local.raw("iconLabels") as string[];
+  const guestTitles = guest.raw("iconLabels") as string[];
 
   // Photo parallax for Block A
   const photoBlock = useRef<HTMLDivElement | null>(null);
@@ -154,9 +139,9 @@ export function LocallyRootedAndExperience() {
             </Reveal>
             <Reveal delayMs={80}>
               <h2 className="h-display text-[clamp(2.2rem,4.8vw,4.2rem)] text-[#042b59] mb-8">
-                A locally rooted approach
+                {local("headlineLine1")}
                 <br />
-                <span className="h-italic text-[#58c3e8]">that enriches every stay.</span>
+                <span className="h-italic text-[#58c3e8]">{local("headlineLine2")}</span>
               </h2>
             </Reveal>
             <Reveal delayMs={140}>
@@ -172,8 +157,8 @@ export function LocallyRootedAndExperience() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-[#eaf1f6]">
                   <div>
-                    <div className="h-kicker opacity-65 mb-1">Locale</div>
-                    <div className="h-title text-base">Pacific · Guanacaste</div>
+                    <div className="h-kicker opacity-65 mb-1">{local("photoLocale")}</div>
+                    <div className="h-title text-base">{local("photoLocation")}</div>
                   </div>
                   <div className="h-kicker opacity-65">10°37′ N</div>
                 </div>
@@ -192,7 +177,7 @@ export function LocallyRootedAndExperience() {
                     </div>
                     <div className="flex-1">
                       <h3 className="h-title text-base md:text-lg text-[#042b59] mb-2">
-                        {LOCAL_TITLES[i]}
+                        {localTitles[i]}
                       </h3>
                       <p className="body-luxe text-sm md:text-base text-[#042b59]/70 leading-relaxed">
                         {b}
@@ -221,14 +206,14 @@ export function LocallyRootedAndExperience() {
           </Reveal>
           <Reveal delayMs={80}>
             <h2 className="h-display text-[clamp(2.2rem,5vw,4.6rem)] text-[#eaf1f6] mb-6">
-              What every stay
+              {guest("headlineLine1")}
               <br />
-              <span className="h-italic text-[#58c3e8]">feels like.</span>
+              <span className="h-italic text-[#58c3e8]">{guest("headlineLine2")}</span>
             </h2>
           </Reveal>
           <Reveal delayMs={160}>
             <p className="body-luxe text-base md:text-lg text-[#eaf1f6]/65">
-              Eight quiet moments that turn a residence into a sanctuary.
+              {guest("subhead")}
             </p>
           </Reveal>
         </div>
@@ -247,7 +232,7 @@ export function LocallyRootedAndExperience() {
                   {GUEST_ICONS[i]}
                 </div>
                 <h3 className="relative h-title text-sm md:text-base text-[#eaf1f6] mb-2 leading-tight">
-                  {GUEST_TITLES[i]}
+                  {guestTitles[i]}
                 </h3>
                 <p className="relative body-luxe text-xs md:text-sm text-[#eaf1f6]/65 leading-relaxed">
                   {b}

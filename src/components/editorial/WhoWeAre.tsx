@@ -53,9 +53,9 @@ export function WhoWeAre() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.4rem,5.4vw,5rem)] text-[#042b59] max-w-5xl mx-auto mb-8">
-            Refined hospitality,
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">unwavering value.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
@@ -83,11 +83,11 @@ export function WhoWeAre() {
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
             <div className="mx-auto max-w-[1400px] flex items-end justify-between text-[#eaf1f6]">
               <div>
-                <div className="h-kicker opacity-65 mb-2">Residence · Interior</div>
-                <div className="h-title text-xl md:text-2xl">Zen Reserve · Nosara</div>
+                <div className="h-kicker opacity-65 mb-2">{t("bannerKicker")}</div>
+                <div className="h-title text-xl md:text-2xl">{t("bannerTitle")}</div>
               </div>
               <div className="hidden md:block text-right">
-                <div className="h-kicker opacity-65 mb-2">Frame</div>
+                <div className="h-kicker opacity-65 mb-2">{t("bannerFrameLabel")}</div>
                 <div className="h-eyebrow text-[#58c3e8]">01 / 03</div>
               </div>
             </div>
@@ -100,11 +100,11 @@ export function WhoWeAre() {
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <Reveal>
             <h3 className="h-display text-[clamp(1.8rem,3.6vw,3rem)] text-[#042b59]">
-              Our values.
+              {t("valuesHeading")}
             </h3>
           </Reveal>
           <Reveal>
-            <span className="h-kicker text-[#58c3e8]">Three principles</span>
+            <span className="h-kicker text-[#58c3e8]">{t("valuesSub")}</span>
           </Reveal>
         </div>
         <div className="grid gap-px bg-[#042b59]/10">

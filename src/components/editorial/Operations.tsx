@@ -4,14 +4,18 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 
-type Card = { title: string; cta: string; href: string };
+type Card = { title: string };
 
 /**
  * "Our Operations" — wide aerial beach banner with brand mark + tagline.
  * Below, 4 nav cards (alternating cyan / dark navy) per the PDF design.
  */
 export function Operations() {
-  const tNav = useTranslations("nav");
+  const tOps = useTranslations("operations");
+  const tTwoPaths = useTranslations("twoPaths");
+  const opsCards = tOps.raw("cards") as Card[];
+  const findCta = tOps("findCta");
+  const HREFS = ["#locally-rooted", "#guest-experience", "#beyond-the-stay", "#faqs"];
   const banner = useRef<HTMLDivElement | null>(null);
   const photo = useRef<HTMLDivElement | null>(null);
 
@@ -39,12 +43,11 @@ export function Operations() {
     };
   }, []);
 
-  const cards: Card[] = [
-    { title: "A Locally Rooted Approach that Enriches Every Stay", cta: "Find perfect destination", href: "#locally-rooted" },
-    { title: "What would your guest experience would look like?", cta: "Find perfect destination", href: "#guest-experience" },
-    { title: "Beyond the Stay Program", cta: "Find perfect destination", href: "#beyond-the-stay" },
-    { title: "FAQS", cta: "Find perfect destination", href: "#faqs" },
-  ];
+  const cards = opsCards.map((c, i) => ({
+    title: c.title,
+    cta: findCta,
+    href: HREFS[i] ?? "#",
+  }));
 
   return (
     <section id="operations" className="relative z-10">
@@ -72,24 +75,24 @@ export function Operations() {
         <div className="relative z-10 h-full mx-auto max-w-[1500px] px-6 lg:px-10 flex flex-col justify-between py-16 md:py-20">
           <div>
             <h2 className="h-display text-[clamp(2.6rem,6.8vw,6.6rem)] text-[#eaf1f6]">
-              Our
+              {tOps("headlineLine1")}
               <br />
-              <span className="h-italic text-[#58c3e8]">Operations.</span>
+              <span className="h-italic text-[#58c3e8]">{tOps("headlineHighlight")}</span>
             </h2>
             <div className="mt-8 h-kicker text-[#58c3e8]">
-              Zen Hospitality · Performance
+              {tOps("kicker")}
             </div>
           </div>
           <div className="ml-auto text-right">
-            <div className="h-kicker text-[#58c3e8] mb-3 opacity-80">Next chapter</div>
+            <div className="h-kicker text-[#58c3e8] mb-3 opacity-80">{tOps("nextChapter")}</div>
             <div className="h-title text-2xl md:text-3xl text-[#eaf1f6] mb-3">
-              Your Property Journey with Zen Hospitality
+              {tOps("nextHeading")}
             </div>
             <a
               href="#journey"
               className="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.28em] text-[#58c3e8] hover:text-[#eaf1f6] transition-colors duration-200"
             >
-              Click to see more information
+              {tTwoPaths("openLabel")}
               <span aria-hidden>→</span>
             </a>
           </div>

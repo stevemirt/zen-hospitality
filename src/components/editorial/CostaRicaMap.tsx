@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * Costa Rica map — real geographic SVG path.
@@ -21,6 +22,7 @@ const REGIONS = [
 ];
 
 export function CostaRicaMap() {
+  const t = useTranslations("whyCostaRica");
   const ref = useRef<SVGSVGElement | null>(null);
   const [armed, setArmed] = useState(false);
 
@@ -171,8 +173,8 @@ export function CostaRicaMap() {
           letterSpacing="4"
           fontWeight="500"
         >
-          <text x="35" y="510" style={{ textTransform: "uppercase" }}>Pacific Ocean</text>
-          <text x="430" y="110" style={{ textTransform: "uppercase" }}>Caribbean</text>
+          <text x="35" y="510" style={{ textTransform: "uppercase" }}>{t("pacificOceanLabel")}</text>
+          <text x="430" y="110" style={{ textTransform: "uppercase" }}>{t("caribbeanLabel")}</text>
         </g>
 
         {/* Country name */}

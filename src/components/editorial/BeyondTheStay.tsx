@@ -18,17 +18,27 @@ const PARTNER_EST: Record<string, string> = {
   "Sibu Wildlife Sanctuary": "2010",
 };
 
-const PARTNER_FOCUS: Record<string, string> = {
-  CEPIA: "Children · Education · Community",
-  "The Clean Wave": "Coastal · Marine · Conservation",
-  "Sibu Wildlife Sanctuary": "Wildlife · Rescue · Rehabilitation",
+const PARTNER_FOCUS_KEYS: Record<string, "focusCepia" | "focusCleanWave" | "focusSibu"> = {
+  CEPIA: "focusCepia",
+  "The Clean Wave": "focusCleanWave",
+  "Sibu Wildlife Sanctuary": "focusSibu",
 };
 
-// Subtle thematic backdrop per partner — fades into the card from the right
+// Subtle thematic backdrop per partner — fades into the card from the right (desktop)
+// or sits as a full-width banner top half (mobile).
 const PARTNER_BACKDROPS: Record<string, string> = {
   CEPIA: "/zen/stock/mountain-pacific.jpg",
   "The Clean Wave": "/zen/stock/waterfall.jpg",
   "Sibu Wildlife Sanctuary": "/zen/stock/toucan.jpg",
+};
+
+// Subject focal point per backdrop so the framing keeps the key subject visible
+// at any container width. Mobile string used when the photo fills the full card;
+// desktop string used when the photo lives in the right-half strip.
+const PARTNER_BACKDROP_POS: Record<string, { mobile: string; desktop: string }> = {
+  CEPIA: { mobile: "50% 60%", desktop: "50% 50%" },
+  "The Clean Wave": { mobile: "55% 45%", desktop: "50% 50%" },
+  "Sibu Wildlife Sanctuary": { mobile: "35% 40%", desktop: "50% 50%" },
 };
 
 export function BeyondTheStay() {
@@ -49,9 +59,9 @@ export function BeyondTheStay() {
             </Reveal>
             <Reveal delayMs={100}>
               <h2 className="h-display text-[clamp(2.4rem,5.4vw,5rem)] text-[#eaf1f6] mb-8">
-                Hospitality
+                {t("headlineLine1")}
                 <br />
-                <span className="h-italic text-[#58c3e8]">as legacy.</span>
+                <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
               </h2>
             </Reveal>
             <Reveal delayMs={180}>
@@ -62,10 +72,10 @@ export function BeyondTheStay() {
             <Reveal delayMs={240}>
               <blockquote className="border-l-2 border-[#58c3e8] pl-6 max-w-md">
                 <p className="h-italic text-lg md:text-xl text-[#eaf1f6] leading-snug">
-                  &ldquo;True luxury is rooted in the positive impact we create.&rdquo;
+                  &ldquo;{t("quote")}&rdquo;
                 </p>
                 <footer className="mt-4 h-kicker text-[#58c3e8]/85">
-                  — Zen Hospitality
+                  {t("quoteAttr")}
                 </footer>
               </blockquote>
             </Reveal>
@@ -77,23 +87,41 @@ export function BeyondTheStay() {
           {partners.map((p, i) => {
             const logo = PARTNER_LOGOS[p.name];
             const est = p.est ?? PARTNER_EST[p.name];
-            const focus = PARTNER_FOCUS[p.name];
+            const focusKey = PARTNER_FOCUS_KEYS[p.name];
+            const focus = focusKey ? t(focusKey) : undefined;
             const backdrop = PARTNER_BACKDROPS[p.name];
+            const bgPos = PARTNER_BACKDROP_POS[p.name] ?? { mobile: "50% 50%", desktop: "50% 50%" };
             return (
               <Reveal key={p.name} delayMs={i * 130}>
                 <article className="group relative overflow-hidden">
                   <div className="relative bg-gradient-to-br from-[#0a3a73]/60 to-[#042b59]/30 backdrop-blur-sm border border-[#58c3e8]/20 hover:border-[#58c3e8]/50 transition-all duration-500 p-5 sm:p-8 md:p-12 overflow-hidden">
-                    {/* Thematic photo backdrop — clearly visible, not just decorative */}
+                    {/* Thematic photo backdrop — mobile: full-bleed top banner above content
+                        so the iconic subject (tucán / catarata / horizonte) reads cleanly.
+                        Desktop: right-half fade like before. Background-position tuned per
+                        subject so the focal point never gets cropped. */}
                     {backdrop && (
-                      <div
-                        aria-hidden
-                        className="absolute inset-y-0 right-0 w-1/2 md:w-3/5 opacity-50 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
-                        style={{
-                          backgroundImage: `linear-gradient(to right, #042b59 0%, rgba(4,43,89,0.4) 35%, transparent 100%), url(${backdrop})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      />
+                      <>
+                        {/* Mobile-only: full card backdrop with strong vertical fade */}
+                        <div
+                          aria-hidden
+                          className="md:hidden absolute inset-0 opacity-55 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
+                          style={{
+                            backgroundImage: `linear-gradient(180deg, rgba(4,43,89,0.10) 0%, rgba(4,43,89,0.55) 45%, #042b59 92%), url(${backdrop})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: bgPos.mobile,
+                          }}
+                        />
+                        {/* Desktop-only: right-half strip fading toward the card content on the left */}
+                        <div
+                          aria-hidden
+                          className="hidden md:block absolute inset-y-0 right-0 w-3/5 opacity-50 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
+                          style={{
+                            backgroundImage: `linear-gradient(to right, #042b59 0%, rgba(4,43,89,0.4) 35%, transparent 100%), url(${backdrop})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: bgPos.desktop,
+                          }}
+                        />
+                      </>
                     )}
                     {/* Top hairline cyan */}
                     <span
@@ -143,12 +171,12 @@ export function BeyondTheStay() {
                             >
                               <path d="M2 6l3 3 5-6" />
                             </svg>
-                            Verified Partner · Zen Hospitality
+                            {t("verifiedPartner")}
                           </span>
                         </div>
                         <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3">
                           {est && (
-                            <span className="h-kicker text-[#58c3e8]/85 text-[9px] md:text-[10px]">Est. {est}</span>
+                            <span className="h-kicker text-[#58c3e8]/85 text-[9px] md:text-[10px]">{t("estLabel")} {est}</span>
                           )}
                           {focus && (
                             <>
@@ -167,7 +195,7 @@ export function BeyondTheStay() {
                           href="#join"
                           className="inline-flex items-center gap-3 h-kicker text-[#58c3e8] hover:text-[#eaf1f6] transition-colors duration-200 group/cta"
                         >
-                          Donate · Learn more
+                          {t("donateCta")}
                           <span
                             aria-hidden
                             className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-[#58c3e8]/40 text-[#58c3e8] group-hover/cta:bg-[#58c3e8] group-hover/cta:text-[#042b59] group-hover/cta:border-[#58c3e8] transition-all duration-300"
@@ -187,7 +215,7 @@ export function BeyondTheStay() {
           <Reveal delayMs={500}>
             <div className="mt-12 pt-8 border-t border-[#58c3e8]/15 text-center md:text-left">
               <p className="h-italic text-base md:text-lg text-[#eaf1f6]/65">
-                Together with our guests, since 2024 — every stay contributes.
+                {t("closing")}
               </p>
             </div>
           </Reveal>

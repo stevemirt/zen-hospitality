@@ -31,14 +31,14 @@ export function Packages() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.6rem,6vw,5.6rem)] text-[#eaf1f6] mb-6">
-            Choose how Zen Hospitality
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">serves your asset.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
           <p className="body-luxe text-base md:text-lg text-[#eaf1f6]/65 max-w-xl mx-auto">
-            Three engagements, each calibrated to a different ambition for your residence.
+            {t("descriptor")}
           </p>
         </Reveal>
       </div>
@@ -153,7 +153,7 @@ export function Packages() {
                     : "border border-[#58c3e8]/50 text-[#58c3e8] hover:bg-[#58c3e8] hover:text-[#042b59] hover:border-[#58c3e8]"
                 )}
               >
-                <span>Talk to us</span>
+                <span>{t("talkToUs")}</span>
                 <span
                   aria-hidden
                   className={clsx(

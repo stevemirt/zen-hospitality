@@ -17,16 +17,16 @@ export function Footer() {
               draggable={false}
             />
             <p className="title font-medium text-xl md:text-2xl text-[#eaf1f6] leading-tight max-w-md tracking-[-0.012em]">
-              Refined hospitality.
+              {t("taglineMain")}
               <br />
-              <span className="text-[#58c3e8] italic font-light">Sustainable operations.</span>
+              <span className="text-[#58c3e8] italic font-light">{t("taglineHighlight")}</span>
             </p>
             <p className="mt-6 text-sm text-[#eaf1f6]/65 max-w-md leading-relaxed">{t("tagline")}</p>
           </div>
 
           <div className="md:col-span-3">
             <div className="text-[10px] tracking-[0.42em] uppercase text-[#58c3e8] mb-5">
-              Navigate
+              {t("navigate")}
             </div>
             <ul className="space-y-3 text-sm">
               <li><a href="#who-we-are" className="text-[#eaf1f6]/80 hover:text-[#58c3e8] transition-colors">{nav("whoWeAre")}</a></li>
@@ -39,7 +39,7 @@ export function Footer() {
 
           <div className="md:col-span-4">
             <div className="text-[10px] tracking-[0.42em] uppercase text-[#58c3e8] mb-5">
-              Reach us
+              {t("reachUs")}
             </div>
             <a
               href="mailto:hello@zenhospitality.com"
@@ -50,7 +50,7 @@ export function Footer() {
             <div className="text-sm text-[#eaf1f6]/65 leading-relaxed">
               Costa Rica
               <br />
-              Open 24 / 7
+              {t("open24")}
             </div>
           </div>
         </div>
