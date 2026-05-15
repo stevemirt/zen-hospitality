@@ -23,6 +23,10 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const schemaDescription =
+    locale === "es"
+      ? "Gestión residencial de lujo en Costa Rica. Hospitalidad refinada, operaciones sostenibles y valor duradero para los propietarios."
+      : "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, enduring value for property owners.";
 
   return (
     <>
@@ -71,19 +75,18 @@ export default async function HomePage({
         <JoinForm />
       </main>
       <Footer />
-      <SchemaOrg />
+      <SchemaOrg description={schemaDescription} />
     </>
   );
 }
 
-function SchemaOrg() {
+function SchemaOrg({ description }: { description: string }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Zen Hospitality",
     url: "https://zenhospitality.com",
-    description:
-      "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, enduring value for property owners.",
+    description,
     areaServed: "Costa Rica",
     sameAs: [],
   };
