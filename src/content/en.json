@@ -297,6 +297,12 @@
       "Long-term value"
     ]
   },
+  "whatsapp": {
+    "phone": "+50670000000",
+    "label": "Chat on WhatsApp",
+    "message": "Hello — I'd like to learn more about Zen Hospitality property management.",
+    "aria": "Open a WhatsApp chat with Zen Hospitality"
+  },
   "footer": {
     "tagline": "Refined hospitality, sustainable operations.",
     "legal": "© 2026 Zen Hospitality. All rights reserved.",

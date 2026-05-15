@@ -69,7 +69,7 @@ export function WhoWeAre() {
       <Reveal>
         <div
           ref={banner}
-          className="relative w-full overflow-hidden aspect-[21/8] md:aspect-[21/7] mb-24 md:mb-32"
+          className="relative w-full overflow-hidden aspect-[4/3] md:aspect-[21/7] mb-24 md:mb-32"
         >
           <div ref={photo} className="absolute inset-[-8%] will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -82,17 +82,16 @@ export function BeyondTheStay() {
             return (
               <Reveal key={p.name} delayMs={i * 130}>
                 <article className="group relative overflow-hidden">
-                  <div className="relative bg-gradient-to-br from-[#0a3a73]/60 to-[#042b59]/30 backdrop-blur-sm border border-[#58c3e8]/20 hover:border-[#58c3e8]/50 transition-all duration-500 p-10 md:p-12 overflow-hidden">
-                    {/* Thematic photo backdrop — fades in on hover from the right */}
+                  <div className="relative bg-gradient-to-br from-[#0a3a73]/60 to-[#042b59]/30 backdrop-blur-sm border border-[#58c3e8]/20 hover:border-[#58c3e8]/50 transition-all duration-500 p-6 md:p-12 overflow-hidden">
+                    {/* Thematic photo backdrop — clearly visible, not just decorative */}
                     {backdrop && (
                       <div
                         aria-hidden
-                        className="absolute inset-y-0 right-0 w-1/2 opacity-15 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"
+                        className="absolute inset-y-0 right-0 w-1/2 md:w-3/5 opacity-50 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
                         style={{
-                          backgroundImage: `linear-gradient(to right, #042b59 0%, transparent 25%), url(${backdrop})`,
+                          backgroundImage: `linear-gradient(to right, #042b59 0%, rgba(4,43,89,0.4) 35%, transparent 100%), url(${backdrop})`,
                           backgroundSize: "cover",
                           backgroundPosition: "center",
-                          mixBlendMode: "screen",
                         }}
                       />
                     )}
@@ -111,7 +110,7 @@ export function BeyondTheStay() {
                       {/* Logo — bigger, lit, refined */}
                       <div className="shrink-0 flex items-center justify-center md:justify-start">
                         <div
-                          className="w-44 h-44 md:w-52 md:h-52 rounded-2xl p-6 md:p-8 flex items-center justify-center ring-1 ring-[#58c3e8]/30 group-hover:ring-[#58c3e8]/70 shadow-[0_12px_40px_rgba(4,43,89,0.45)] group-hover:shadow-[0_20px_60px_rgba(88,195,232,0.35)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1"
+                          className="w-36 h-36 md:w-52 md:h-52 rounded-2xl p-5 md:p-8 flex items-center justify-center ring-1 ring-[#58c3e8]/30 group-hover:ring-[#58c3e8]/70 shadow-[0_12px_40px_rgba(4,43,89,0.45)] group-hover:shadow-[0_20px_60px_rgba(88,195,232,0.35)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1"
                           style={{
                             background:
                               "radial-gradient(circle at 30% 30%, #ffffff 0%, #eaf1f6 100%)",
