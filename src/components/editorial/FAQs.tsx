@@ -78,7 +78,7 @@ export function FAQs() {
           <div className="lg:sticky lg:top-32">
             <div className="h-kicker text-[#58c3e8]/65 mb-5">{t("browseBy")}</div>
             <nav className="space-y-3">
-              {categories.map((c) => (
+              {categories.map((c, idx) => (
                 <a
                   key={c.key}
                   href={`#cat-${c.key}`}
@@ -92,7 +92,7 @@ export function FAQs() {
                 >
                   <span className="h-title text-sm md:text-base">{c.label}</span>
                   <span className="h-kicker text-[#58c3e8]/70 tabular-nums">
-                    {String(c.indices.length).padStart(2, "0")}
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
                 </a>
               ))}
@@ -110,7 +110,10 @@ export function FAQs() {
               ref={(el) => {
                 catRefs.current[c.key] = el;
               }}
-              className={cIdx > 0 ? "mt-14 md:mt-20" : ""}
+              className={clsx(
+                "scroll-mt-28 md:scroll-mt-32",
+                cIdx > 0 && "mt-14 md:mt-20"
+              )}
             >
               <div className="flex items-center gap-4 mb-6">
                 <span className="h-kicker text-[#58c3e8] tabular-nums">
