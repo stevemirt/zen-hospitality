@@ -100,7 +100,7 @@ export function Packages() {
                 {c.highlight && (
                   <span className="inline-flex items-center gap-2 h-kicker text-[#042b59] bg-[#58c3e8] px-3 py-1.5 rounded-full">
                     <span aria-hidden className="w-1 h-1 rounded-full bg-[#042b59]" />
-                    Most chosen
+                    {t("mostChosen")}
                   </span>
                 )}
               </div>

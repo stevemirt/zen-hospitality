@@ -152,7 +152,7 @@ export function Nav() {
             style={{ transitionDelay: menuOpen ? "0.7s" : "0s" }}
           >
             <div>
-              <div className="opacity-60 mb-1">Visit</div>
+              <div className="opacity-60 mb-1">{t("visitLabel")}</div>
               <a
                 href="mailto:hello@zenhospitality.com"
                 className="text-[#58c3e8] tracking-[0.22em] normal-case text-sm hover:text-[#eaf1f6] transition-colors"
@@ -161,7 +161,7 @@ export function Nav() {
               </a>
             </div>
             <div className="text-right">
-              <div className="opacity-60 mb-1">Locale</div>
+              <div className="opacity-60 mb-1">{t("localeLabel")}</div>
               <div className="title text-sm tracking-[0.22em] normal-case text-[#eaf1f6]">
                 Costa Rica · {locale.toUpperCase()}
               </div>

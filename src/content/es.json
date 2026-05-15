@@ -5,7 +5,9 @@
     "operations": "Nuestras operaciones",
     "join": "Únase a nuestra Colección",
     "faqs": "Preguntas frecuentes",
-    "login": "Iniciar sesión"
+    "login": "Iniciar sesión",
+    "visitLabel": "Visítenos",
+    "localeLabel": "Idioma"
   },
   "hero": {
     "eyebrow": "Zen Hospitality",
@@ -76,6 +78,11 @@
     "lead": "Tres ubicaciones a lo largo del Pacífico — cada una definida por su arquitectura, su entorno y el ritmo de su costa.",
     "discoverCta": "Conocer más",
     "reserveLabel": "Zen Reserve",
+    "places": [
+      { "subtitle": "Pacífico · Provincia NO", "alt": "Vista aérea de una residencia Zen Reserve en Guanacaste" },
+      { "subtitle": "Península de Nicoya", "alt": "Sala de planta abierta de una residencia Zen Reserve" },
+      { "subtitle": "Golfo · Acantilado", "alt": "Habitación principal de una residencia Zen Reserve con vista al océano" }
+    ],
     "cards": [
       { "name": "Zen Reserve · Guanacaste", "body": "Residencias excepcionales definidas por su arquitectura, su entorno y su conexión natural con el paisaje circundante." },
       { "name": "Zen Reserve · Nosara", "body": "Santuarios costeros moldeados por luz, madera y piedra — a minutos del surf y la selva." },
@@ -85,6 +92,9 @@
   "services": {
     "kicker": "Servicios",
     "headline": "Operaciones integrales",
+    "headlineLine1": "Diez disciplinas,",
+    "headlineLine2": "una promesa.",
+    "descriptor": "Precisión medida en cada detalle de su residencia.",
     "items": [
       "Gestión de propiedad",
       "Conserjería y operaciones de huéspedes",
@@ -149,6 +159,7 @@
     "headlineLine2": "sirve a su activo.",
     "descriptor": "Tres modalidades de servicio, cada una calibrada a una ambición distinta para su residencia.",
     "talkToUs": "Conversemos",
+    "mostChosen": "El más elegido",
     "cards": [
       {
         "name": "Zen Care",

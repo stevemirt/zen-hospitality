@@ -118,14 +118,14 @@ export function ServicesGrid() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="h-display text-[clamp(2.4rem,5.4vw,4.8rem)] text-[#042b59] mb-6">
-            Ten disciplines,
+            {t("headlineLine1")}
             <br />
-            <span className="h-italic text-[#58c3e8]">one promise.</span>
+            <span className="h-italic text-[#58c3e8]">{t("headlineLine2")}</span>
           </h2>
         </Reveal>
         <Reveal delayMs={180}>
           <p className="body-luxe text-base md:text-lg text-[#042b59]/65 max-w-xl mx-auto">
-            Measured precision across every detail of your residence.
+            {t("descriptor")}
           </p>
         </Reveal>
       </div>

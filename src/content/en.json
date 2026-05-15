@@ -5,7 +5,9 @@
     "operations": "Our Operations",
     "join": "Join our Collection",
     "faqs": "FAQs",
-    "login": "Log In"
+    "login": "Log In",
+    "visitLabel": "Visit",
+    "localeLabel": "Locale"
   },
   "hero": {
     "eyebrow": "Zen Hospitality",
@@ -76,6 +78,11 @@
     "lead": "Three locations along the Pacific — each defined by its architecture, setting, and the rhythm of its coast.",
     "discoverCta": "Discover",
     "reserveLabel": "Zen Reserve",
+    "places": [
+      { "subtitle": "Pacific · NW Province", "alt": "Aerial of a Zen Reserve residence in Guanacaste" },
+      { "subtitle": "Nicoya Peninsula", "alt": "Open plan living room of a Zen Reserve residence" },
+      { "subtitle": "Gulf · Cliffside", "alt": "Master bedroom of a Zen Reserve residence with ocean view" }
+    ],
     "cards": [
       {
         "name": "Zen Reserve · Guanacaste",
@@ -94,6 +101,9 @@
   "services": {
     "kicker": "Services",
     "headline": "End-to-end operations",
+    "headlineLine1": "Ten disciplines,",
+    "headlineLine2": "one promise.",
+    "descriptor": "Measured precision across every detail of your residence.",
     "items": [
       "Property Management",
       "Concierge & Guest Operations",
@@ -158,6 +168,7 @@
     "headlineLine2": "serves your asset.",
     "descriptor": "Three engagements, each calibrated to a different ambition for your residence.",
     "talkToUs": "Talk to us",
+    "mostChosen": "Most chosen",
     "cards": [
       {
         "name": "Zen Care",

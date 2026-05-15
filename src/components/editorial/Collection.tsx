@@ -6,36 +6,27 @@ import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Card = { name: string; body: string };
+type PlaceLocalized = { subtitle: string; alt: string };
 
-const PLACES: Array<{
-  region: string;
-  subtitle: string;
-  photo: string;
-  alt: string;
-}> = [
-  {
-    region: "Guanacaste",
-    subtitle: "Pacific · NW Province",
-    photo: "/zen/aerial-resort.jpg",
-    alt: "Aerial of a Zen Reserve residence in Guanacaste",
-  },
-  {
-    region: "Nosara",
-    subtitle: "Nicoya Peninsula",
-    photo: "/zen/interior-living.jpg",
-    alt: "Open plan living room of a Zen Reserve residence",
-  },
-  {
-    region: "Papagayo",
-    subtitle: "Gulf · Cliffside",
-    photo: "/zen/interior-bedroom.jpg",
-    alt: "Master bedroom of a Zen Reserve residence with ocean view",
-  },
+// Region name + photo are locale-independent constants (proper noun + asset path).
+// Subtitle + alt come from i18n.
+const PLACE_REGIONS = ["Guanacaste", "Nosara", "Papagayo"];
+const PLACE_PHOTOS = [
+  "/zen/aerial-resort.jpg",
+  "/zen/interior-living.jpg",
+  "/zen/interior-bedroom.jpg",
 ];
 
 export function Collection() {
   const t = useTranslations("collection");
   const cards = t.raw("cards") as Card[];
+  const placesI18n = t.raw("places") as PlaceLocalized[];
+  const PLACES = PLACE_REGIONS.map((region, i) => ({
+    region,
+    subtitle: placesI18n[i]?.subtitle ?? "",
+    photo: PLACE_PHOTOS[i],
+    alt: placesI18n[i]?.alt ?? region,
+  }));
 
   return (
     <Section id="collection" tone="midnight">
