@@ -11,29 +11,55 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: {
-    default: "Zen Hospitality — Refined hospitality in Costa Rica",
-    template: "%s · Zen Hospitality",
-  },
-  description:
-    "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, and enduring value for property owners.",
-  metadataBase: new URL("https://zenhospitality.com"),
-  openGraph: {
-    title: "Zen Hospitality — Discover the potential of your property",
+const META = {
+  en: {
+    title: "Zen Hospitality — Refined hospitality in Costa Rica",
     description:
       "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, and enduring value for property owners.",
-    type: "website",
-    locale: "en_US",
-    alternateLocale: "es_CR",
+    ogTitle: "Zen Hospitality — Discover the potential of your property",
+    twitterDesc: "Luxury residential management in Costa Rica.",
+    htmlLocale: "en_US",
+    altLocale: "es_CR",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Zen Hospitality",
+  es: {
+    title: "Zen Hospitality — Hospitalidad refinada en Costa Rica",
     description:
-      "Luxury residential management in Costa Rica.",
+      "Gestión residencial de lujo en Costa Rica. Hospitalidad refinada, operaciones sostenibles y valor duradero para los propietarios.",
+    ogTitle: "Zen Hospitality — Descubra el potencial de su propiedad",
+    twitterDesc: "Gestión residencial de lujo en Costa Rica.",
+    htmlLocale: "es_CR",
+    altLocale: "en_US",
   },
-};
+} as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const m = META[locale as keyof typeof META] ?? META.en;
+  return {
+    title: {
+      default: m.title,
+      template: "%s · Zen Hospitality",
+    },
+    description: m.description,
+    metadataBase: new URL("https://zenhospitality.com"),
+    openGraph: {
+      title: m.ogTitle,
+      description: m.description,
+      type: "website",
+      locale: m.htmlLocale,
+      alternateLocale: m.altLocale,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Zen Hospitality",
+      description: m.twitterDesc,
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#000000",
