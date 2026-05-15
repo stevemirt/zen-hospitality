@@ -134,19 +134,31 @@ export function WhoWeAre() {
         </div>
       </div>
 
-      {/* Vision + Promise — clean editorial pair, vertically centered */}
-      <div className="max-w-4xl mx-auto space-y-20 md:space-y-28">
+      {/* Vision + Promise — side-by-side with vertical hairline anchor */}
+      <div className="grid gap-12 md:gap-16 md:grid-cols-2 max-w-6xl mx-auto items-start">
         {[vision, promise].map((q, i) => (
-          <Reveal key={i} delayMs={i * 200}>
-            <div className="text-center">
-              {/* Roman numeral marker */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-[#58c3e8]/40 mb-8">
-                <span className="h-display text-lg text-[#58c3e8] tabular-nums">
+          <Reveal key={i} delayMs={i * 180}>
+            <div className="relative pl-0 md:pl-14">
+              {/* Desktop sidebar anchor: large numeral + tall cyan hairline */}
+              <div className="hidden md:flex absolute left-0 top-0 bottom-2 flex-col items-center">
+                <span className="h-display text-3xl text-[#58c3e8] mb-4 tabular-nums">
+                  {i === 0 ? "I" : "II"}
+                </span>
+                <span
+                  aria-hidden
+                  className="flex-1 w-px bg-gradient-to-b from-[#58c3e8] via-[#58c3e8]/30 to-transparent"
+                />
+              </div>
+
+              {/* Mobile-only numeral chip on top */}
+              <div className="md:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#58c3e8]/40 mb-6">
+                <span className="h-display text-base text-[#58c3e8] tabular-nums">
                   {i === 0 ? "I" : "II"}
                 </span>
               </div>
-              <div className="h-kicker text-[#58c3e8] mb-6">{q.label}</div>
-              <blockquote className="h-italic text-[clamp(1.4rem,2.6vw,2.2rem)] text-[#042b59] leading-[1.32] max-w-2xl mx-auto">
+
+              <div className="h-kicker text-[#58c3e8] mb-5">{q.label}</div>
+              <blockquote className="h-italic text-[clamp(1.4rem,2.4vw,2.1rem)] text-[#042b59] leading-[1.32]">
                 {q.text}
               </blockquote>
             </div>

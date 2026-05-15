@@ -15,7 +15,7 @@ const STEP_PHOTOS = [
   "/zen/aerial-resort.jpg",
   "/zen/interior-living.jpg",
   "/zen/interior-bedroom.jpg",
-  "/zen/stock/trees-seashore.jpg",
+  "/zen/stock/tamarindo-sunset.jpg",
   "/zen/hero-pool.jpg",
 ];
 

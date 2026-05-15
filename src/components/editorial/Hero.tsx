@@ -15,8 +15,9 @@ export function Hero() {
   const t = useTranslations("hero");
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
-  // Mouse-follow parallax on the photo for a luxury feel
+  // Mouse-follow parallax on the photo for a luxury feel — desktop only
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     const wrap = wrapRef.current;
     if (!wrap) return;
     let raf = 0;
@@ -56,15 +57,24 @@ export function Hero() {
           className="absolute inset-[-5%] kenburns-hero"
           style={{ transform: "translate3d(calc(var(--mx) * -1), calc(var(--my) * -1), 0)" }}
         >
-          {/* Plain img — bypasses next/image (which CSP-blocks inside preview iframes) */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/zen/aerial-resort.jpg"
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-            fetchPriority="high"
-            decoding="async"
-          />
+          {/* Responsive hero photo:
+              - Mobile (<768px): mountain-pacific (portrait, golden hour) fills naturally
+              - Desktop: aerial-resort (landscape drone) with object-position bias to keep
+                the resort + ocean composition visible */}
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/zen/stock/mountain-pacific.jpg"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/zen/aerial-resort.jpg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover object-[50%_38%]"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
         {/* Fixed foreground hairlines — they stay put while photo drifts (parallax tension) */}
         <div
