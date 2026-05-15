@@ -59,6 +59,11 @@
     "headlineLine2": "Costa Rica?",
     "pacificOceanLabel": "Océano Pacífico",
     "caribbeanLabel": "Caribe",
+    "mapMarkers": [
+      { "name": "Papagayo", "subtitle": "Bahía Papagayo · NO" },
+      { "name": "Guanacaste", "subtitle": "Tamarindo · Liberia" },
+      { "name": "Nosara", "subtitle": "Península de Nicoya" }
+    ],
     "paragraphs": [
       "Costa Rica ofrece un equilibrio poco común entre belleza serena y experiencias significativas. Desde las playas soleadas del Pacífico hasta los exuberantes bosques tropicales, el país invita a los huéspedes a desacelerar, reconectar y sumergirse en la naturaleza — sin renunciar a la comodidad ni a la sofisticación. Su cultura cálida, su clima durante todo el año y su fácil acceso internacional la convierten en una elección natural para viajeros que buscan a la vez evasión y autenticidad.",
       "Este atractivo perdurable se traduce en una demanda consistente y de alta calidad para estancias bien curadas. A medida que más viajeros priorizan la privacidad, la personalización y las estancias prolongadas, Costa Rica continúa destacándose como un destino donde las experiencias excepcionales se alinean de forma natural con un desempeño sólido y sostenido para residencias gestionadas con esmero."

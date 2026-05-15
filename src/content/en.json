@@ -59,6 +59,11 @@
     "headlineLine2": "Costa Rica?",
     "pacificOceanLabel": "Pacific Ocean",
     "caribbeanLabel": "Caribbean",
+    "mapMarkers": [
+      { "name": "Papagayo", "subtitle": "Bahía Papagayo · NW" },
+      { "name": "Guanacaste", "subtitle": "Tamarindo · Liberia" },
+      { "name": "Nosara", "subtitle": "Nicoya Peninsula" }
+    ],
     "paragraphs": [
       "Costa Rica offers a rare balance of effortless beauty and meaningful experiences. From sunlit Pacific beaches to lush tropical forests, the country invites guests to slow down, reconnect, and immerse themselves in nature — without sacrificing comfort or sophistication. Its warm culture, year-round climate, and easy international access make it a natural choice for travelers seeking both escape and authenticity.",
       "This enduring appeal translates into consistent, high-quality demand for well-curated stays. As more travelers prioritize privacy, personalization, and longer stays, Costa Rica continues to stand out as a destination where exceptional guest experiences naturally align with strong and sustained performance for thoughtfully managed homes."
