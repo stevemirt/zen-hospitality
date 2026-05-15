@@ -45,10 +45,31 @@ export function Nav() {
         )}
       >
         <div className="mx-auto max-w-[1700px] flex items-center justify-between px-6 lg:px-10 h-24 md:h-28">
-          {/* Real PNG logo — bigger, prominent */}
+          {/* Real PNG logo — bigger, prominent. Click always scrolls to Hero,
+              works both for soft-route (same page) and hard nav (different page). */}
           <Link
             href="/"
-            className="block shrink-0 transition-all duration-300 hover:opacity-80 active:scale-95"
+            onClick={(e) => {
+              // Already on the home route — prevent soft-route no-op, scroll up manually
+              if (pathname === "/" || pathname === "") {
+                e.preventDefault();
+                if (window.location.hash) {
+                  try {
+                    history.replaceState(
+                      null,
+                      "",
+                      window.location.pathname + window.location.search
+                    );
+                  } catch {
+                    /* noop */
+                  }
+                }
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                setMenuOpen(false);
+              }
+            }}
+            className="block shrink-0 transition-all duration-300 hover:opacity-80 active:scale-95 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-4 focus-visible:ring-offset-[#042b59]"
+            aria-label="Zen Hospitality — Inicio"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
