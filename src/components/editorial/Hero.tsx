@@ -57,24 +57,18 @@ export function Hero() {
           className="absolute inset-[-5%] kenburns-hero"
           style={{ transform: "translate3d(calc(var(--mx) * -1), calc(var(--my) * -1), 0)" }}
         >
-          {/* Responsive hero photo:
-              - Mobile (<768px): mountain-pacific (portrait, golden hour) fills naturally
-              - Desktop: aerial-resort (landscape drone) with object-position bias to keep
-                the resort + ocean composition visible */}
-          <picture>
-            <source
-              media="(max-width: 767px)"
-              srcSet="/zen/stock/mountain-pacific.jpg"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/zen/aerial-resort.jpg"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover object-[50%_38%]"
-              fetchPriority="high"
-              decoding="async"
-            />
-          </picture>
+          {/* Hero photo — same image across all devices for brand consistency.
+              object-position 50% 38% biases the crop toward the top half of the
+              landscape photo (resort + bay + mountains), preserving the key
+              composition when the image fills a portrait viewport on mobile. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/zen/aerial-resort.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-[50%_38%]"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
         {/* Fixed foreground hairlines — they stay put while photo drifts (parallax tension) */}
         <div
