@@ -28,7 +28,6 @@
     "valuesSub": "Three principles",
     "bannerKicker": "Residence · Interior",
     "bannerTitle": "Zen Reserve · Nosara",
-    "bannerFrameLabel": "Frame",
     "bannerAlt": "Open plan living room with ocean view at a Zen Reserve",
     "values": [
       {
@@ -412,8 +411,6 @@
     "whoWeAreInterior": "Open plan living room with ocean view at a Zen Reserve"
   },
   "poolBanner": {
-    "frameLabel": "Frame · 02 / 05",
-    "frameTitle": "Infinity · Zen Reserve",
     "coordsLabel": "Coordinates",
     "headlineLine1": "Where the horizon",
     "headlineLine2": "never closes.",
