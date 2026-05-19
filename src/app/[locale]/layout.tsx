@@ -13,19 +13,19 @@ export function generateStaticParams() {
 
 const META = {
   en: {
-    title: "Zen Hospitality — Refined hospitality in Costa Rica",
+    title: "Zen Hospitality · Refined hospitality in Costa Rica",
     description:
       "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, and enduring value for property owners.",
-    ogTitle: "Zen Hospitality — Discover the potential of your property",
+    ogTitle: "Zen Hospitality · Discover the potential of your property",
     twitterDesc: "Luxury residential management in Costa Rica.",
     htmlLocale: "en_US",
     altLocale: "es_CR",
   },
   es: {
-    title: "Zen Hospitality — Hospitalidad refinada en Costa Rica",
+    title: "Zen Hospitality · Hospitalidad refinada en Costa Rica",
     description:
       "Gestión residencial de lujo en Costa Rica. Hospitalidad refinada, operaciones sostenibles y valor duradero para los propietarios.",
-    ogTitle: "Zen Hospitality — Descubra el potencial de su propiedad",
+    ogTitle: "Zen Hospitality · Descubra el potencial de su propiedad",
     twitterDesc: "Gestión residencial de lujo en Costa Rica.",
     htmlLocale: "es_CR",
     altLocale: "en_US",
