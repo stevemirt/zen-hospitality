@@ -8,10 +8,11 @@ import { Reveal } from "@/components/ui/Reveal";
 type PlaceLocalized = { region: string; subtitle: string; alt: string };
 
 // Photos are locale-independent. Regions + subtitles + alts come from i18n.
+// One photo per region, sourced from the brand team.
 const PLACE_PHOTOS = [
-  "/zen/aerial-resort.jpg",
-  "/zen/interior-living.jpg",
-  "/zen/interior-bedroom.jpg",
+  "/zen/collection/guanacaste.jpg",
+  "/zen/collection/nicoya-peninsula.jpg",
+  "/zen/collection/central-pacific.jpg",
 ];
 
 export function Collection() {
