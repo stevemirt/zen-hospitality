@@ -77,7 +77,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     closingKicker: "Soon, the conversation begins.",
     closingLine1: "Quiet precision.",
     closingLine2: "Measurable returns.",
-    signature: "Eduardo Castro",
+    signature: "Eduardo C.",
     signatureRole: "Zen Hospitality",
     whatsappLabel: "WhatsApp",
     emailLabel: "Email",
@@ -100,7 +100,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     closingKicker: "Pronto, comienza la conversación.",
     closingLine1: "Precisión silenciosa.",
     closingLine2: "Retornos medibles.",
-    signature: "Eduardo Castro",
+    signature: "Eduardo C.",
     signatureRole: "Zen Hospitality",
     whatsappLabel: "WhatsApp",
     emailLabel: "Correo",
@@ -143,18 +143,19 @@ export function renderConfirmationEmail(lead: LeadData): {
       }
     </style>
   </head>
-  <body style="margin:0; padding:0; background-color:${NAVY}; font-family: 'Helvetica Neue', Arial, sans-serif; color:${CREAM};">
+  <body style="margin:0; padding:0; background-color:#0a0a0c; font-family: 'Helvetica Neue', Arial, sans-serif; color:${CREAM};">
     <!-- Preheader (hidden in inbox preview) -->
     <div style="display:none; visibility:hidden; opacity:0; color:transparent; height:0; width:0; overflow:hidden; mso-hide:all;">
       ${esc(copy.preheader)}
     </div>
 
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${NAVY};">
+    <!-- Outer canvas: near-black so the navy container floats like a printed card -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0a0a0c;">
       <tr>
         <td align="center" style="padding: 48px 16px;">
 
-          <!-- Outer container -->
-          <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:${NAVY}; border:1px solid rgba(88,195,232,0.18);">
+          <!-- Outer container — navy editorial card -->
+          <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:${NAVY}; border:1px solid rgba(88,195,232,0.20); box-shadow: 0 24px 80px rgba(0,0,0,0.55);">
 
             <!-- Hero photo -->
             <tr>
