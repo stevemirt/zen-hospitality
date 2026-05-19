@@ -80,18 +80,18 @@ export function Operations() {
               <br />
               <span className="h-italic text-[#58c3e8]">{tOps("headlineHighlight")}</span>
             </h2>
-            <div className="mt-8 h-kicker text-[#58c3e8]">
+            <div className="mt-8 text-xs md:text-sm uppercase tracking-[0.32em] text-[#eaf1f6] font-medium">
               {tOps("kicker")}
             </div>
           </div>
           <div className="ml-auto text-right">
-            <div className="h-kicker text-[#58c3e8] mb-3 opacity-80">{tOps("nextChapter")}</div>
+            <div className="text-xs md:text-sm uppercase tracking-[0.32em] text-[#eaf1f6] font-medium mb-3 opacity-90">{tOps("nextChapter")}</div>
             <div className="h-title text-2xl md:text-3xl text-[#eaf1f6] mb-3">
               {tOps("nextHeading")}
             </div>
             <a
               href="#journey"
-              className="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.28em] text-[#58c3e8] hover:text-[#eaf1f6] transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-[0.28em] text-[#eaf1f6] hover:text-[#58c3e8] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59] rounded-sm"
             >
               {tTwoPaths("openLabel")}
               <span aria-hidden>→</span>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { BackToSection } from "@/components/ui/BackToSection";
 import clsx from "clsx";
 
 type Item = { q: string; a: string };
@@ -19,6 +20,7 @@ const CATEGORY_DEFS: Array<{ key: CategoryKey; indices: number[] }> = [
 
 export function FAQs() {
   const t = useTranslations("faqs");
+  const nav = useTranslations("nav");
   const items = t.raw("items") as Item[];
   const categories = CATEGORY_DEFS.map((c) => ({
     ...c,
@@ -49,6 +51,7 @@ export function FAQs() {
 
   return (
     <Section id="faqs" tone="midnight">
+      <BackToSection href="#operations" label={nav("backToOperations")} tone="midnight" />
       {/* Header */}
       <div className="text-center mb-20 md:mb-24 max-w-3xl mx-auto">
         <Reveal>

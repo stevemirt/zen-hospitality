@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { BackToSection } from "@/components/ui/BackToSection";
 
 // 5 symbolic icons for "A Locally Rooted Approach"
 const LOCAL_ICONS = [
@@ -90,6 +91,7 @@ const GUEST_ICONS = [
 export function LocallyRootedAndExperience() {
   const local = useTranslations("locallyRooted");
   const guest = useTranslations("guestExperience");
+  const nav = useTranslations("nav");
   const localBullets = local.raw("bullets") as string[];
   const guestBullets = guest.raw("bullets") as string[];
   const localTitles = local.raw("iconLabels") as string[];
@@ -128,6 +130,7 @@ export function LocallyRootedAndExperience() {
     <>
       {/* Block A — Locally Rooted (light) */}
       <Section id="locally-rooted" tone="light">
+        <BackToSection href="#operations" label={nav("backToOperations")} tone="light" />
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20 items-start">
           {/* Left — photo */}
           <div className="lg:col-span-5">
@@ -198,6 +201,7 @@ export function LocallyRootedAndExperience() {
 
       {/* Block B — Guest Experience (midnight) */}
       <Section id="guest-experience" tone="midnight">
+        <BackToSection href="#operations" label={nav("backToOperations")} tone="midnight" />
         <div className="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
           <Reveal>
             <div className="h-kicker text-[#58c3e8] mb-6 inline-flex items-center gap-3">

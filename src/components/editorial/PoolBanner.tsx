@@ -122,12 +122,8 @@ export function PoolBanner() {
 
       {/* Editorial overlays */}
       <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-12 lg:p-16">
-        {/* Top — meta strip */}
-        <div className="flex items-start justify-between">
-          <div className="text-[#eaf1f6]">
-            <div className="h-kicker opacity-65 mb-2">{t("frameLabel")}</div>
-            <div className="h-italic text-base md:text-lg">{t("frameTitle")}</div>
-          </div>
+        {/* Top — meta strip (coordinates only) */}
+        <div className="flex items-start justify-end">
           <div className="text-right text-[#eaf1f6]">
             <div className="h-kicker opacity-65 mb-2">{t("coordsLabel")}</div>
             <div className="h-eyebrow text-[#58c3e8]">9°44′ N · 85°67′ W</div>

@@ -94,9 +94,8 @@ export function Packages() {
                 />
               )}
 
-              {/* Top — index + Most chosen */}
-              <div className="flex items-start justify-between mb-8">
-                <div className="h-kicker text-[#58c3e8]">№ 0{i + 1}</div>
+              {/* Top — "Most chosen" badge (only on highlighted card) */}
+              <div className="flex items-start justify-end min-h-[28px] mb-8">
                 {c.highlight && (
                   <span className="inline-flex items-center gap-2 h-kicker text-[#042b59] bg-[#58c3e8] px-3 py-1.5 rounded-full">
                     <span aria-hidden className="w-1 h-1 rounded-full bg-[#042b59]" />

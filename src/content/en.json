@@ -7,7 +7,9 @@
     "faqs": "FAQs",
     "login": "Log In",
     "visitLabel": "Visit",
-    "localeLabel": "Locale"
+    "localeLabel": "Locale",
+    "backToOperations": "Back to Our Operations",
+    "backToCollection": "Back to Our Collection"
   },
   "hero": {
     "eyebrow": "Zen Hospitality",

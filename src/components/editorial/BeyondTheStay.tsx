@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { BackToSection } from "@/components/ui/BackToSection";
 
 type Partner = { name: string; body: string; est?: string };
 
@@ -43,10 +44,12 @@ const PARTNER_BACKDROP_POS: Record<string, { mobile: string; desktop: string }> 
 
 export function BeyondTheStay() {
   const t = useTranslations("beyondTheStay");
+  const nav = useTranslations("nav");
   const partners = t.raw("partners") as Partner[];
 
   return (
     <Section id="beyond-the-stay" tone="midnight">
+      <BackToSection href="#operations" label={nav("backToOperations")} tone="midnight" />
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
         {/* Sticky left — header + brand promise */}
         <div className="lg:col-span-5">
@@ -101,22 +104,22 @@ export function BeyondTheStay() {
                         subject so the focal point never gets cropped. */}
                     {backdrop && (
                       <>
-                        {/* Mobile-only: full card backdrop with strong vertical fade */}
+                        {/* Mobile: full card backdrop with strong vertical fade for max text legibility */}
                         <div
                           aria-hidden
-                          className="md:hidden absolute inset-0 opacity-55 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
+                          className="md:hidden absolute inset-0 opacity-25 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
                           style={{
-                            backgroundImage: `linear-gradient(180deg, rgba(4,43,89,0.10) 0%, rgba(4,43,89,0.55) 45%, #042b59 92%), url(${backdrop})`,
+                            backgroundImage: `linear-gradient(180deg, rgba(4,43,89,0.30) 0%, rgba(4,43,89,0.70) 45%, #042b59 92%), url(${backdrop})`,
                             backgroundSize: "cover",
                             backgroundPosition: bgPos.mobile,
                           }}
                         />
-                        {/* Desktop-only: right-half strip fading toward the card content on the left */}
+                        {/* Desktop: right-half strip with stronger gradient for legibility */}
                         <div
                           aria-hidden
-                          className="hidden md:block absolute inset-y-0 right-0 w-3/5 opacity-50 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
+                          className="hidden md:block absolute inset-y-0 right-0 w-3/5 opacity-20 group-hover:opacity-35 transition-opacity duration-700 pointer-events-none"
                           style={{
-                            backgroundImage: `linear-gradient(to right, #042b59 0%, rgba(4,43,89,0.4) 35%, transparent 100%), url(${backdrop})`,
+                            backgroundImage: `linear-gradient(to right, #042b59 0%, rgba(4,43,89,0.7) 35%, rgba(4,43,89,0.3) 100%), url(${backdrop})`,
                             backgroundSize: "cover",
                             backgroundPosition: bgPos.desktop,
                           }}

@@ -88,10 +88,6 @@ export function WhoWeAre() {
                 <div className="h-kicker opacity-65 mb-2">{t("bannerKicker")}</div>
                 <div className="h-title text-xl md:text-2xl">{t("bannerTitle")}</div>
               </div>
-              <div className="hidden md:block text-right">
-                <div className="h-kicker opacity-65 mb-2">{t("bannerFrameLabel")}</div>
-                <div className="h-eyebrow text-[#58c3e8]">01 / 03</div>
-              </div>
             </div>
           </div>
         </div>
@@ -159,7 +155,7 @@ export function WhoWeAre() {
                 </span>
               </div>
 
-              <div className="h-kicker text-[#58c3e8] mb-5">{q.label}</div>
+              <div className="text-xs md:text-sm uppercase tracking-[0.32em] text-[#58c3e8] font-medium mb-5">{q.label}</div>
               <blockquote className="h-italic text-[clamp(1.4rem,2.4vw,2.1rem)] text-[#042b59] leading-[1.32]">
                 {q.text}
               </blockquote>

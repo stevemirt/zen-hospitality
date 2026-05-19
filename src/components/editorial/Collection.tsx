@@ -80,8 +80,7 @@ export function Collection() {
 
                   {/* Top label */}
                   <div className="absolute top-7 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.42em] uppercase text-[#eaf1f6]/85 text-center">
-                    <div className="text-[9px] opacity-60 mb-1">{t("reserveLabel")}</div>
-                    <div className="title font-medium tracking-[0.32em]">№ 0{i + 1}</div>
+                    <div className="text-[10px] tracking-[0.42em] uppercase">{t("reserveLabel")}</div>
                   </div>
 
                   {/* Bottom content */}

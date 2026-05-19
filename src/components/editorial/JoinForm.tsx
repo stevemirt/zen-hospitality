@@ -7,10 +7,12 @@ import { useTranslations, useLocale } from "next-intl";
 import { leadSchema, type LeadInput } from "@/lib/leadSchema";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { BackToSection } from "@/components/ui/BackToSection";
 import clsx from "clsx";
 
 export function JoinForm() {
   const t = useTranslations("form");
+  const nav = useTranslations("nav");
   const locale = useLocale();
   const fields = t.raw("fields") as Record<keyof LeadInput, string>;
 
@@ -46,6 +48,7 @@ export function JoinForm() {
 
   return (
     <Section id="join" tone="midnight">
+      <BackToSection href="#collection" label={nav("backToCollection")} tone="midnight" />
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
         {/* Left — editorial intro */}
         <div className="lg:col-span-5">
@@ -168,38 +171,34 @@ export function JoinForm() {
                 />
               </FloatingField>
 
-              <div className="grid grid-cols-2 gap-px bg-[#58c3e8]/15">
-                <FloatingField
-                  label={fields.rooms}
-                  value={String(allValues.rooms ?? "")}
-                  error={errors.rooms?.message}
-                  index="05"
-                  noBottomBorder
-                >
-                  <input
-                    type="number"
-                    min={1}
-                    inputMode="numeric"
-                    {...register("rooms")}
-                    className={floatingInputCls(!!errors.rooms)}
-                  />
-                </FloatingField>
-                <FloatingField
-                  label={fields.bathrooms}
-                  value={String(allValues.bathrooms ?? "")}
-                  error={errors.bathrooms?.message}
-                  index="06"
-                  noBottomBorder
-                >
-                  <input
-                    type="number"
-                    min={1}
-                    inputMode="numeric"
-                    {...register("bathrooms")}
-                    className={floatingInputCls(!!errors.bathrooms)}
-                  />
-                </FloatingField>
-              </div>
+              <FloatingField
+                label={fields.rooms}
+                value={String(allValues.rooms ?? "")}
+                error={errors.rooms?.message}
+                index="05"
+              >
+                <input
+                  type="number"
+                  min={1}
+                  inputMode="numeric"
+                  {...register("rooms")}
+                  className={floatingInputCls(!!errors.rooms)}
+                />
+              </FloatingField>
+              <FloatingField
+                label={fields.bathrooms}
+                value={String(allValues.bathrooms ?? "")}
+                error={errors.bathrooms?.message}
+                index="06"
+              >
+                <input
+                  type="number"
+                  min={1}
+                  inputMode="numeric"
+                  {...register("bathrooms")}
+                  className={floatingInputCls(!!errors.bathrooms)}
+                />
+              </FloatingField>
 
               <FloatingField
                 label={fields.amenities}
