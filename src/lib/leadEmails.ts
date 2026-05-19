@@ -63,7 +63,7 @@ type ConfirmationCopy = {
 
 const COPY: Record<"en" | "es", ConfirmationCopy> = {
   en: {
-    subject: "Welcome to Zen Hospitality — your inquiry has been received",
+    subject: "Welcome to Zen Hospitality, your inquiry has been received",
     preheader: "An advisor will be in touch within 24 hours. Thank you for trusting Zen Hospitality.",
     kicker: "Inquiry Received",
     greeting: (firstName) => `Dear ${firstName},`,
