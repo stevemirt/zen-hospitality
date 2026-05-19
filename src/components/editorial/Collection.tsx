@@ -6,26 +6,26 @@ import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Card = { name: string; body: string };
-type PlaceLocalized = { subtitle: string; alt: string };
+type PlaceLocalized = { region: string; subtitle: string; alt: string };
 
-// Region name + photo are locale-independent constants (proper noun + asset path).
-// Subtitle + alt come from i18n.
-const PLACE_REGIONS = ["Guanacaste", "Nosara", "Papagayo"];
+// Region keys map to i18n display names. Photos are locale-independent.
 const PLACE_PHOTOS = [
   "/zen/aerial-resort.jpg",
   "/zen/interior-living.jpg",
   "/zen/interior-bedroom.jpg",
 ];
+// Display names for the big region heading per card. These are now localized
+// (Spanish "Península de Nicoya" vs English "Nicoya Peninsula") so pull from i18n.
 
 export function Collection() {
   const t = useTranslations("collection");
   const cards = t.raw("cards") as Card[];
   const placesI18n = t.raw("places") as PlaceLocalized[];
-  const PLACES = PLACE_REGIONS.map((region, i) => ({
-    region,
-    subtitle: placesI18n[i]?.subtitle ?? "",
+  const PLACES = placesI18n.map((place, i) => ({
+    region: place.region,
+    subtitle: place.subtitle,
     photo: PLACE_PHOTOS[i],
-    alt: placesI18n[i]?.alt ?? region,
+    alt: place.alt,
   }));
 
   return (

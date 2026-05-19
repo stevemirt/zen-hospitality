@@ -46,16 +46,16 @@ export function WhyCostaRica() {
         </div>
       </div>
 
-      {/* Stats row — large cyan numbers, full-width */}
-      <div className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-t border-[#58c3e8]/25 pt-12">
+      {/* Stats row — large cyan numbers, two metrics centered */}
+      <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 border-t border-[#58c3e8]/25 pt-12 max-w-3xl mx-auto">
         {stats.map((s, i) => (
           <Reveal key={i} delayMs={i * 100}>
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center text-center">
               <AnimatedNumber
                 value={s.value}
-                className="h-display text-5xl md:text-6xl text-[#58c3e8] tabular-nums"
+                className="h-display text-5xl md:text-7xl text-[#58c3e8] tabular-nums"
               />
-              <div className="mt-4 h-kicker text-[#eaf1f6]/65">{s.label}</div>
+              <div className="mt-4 h-kicker text-[#eaf1f6]/75">{s.label}</div>
             </div>
           </Reveal>
         ))}

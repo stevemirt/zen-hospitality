@@ -69,7 +69,7 @@ export function Nav() {
               }
             }}
             className="block shrink-0 transition-all duration-300 hover:opacity-80 active:scale-95 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#58c3e8] focus-visible:ring-offset-4 focus-visible:ring-offset-[#042b59]"
-            aria-label="Zen Hospitality — Inicio"
+            aria-label="Zen Hospitality, Inicio"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
