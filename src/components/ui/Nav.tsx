@@ -175,10 +175,10 @@ export function Nav() {
             <div>
               <div className="opacity-60 mb-1">{t("visitLabel")}</div>
               <a
-                href="mailto:hello@zenhospitality.com"
+                href="mailto:eduardoc@zen-hospitality.com"
                 className="text-[#58c3e8] tracking-[0.22em] normal-case text-sm hover:text-[#eaf1f6] transition-colors"
               >
-                hello@zenhospitality.com
+                eduardoc@zen-hospitality.com
               </a>
             </div>
             <div className="text-right">

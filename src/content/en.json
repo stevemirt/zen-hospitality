@@ -396,7 +396,7 @@
     "submit": "Send",
     "submitting": "Sending…",
     "success": "Thank you, a Zen Hospitality advisor will reach out within 24 hours.",
-    "error": "Something went wrong. Please try again or email hello@zenhospitality.com.",
+    "error": "Something went wrong. Please try again or email eduardoc@zen-hospitality.com.",
     "privacy": "Your information is private and never shared."
   },
   "intermissions": {
@@ -430,7 +430,7 @@
     ]
   },
   "whatsapp": {
-    "phone": "+50670000000",
+    "phone": "+50687291276",
     "label": "Chat on WhatsApp",
     "message": "Hello, I'd like to learn more about Zen Hospitality property management.",
     "aria": "Open a WhatsApp chat with Zen Hospitality"

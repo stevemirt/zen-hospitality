@@ -212,10 +212,10 @@ export function FAQs() {
                     {t("stillCurious")}
                   </p>
                   <a
-                    href="mailto:hello@zenhospitality.com"
+                    href="mailto:eduardoc@zen-hospitality.com"
                     className="block h-title text-sm md:text-base text-[#58c3e8] hover:text-[#eaf1f6] transition-colors break-all"
                   >
-                    hello@zenhospitality.com
+                    eduardoc@zen-hospitality.com
                   </a>
                 </div>
               </div>

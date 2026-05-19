@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
-import { leadSchema } from "@/lib/leadSchema";
 import { Resend } from "resend";
+import { leadSchema } from "@/lib/leadSchema";
+import {
+  renderConfirmationEmail,
+  renderLeadNotificationEmail,
+} from "@/lib/leadEmails";
 
 export const runtime = "nodejs";
 
@@ -21,69 +25,67 @@ export async function POST(req: Request) {
   }
   const data = parsed.data;
 
-  // honeypot — pretend success
+  // honeypot — pretend success but skip everything
   if (data.website && data.website.length > 0) {
     return NextResponse.json({ ok: true });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_NOTIFY_EMAIL || "hello@zenhospitality.com";
-  const from = process.env.LEAD_FROM_EMAIL || "Zen Hospitality <onboarding@resend.dev>";
+  const notifyTo = process.env.LEAD_NOTIFY_EMAIL || "eduardoc@zen-hospitality.com";
+  const fromAddress =
+    process.env.LEAD_FROM_EMAIL ||
+    "Zen Hospitality <no-reply@zen-hospitality.com>";
 
-  // If no email service configured, log and accept — frictionless dev experience.
+  // No key in dev — log and accept (frictionless local dev)
   if (!apiKey) {
     // eslint-disable-next-line no-console
-    console.log("[lead]", { ...data, _note: "RESEND_API_KEY not set, lead not emailed" });
+    console.log("[lead]", {
+      ...data,
+      _note: "RESEND_API_KEY not set, lead not emailed",
+    });
     return NextResponse.json({ ok: true, mode: "logged" });
   }
 
-  try {
-    const resend = new Resend(apiKey);
-    const html = renderLeadHtml(data);
+  const resend = new Resend(apiKey);
 
-    await resend.emails.send({
-      from,
-      to: [to],
-      subject: `New Zen lead: ${data.name} — ${data.location}`,
+  const notification = renderLeadNotificationEmail(data);
+  const confirmation = renderConfirmationEmail(data);
+
+  // Send both emails in parallel. If the confirmation fails (e.g. bad
+  // recipient address), we still want the internal notification to land.
+  const [notifyResult, confirmResult] = await Promise.allSettled([
+    resend.emails.send({
+      from: fromAddress,
+      to: [notifyTo],
+      subject: notification.subject,
+      html: notification.html,
+      text: notification.text,
       replyTo: data.email,
-      html,
-    });
+    }),
+    resend.emails.send({
+      from: fromAddress,
+      to: [data.email],
+      subject: confirmation.subject,
+      html: confirmation.html,
+      text: confirmation.text,
+      replyTo: notifyTo,
+    }),
+  ]);
 
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("[lead] resend error", err);
-    return NextResponse.json({ error: "email_failed" }, { status: 502 });
+  // Log any failures (visible in Vercel logs) but don't break the user flow
+  // unless the internal notification also failed — that's a real outage.
+  if (notifyResult.status === "rejected") {
+    console.error("[lead] notify email failed", notifyResult.reason);
   }
-}
+  if (confirmResult.status === "rejected") {
+    console.error("[lead] confirmation email failed", confirmResult.reason);
+  }
 
-function renderLeadHtml(d: {
-  name: string;
-  email: string;
-  phone: string;
-  location: string;
-  rooms: number;
-  bathrooms: number;
-  amenities: string;
-  locale?: string;
-}) {
-  const esc = (s: string | number) =>
-    String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  return `
-  <div style="font-family:ui-sans-serif,system-ui,sans-serif;color:#042b59;line-height:1.55">
-    <h2 style="font-weight:700;letter-spacing:-0.01em">New lead — Zen Hospitality</h2>
-    <table cellpadding="6" style="border-collapse:collapse">
-      <tr><td><b>Name</b></td><td>${esc(d.name)}</td></tr>
-      <tr><td><b>Email</b></td><td>${esc(d.email)}</td></tr>
-      <tr><td><b>Phone</b></td><td>${esc(d.phone)}</td></tr>
-      <tr><td><b>Location</b></td><td>${esc(d.location)}</td></tr>
-      <tr><td><b>Rooms</b></td><td>${esc(d.rooms)}</td></tr>
-      <tr><td><b>Bathrooms</b></td><td>${esc(d.bathrooms)}</td></tr>
-      <tr><td valign="top"><b>Amenities</b></td><td>${esc(d.amenities).replace(/\n/g, "<br/>")}</td></tr>
-      <tr><td><b>Locale</b></td><td>${esc(d.locale ?? "")}</td></tr>
-    </table>
-  </div>
-  `;
+  if (notifyResult.status === "rejected") {
+    // Critical: the team didn't get the lead. Return 502 so the client can
+    // surface the "try again or email us directly" fallback.
+    return NextResponse.json({ error: "notify_failed" }, { status: 502 });
+  }
+
+  return NextResponse.json({ ok: true });
 }

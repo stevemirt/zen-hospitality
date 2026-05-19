@@ -42,10 +42,10 @@ export function Footer() {
               {t("reachUs")}
             </div>
             <a
-              href="mailto:hello@zenhospitality.com"
+              href="mailto:eduardoc@zen-hospitality.com"
               className="block title font-medium text-lg md:text-xl text-[#eaf1f6] hover:text-[#58c3e8] transition-colors mb-3"
             >
-              hello@zenhospitality.com
+              eduardoc@zen-hospitality.com
             </a>
             <div className="text-sm text-[#eaf1f6]/65 leading-relaxed">
               Costa Rica
