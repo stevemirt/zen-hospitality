@@ -280,12 +280,12 @@ export function CostaRicaMap() {
                 strokeWidth="0.5"
                 opacity="0.55"
               />
-              {/* Dark pill backdrop */}
+              {/* Dark pill backdrop — wide enough to fully cover the longest name */}
               <rect
                 x={r.labelX}
                 y={r.labelY}
-                width="140"
-                height="18"
+                width="190"
+                height="20"
                 rx="2"
                 fill="#042b59"
                 fillOpacity="0.95"
@@ -295,8 +295,8 @@ export function CostaRicaMap() {
               />
               {/* Index badge on the left of the pill */}
               <text
-                x={r.labelX + 6}
-                y={r.labelY + 13}
+                x={r.labelX + 8}
+                y={r.labelY + 14}
                 fill="#58c3e8"
                 fontSize="8"
                 fontFamily="Gotham, sans-serif"
@@ -308,8 +308,8 @@ export function CostaRicaMap() {
               </text>
               {/* Name */}
               <text
-                x={r.labelX + 22}
-                y={r.labelY + 13}
+                x={r.labelX + 26}
+                y={r.labelY + 14}
                 fill="#eaf1f6"
                 fontSize="9"
                 fontFamily="Gotham, sans-serif"

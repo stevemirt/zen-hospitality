@@ -86,23 +86,9 @@
     "discoverCta": "Conocer más",
     "reserveLabel": "Zen Reserve",
     "places": [
-      { "region": "Guanacaste", "subtitle": "Pacífico · Noroeste", "alt": "Vista aérea de una residencia Zen Reserve en Guanacaste" },
-      { "region": "Península de Nicoya", "subtitle": "Pacífico · Península", "alt": "Sala de planta abierta de una residencia Zen Reserve en la Península de Nicoya" },
-      { "region": "Pacífico Central", "subtitle": "Pacífico · Costa Central", "alt": "Habitación principal de una residencia Zen Reserve con vista al océano en el Pacífico Central" }
-    ],
-    "cards": [
-      {
-        "name": "Zen Reserve · Guanacaste",
-        "body": "Papagayo, El Coco, Flamingo y Tamarindo: una franja del Pacífico donde bahías, marinas y comunidades de lujo se encuentran con el paisaje tropical seco."
-      },
-      {
-        "name": "Zen Reserve · Península de Nicoya",
-        "body": "Desde Nosara hasta Santa Teresa: playas de surf prístinas, santuarios de bienestar y selva tropical que se encuentran con el océano."
-      },
-      {
-        "name": "Zen Reserve · Pacífico Central",
-        "body": "Jacó y Herradura: surf imponente, acantilados costeros y fácil acceso desde San José para estancias cortas."
-      }
+      { "region": "Guanacaste", "subtitle": "Papagayo · El Coco · Flamingo · Tamarindo", "alt": "Vista aérea de una residencia Zen Reserve en Guanacaste" },
+      { "region": "Península de Nicoya", "subtitle": "Nosara · Santa Teresa", "alt": "Sala de planta abierta de una residencia Zen Reserve en la Península de Nicoya" },
+      { "region": "Pacífico Central", "subtitle": "Jacó · Herradura", "alt": "Habitación principal de una residencia Zen Reserve con vista al océano en el Pacífico Central" }
     ]
   },
   "services": {

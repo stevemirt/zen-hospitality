@@ -86,23 +86,9 @@
     "discoverCta": "Discover",
     "reserveLabel": "Zen Reserve",
     "places": [
-      { "region": "Guanacaste", "subtitle": "Pacific · Northwest", "alt": "Aerial of a Zen Reserve residence in Guanacaste" },
-      { "region": "Nicoya Peninsula", "subtitle": "Pacific · Peninsula", "alt": "Open plan living room of a Zen Reserve residence on the Nicoya Peninsula" },
-      { "region": "Central Pacific", "subtitle": "Pacific · Central Coast", "alt": "Master bedroom of a Zen Reserve residence with ocean view on the Central Pacific coast" }
-    ],
-    "cards": [
-      {
-        "name": "Zen Reserve · Guanacaste",
-        "body": "Papagayo, El Coco, Flamingo and Tamarindo: a stretch of Pacific coast where bays, marinas and luxury communities meet the dry tropical landscape."
-      },
-      {
-        "name": "Zen Reserve · Nicoya Peninsula",
-        "body": "From Nosara to Santa Teresa: pristine surf beaches, wellness sanctuaries and tropical forest meeting the ocean."
-      },
-      {
-        "name": "Zen Reserve · Central Pacific",
-        "body": "Jacó and Herradura: dramatic surf, cliffside coves and easy reach from San José for shorter stays."
-      }
+      { "region": "Guanacaste", "subtitle": "Papagayo · El Coco · Flamingo · Tamarindo", "alt": "Aerial of a Zen Reserve residence in Guanacaste" },
+      { "region": "Nicoya Peninsula", "subtitle": "Nosara · Santa Teresa", "alt": "Open plan living room of a Zen Reserve residence on the Nicoya Peninsula" },
+      { "region": "Central Pacific", "subtitle": "Jacó · Herradura", "alt": "Master bedroom of a Zen Reserve residence with ocean view on the Central Pacific coast" }
     ]
   },
   "services": {
