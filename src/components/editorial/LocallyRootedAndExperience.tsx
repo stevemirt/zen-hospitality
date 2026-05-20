@@ -152,7 +152,7 @@ export function LocallyRootedAndExperience() {
                 <div ref={photoInner} className="absolute inset-[-6%] will-change-transform">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/zen/stock/mountain-pacific.jpg"
+                    src="/zen/stock/guanacaste-tamarindo.jpg"
                     alt={local("photoAlt")}
                     loading="lazy"
                     decoding="async"
