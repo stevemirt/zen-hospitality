@@ -36,13 +36,29 @@ export async function POST(req: Request) {
     process.env.LEAD_FROM_EMAIL ||
     "Zen Hospitality <no-reply@zen-hospitality.com>";
 
-  // No key in dev — log and accept (frictionless local dev)
+  const zapierWebhook = "https://hooks.zapier.com/hooks/catch/16194264/4b2x74p/";
+
+  // No key in dev — skip email but still fire Zapier so leads are captured.
   if (!apiKey) {
     // eslint-disable-next-line no-console
     console.log("[lead]", {
       ...data,
       _note: "RESEND_API_KEY not set, lead not emailed",
     });
+    fetch(zapierWebhook, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        location: data.location,
+        rooms: data.rooms,
+        bathrooms: data.bathrooms,
+        amenities: data.amenities,
+        locale: data.locale ?? "en",
+      }),
+    }).catch((e) => console.error("[lead] zapier webhook failed (dev)", e));
     return NextResponse.json({ ok: true, mode: "logged" });
   }
 
@@ -51,9 +67,8 @@ export async function POST(req: Request) {
   const notification = renderLeadNotificationEmail(data);
   const confirmation = renderConfirmationEmail(data);
 
-  // Send both emails in parallel. If the confirmation fails (e.g. bad
-  // recipient address), we still want the internal notification to land.
-  const [notifyResult, confirmResult] = await Promise.allSettled([
+  // Fire emails + Zapier webhook in parallel.
+  const [notifyResult, confirmResult, zapierResult] = await Promise.allSettled([
     resend.emails.send({
       from: fromAddress,
       to: [notifyTo],
@@ -70,6 +85,20 @@ export async function POST(req: Request) {
       text: confirmation.text,
       replyTo: notifyTo,
     }),
+    fetch(zapierWebhook, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        location: data.location,
+        rooms: data.rooms,
+        bathrooms: data.bathrooms,
+        amenities: data.amenities,
+        locale: data.locale ?? "en",
+      }),
+    }),
   ]);
 
   // Log any failures (visible in Vercel logs) but don't break the user flow
@@ -79,6 +108,9 @@ export async function POST(req: Request) {
   }
   if (confirmResult.status === "rejected") {
     console.error("[lead] confirmation email failed", confirmResult.reason);
+  }
+  if (zapierResult.status === "rejected") {
+    console.error("[lead] zapier webhook failed", zapierResult.reason);
   }
 
   if (notifyResult.status === "rejected") {
