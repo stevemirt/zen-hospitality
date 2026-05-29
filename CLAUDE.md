@@ -113,10 +113,28 @@ src/
 
 - **Form** `JoinForm.tsx` → **POST** `/api/lead`
 - Validated with Zod (`leadSchema.ts`), honeypot field `website`
-- **Resend** sends 2 emails:
+- **Resend** sends 2 emails in parallel:
   - Internal to `LEAD_NOTIFY_EMAIL` (team alert)
   - Cinematic confirmation to the submitting user
-- Dev fallback: logs to console when `RESEND_API_KEY` is absent
+- **Zapier webhook** fired in parallel with emails: `https://hooks.zapier.com/hooks/catch/16194264/4b2x74p/`
+  - Payload includes `locale` field (`"en"` or `"es"`) for segmentation
+  - Failure is silent — does not break the user flow
+- Dev fallback: skips Resend but still fires Zapier so leads are captured
+
+### Zapier Webhook Payload
+
+```json
+{
+  "name": "...",
+  "email": "...",
+  "phone": "...",
+  "location": "...",
+  "rooms": 3,
+  "bathrooms": 2,
+  "amenities": "...",
+  "locale": "en"
+}
+```
 
 ### Environment Variables
 
