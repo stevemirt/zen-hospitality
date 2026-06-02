@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -108,6 +109,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <GoogleTagManager gtmId="GTM-NXXSSNSP" />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollToTop />
           {children}
