@@ -57,6 +57,11 @@ export async function POST(req: Request) {
         bathrooms: data.bathrooms,
         amenities: data.amenities,
         locale: data.locale ?? "en",
+        utm_source: data.utm_source,
+        utm_medium: data.utm_medium,
+        utm_campaign: data.utm_campaign,
+        utm_term: data.utm_term,
+        utm_content: data.utm_content,
       }),
     }).catch((e) => console.error("[lead] zapier webhook failed (dev)", e));
     return NextResponse.json({ ok: true, mode: "logged" });
@@ -97,6 +102,11 @@ export async function POST(req: Request) {
         bathrooms: data.bathrooms,
         amenities: data.amenities,
         locale: data.locale ?? "en",
+        utm_source: data.utm_source,
+        utm_medium: data.utm_medium,
+        utm_campaign: data.utm_campaign,
+        utm_term: data.utm_term,
+        utm_content: data.utm_content,
       }),
     }),
   ]);

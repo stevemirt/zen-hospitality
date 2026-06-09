@@ -1,14 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations, useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import type { UseFormSetValue } from "react-hook-form";
 import { leadSchema, type LeadInput } from "@/lib/leadSchema";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { BackToSection } from "@/components/ui/BackToSection";
 import clsx from "clsx";
+
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
+
+function UTMCapture({ setValue }: { setValue: UseFormSetValue<LeadInput> }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    for (const key of UTM_KEYS) {
+      const val = searchParams.get(key);
+      if (val) setValue(key, val);
+    }
+  }, [searchParams, setValue]);
+  return null;
+}
 
 export function JoinForm() {
   const t = useTranslations("form");
@@ -22,6 +37,7 @@ export function JoinForm() {
     formState: { errors, isSubmitting },
     reset,
     watch,
+    setValue,
   } = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
     defaultValues: { locale: locale as "en" | "es" },
@@ -112,6 +128,16 @@ export function JoinForm() {
                 {...register("website")}
                 className="hidden"
               />
+
+              {/* UTM parameter capture */}
+              <Suspense fallback={null}>
+                <UTMCapture setValue={setValue} />
+              </Suspense>
+
+              {/* UTM hidden inputs */}
+              {UTM_KEYS.map((key) => (
+                <input key={key} type="hidden" {...register(key)} />
+              ))}
 
               <FloatingField
                 label={fields.name}

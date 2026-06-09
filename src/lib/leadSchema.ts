@@ -11,6 +11,12 @@ export const leadSchema = z.object({
   // honeypot — must be empty
   website: z.string().max(0).optional(),
   locale: z.enum(["en", "es"]).optional(),
+  // UTM parameters for marketing attribution
+  utm_source: z.string().max(200).optional(),
+  utm_medium: z.string().max(200).optional(),
+  utm_campaign: z.string().max(200).optional(),
+  utm_term: z.string().max(200).optional(),
+  utm_content: z.string().max(200).optional(),
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;
