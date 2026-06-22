@@ -14,18 +14,18 @@ export function generateStaticParams() {
 
 const META = {
   en: {
-    title: "Zen Hospitality · Refined hospitality in Costa Rica",
+    title: "Property Management Costa Rica | Property Zen Hospitality",
     description:
-      "Luxury residential management in Costa Rica. Refined hospitality, sustainable operations, and enduring value for property owners.",
+      "Maximize your rental income with premier property management in Costa Rica. Trust Property Zen Hospitality for expert care, booking, and maintenance.",
     ogTitle: "Zen Hospitality · Discover the potential of your property",
     twitterDesc: "Luxury residential management in Costa Rica.",
     htmlLocale: "en_US",
     altLocale: "es_CR",
   },
   es: {
-    title: "Zen Hospitality · Hospitalidad refinada en Costa Rica",
+    title: "Administración de Propiedades Costa Rica | Property Zen Hospitality",
     description:
-      "Gestión residencial de lujo en Costa Rica. Hospitalidad refinada, operaciones sostenibles y valor duradero para los propietarios.",
+      "Optimice sus rentas vacacionales con expertos en administración de propiedades en Costa Rica. Cuidado integral, reservas y mantenimiento profesional.",
     ogTitle: "Zen Hospitality · Descubra el potencial de su propiedad",
     twitterDesc: "Gestión residencial de lujo en Costa Rica.",
     htmlLocale: "es_CR",
@@ -40,13 +40,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const m = META[locale as keyof typeof META] ?? META.en;
+  const BASE = "https://property.zen-hospitality.com";
+  const canonicalUrl = locale === "en" ? `${BASE}/` : `${BASE}/${locale}`;
+
   return {
     title: {
       default: m.title,
       template: "%s · Zen Hospitality",
     },
     description: m.description,
-    metadataBase: new URL("https://zenhospitality.com"),
+    metadataBase: new URL(BASE),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${BASE}/`,
+        es: `${BASE}/es`,
+        "x-default": `${BASE}/`,
+      },
+    },
     openGraph: {
       title: m.ogTitle,
       description: m.description,
