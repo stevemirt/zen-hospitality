@@ -3,6 +3,7 @@
 import { useState, Suspense, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import type { UseFormSetValue } from "react-hook-form";
@@ -56,6 +57,17 @@ export function JoinForm() {
       });
       if (!res.ok) throw new Error("submit failed");
       setSubmitted("ok");
+      // GTM conversion event — metadata only, no PII (name/email/phone excluded)
+      sendGTMEvent({
+        event: "generate_lead",
+        locale,
+        lead_location: data.location,
+        lead_rooms: data.rooms,
+        lead_bathrooms: data.bathrooms,
+        utm_source: data.utm_source ?? "",
+        utm_medium: data.utm_medium ?? "",
+        utm_campaign: data.utm_campaign ?? "",
+      });
       reset();
     } catch {
       setSubmitted("err");
