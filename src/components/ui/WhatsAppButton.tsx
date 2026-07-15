@@ -9,7 +9,7 @@ import clsx from "clsx";
  * — integrates with the site's palette). Modern: shows label tooltip on
  * hover, breathes subtly, hides on form section to avoid overlap.
  *
- * Raised vertically (bottom-24 / md:bottom-28) so it stacks ABOVE the
+ * Raised vertically (bottom-24 / md:bottom-40) so it stacks ABOVE the
  * Pipedrive LeadBooster launcher, which anchors itself to the bottom-right
  * corner. Same right edge → the two floating widgets read as one column.
  * See PipedriveChat.tsx.
@@ -50,7 +50,7 @@ export function WhatsAppButton() {
     <div
       aria-hidden={hidden}
       className={clsx(
-        "fixed z-40 bottom-24 right-5 md:bottom-28 md:right-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "fixed z-40 bottom-24 right-5 md:bottom-40 md:right-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
         armed && !overForm
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-6 pointer-events-none"
