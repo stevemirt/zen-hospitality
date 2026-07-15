@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { PipedriveChat } from "@/components/ui/PipedriveChat";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -125,6 +126,7 @@ export default async function LocaleLayout({
           <ScrollToTop />
           {children}
           <WhatsAppButton />
+          <PipedriveChat />
         </NextIntlClientProvider>
       </body>
     </html>
