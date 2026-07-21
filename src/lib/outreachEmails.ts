@@ -8,6 +8,10 @@
  *
  * Shares NAVY/CYAN/CREAM/PUBLIC_URL/CONTACT/esc from emailShared.ts to keep
  * brand consistency across every email.
+ *
+ * Layout: compact editorial letter (560px container, tight paddings, capped
+ * hero photo height) — fits comfortably in a Gmail preview pane without
+ * overflowing or requiring heavy scroll on desktop.
  */
 
 import {
@@ -22,8 +26,6 @@ import {
 
 type Locale = "en" | "es";
 
-type Discipline = { n: string; title: string; body: string };
-
 /* ─────────────────────────── COPY ─────────────────────────── */
 
 type OutreachCopy = {
@@ -35,26 +37,22 @@ type OutreachCopy = {
   headlineHighlight: string;
   opening: string;
   servicesLabel: string;
-  servicesIntro: string;
   featuredKicker: string;
   featuredBadge: string;
   featuredName: string;
   featuredPrice: string;
   featuredPriceUnit: string;
-  featuredIntro: string;
   featuredIncludes: string[];
   impactLine: string;
   ctaLabel: string;
-  closingLine1: string;
-  closingLine2: string;
-  closingLine3: string;
+  closingLine: string;
   signature: string;
   signatureRole: string;
   whatsappLabel: string;
   emailLabel: string;
   seeFullOnline: string;
   footer: string;
-  disciplinesCompact: string[]; // 6 top disciplines rendered as 2-col list
+  disciplinesCompact: string[]; // 6 items rendered as 2-col list
 };
 
 const COPY: Record<Locale, OutreachCopy> = {
@@ -67,17 +65,13 @@ const COPY: Record<Locale, OutreachCopy> = {
     headlineLine1: "Your residence",
     headlineHighlight: "as an asset.",
     opening:
-      "Your residence is more than a home. It is an asset. We would like to introduce a refined operation designed to protect its value while unlocking its potential as a short-term rental.",
+      "A refined management and short-term rental program for exceptional residences on the Pacific coast of Costa Rica. You keep the asset. We handle the operation.",
     servicesLabel: "Ten disciplines · one operation",
-    servicesIntro:
-      "A single accountable team covering asset management, guest experience, housekeeping, maintenance, security, sales and reporting — engineered to run remotely so you can live anywhere.",
-    featuredKicker: "Featured program",
+    featuredKicker: "Most chosen program",
     featuredBadge: "Most chosen",
     featuredName: "Zen Legacy",
     featuredPrice: "USD $1,659",
     featuredPriceUnit: "+ VAT / month",
-    featuredIntro:
-      "Our most chosen program aligns hospitality standards with commercial optimization to maximize net income.",
     featuredIncludes: [
       "Listing and optimization across OTAs",
       "Dynamic pricing and digital marketing",
@@ -85,11 +79,9 @@ const COPY: Record<Locale, OutreachCopy> = {
       "24/7 customer support center",
     ],
     impactLine:
-      "Every managed residence contributes to three verified NGO partners in Guanacaste and Nicoya. True luxury is rooted in the positive impact we create.",
-    ctaLabel: "Discover the potential of your property",
-    closingLine1: "Quiet precision.",
-    closingLine2: "Measurable returns.",
-    closingLine3: "A standard, not a service.",
+      "True luxury is rooted in the positive impact we create.",
+    ctaLabel: "Discover the potential",
+    closingLine: "Quiet precision. Measurable returns. A standard, not a service.",
     signature: "Eduardo C.",
     signatureRole: "Zen Hospitality",
     whatsappLabel: "WhatsApp",
@@ -115,17 +107,13 @@ const COPY: Record<Locale, OutreachCopy> = {
     headlineLine1: "Su residencia",
     headlineHighlight: "como activo.",
     opening:
-      "Su residencia es más que una casa. Es un activo. Le presentamos una operación refinada, diseñada para proteger su valor mientras libera su potencial como alquiler a corto plazo.",
+      "Un programa refinado de administración y alquiler a corto plazo para residencias excepcionales en la costa Pacífica de Costa Rica. Usted conserva el activo. Nosotros operamos.",
     servicesLabel: "Diez disciplinas · una operación",
-    servicesIntro:
-      "Un único equipo responsable de administración, experiencia del huésped, limpieza, mantenimiento, seguridad, ventas e informes, diseñado para operar de forma remota, para que usted pueda vivir donde quiera.",
-    featuredKicker: "Programa destacado",
+    featuredKicker: "Programa más elegido",
     featuredBadge: "El más elegido",
     featuredName: "Zen Legacy",
     featuredPrice: "USD $1,659",
     featuredPriceUnit: "+ IVA / mes",
-    featuredIntro:
-      "Nuestro programa más elegido alinea los estándares de hospitalidad con la optimización comercial para maximizar el ingreso neto.",
     featuredIncludes: [
       "Listado y optimización en OTAs",
       "Precios dinámicos y marketing digital",
@@ -133,11 +121,9 @@ const COPY: Record<Locale, OutreachCopy> = {
       "Centro de soporte 24/7",
     ],
     impactLine:
-      "Cada residencia gestionada contribuye a tres aliados verificados en Guanacaste y Nicoya. El verdadero lujo está enraizado en el impacto positivo que creamos.",
-    ctaLabel: "Descubra el potencial de su propiedad",
-    closingLine1: "Precisión silenciosa.",
-    closingLine2: "Retornos medibles.",
-    closingLine3: "Un estándar, no un servicio.",
+      "El verdadero lujo está enraizado en el impacto positivo que creamos.",
+    ctaLabel: "Descubra el potencial",
+    closingLine: "Precisión silenciosa. Retornos medibles. Un estándar, no un servicio.",
     signature: "Eduardo C.",
     signatureRole: "Zen Hospitality",
     whatsappLabel: "WhatsApp",
@@ -180,13 +166,14 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
     <meta name="supported-color-schemes" content="light" />
     <title>${esc(copy.subject)}</title>
     <style>
-      @media (max-width: 620px) {
+      @media (max-width: 580px) {
         .container { width: 100% !important; }
-        .px-lg { padding-left: 28px !important; padding-right: 28px !important; }
-        .hero-headline { font-size: 40px !important; line-height: 1.05 !important; }
-        .hero-italic { font-size: 26px !important; }
-        .featured-price { font-size: 36px !important; }
-        .disc-col { display: block !important; width: 100% !important; padding-right: 0 !important; }
+        .px-lg { padding-left: 24px !important; padding-right: 24px !important; }
+        .hero-headline { font-size: 30px !important; line-height: 1.05 !important; }
+        .hero-italic { font-size: 22px !important; }
+        .featured-price { font-size: 28px !important; }
+        .disc-col { display: block !important; width: 100% !important; padding: 0 !important; }
+        .hero-photo { height: 160px !important; }
       }
     </style>
   </head>
@@ -199,17 +186,17 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
     <!-- Outer canvas -->
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0a0a0c;">
       <tr>
-        <td align="center" style="padding: 48px 16px;">
+        <td align="center" style="padding: 32px 12px;">
 
-          <!-- Editorial card -->
-          <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:${NAVY}; border:1px solid rgba(88,195,232,0.20); box-shadow: 0 24px 80px rgba(0,0,0,0.55);">
+          <!-- Editorial card — 560px compact -->
+          <table role="presentation" class="container" width="560" cellpadding="0" cellspacing="0" border="0" style="width:560px; max-width:560px; background-color:${NAVY}; border:1px solid rgba(88,195,232,0.20); box-shadow: 0 20px 60px rgba(0,0,0,0.55);">
 
-            <!-- Hero photo -->
+            <!-- Hero photo — capped height so it acts as a banner, not a poster -->
             <tr>
               <td style="background-color:${NAVY}; padding:0;">
-                <a href="${landingHref}" target="_blank" style="text-decoration:none; display:block;">
-                  <img src="${HERO_PHOTO_URL}" alt="" width="600" height="320"
-                    style="display:block; width:100%; max-width:600px; height:auto; border:0; outline:none; text-decoration:none;" />
+                <a href="${landingHref}" target="_blank" style="text-decoration:none; display:block; line-height:0;">
+                  <img src="${HERO_PHOTO_URL}" alt="" width="560" height="200" class="hero-photo"
+                    style="display:block; width:100%; max-width:560px; height:200px; object-fit:cover; object-position:center 40%; border:0; outline:none; text-decoration:none;" />
                 </a>
               </td>
             </tr>
@@ -227,51 +214,47 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
 
             <!-- Main content -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:52px 56px 24px 56px;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:32px 40px 16px 40px;">
 
                 <!-- Brand kicker -->
-                <p style="margin:0 0 32px 0; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
-                  <span style="display:inline-block; width:32px; height:1px; background-color:${CYAN}; vertical-align:middle; margin-right:12px;">&nbsp;</span>
+                <p style="margin:0 0 20px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
+                  <span style="display:inline-block; width:24px; height:1px; background-color:${CYAN}; vertical-align:middle; margin-right:10px;">&nbsp;</span>
                   ${esc(copy.kicker)}
                 </p>
 
                 <!-- Greeting -->
-                <p style="margin:0 0 24px 0; font-size:15px; line-height:1.6; color:${CREAM}; opacity:0.85;">
+                <p style="margin:0 0 14px 0; font-size:14px; line-height:1.6; color:${CREAM}; opacity:0.85;">
                   ${esc(copy.greeting)}
                 </p>
 
                 <!-- Hero headline -->
-                <h1 class="hero-headline" style="margin:0 0 8px 0; font-size:52px; line-height:1.02; letter-spacing:-0.018em; color:${CREAM}; font-weight:500;">
+                <h1 class="hero-headline" style="margin:0 0 4px 0; font-size:38px; line-height:1.05; letter-spacing:-0.018em; color:${CREAM}; font-weight:500;">
                   ${esc(copy.headlineLine1)}
                 </h1>
-                <p class="hero-italic" style="margin:0 0 32px 0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:32px; line-height:1.15; color:${CYAN}; font-weight:400;">
+                <p class="hero-italic" style="margin:0 0 20px 0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:26px; line-height:1.15; color:${CYAN}; font-weight:400;">
                   ${esc(copy.headlineHighlight)}
                 </p>
 
                 <!-- Opening body -->
-                <p style="margin:0 0 36px 0; font-size:15px; line-height:1.7; color:${CREAM}; opacity:0.85;">
+                <p style="margin:0 0 24px 0; font-size:14px; line-height:1.65; color:${CREAM}; opacity:0.85;">
                   ${esc(copy.opening)}
                 </p>
               </td>
             </tr>
 
-            <!-- Services block -->
+            <!-- Services strip -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:0 56px 12px 56px;">
-                <p style="margin:0 0 6px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:0 40px 20px 40px;">
+                <p style="margin:0 0 12px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
                   ${esc(copy.servicesLabel)}
                 </p>
-                <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:${CREAM}; opacity:0.75;">
-                  ${esc(copy.servicesIntro)}
-                </p>
-                <!-- 2-col disciplines -->
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td class="disc-col" style="width:50%; padding-right:16px; vertical-align:top;">
+                    <td class="disc-col" style="width:50%; padding-right:14px; vertical-align:top;">
                       ${col1
                         .map(
                           (d) => `
-                        <p style="margin:0 0 10px 0; font-size:13px; color:${CREAM}; opacity:0.9;">
+                        <p style="margin:0 0 8px 0; font-size:13px; color:${CREAM}; opacity:0.9;">
                           <span style="color:${CYAN}; margin-right:8px;">·</span>${esc(d)}
                         </p>`
                         )
@@ -281,7 +264,7 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
                       ${col2
                         .map(
                           (d) => `
-                        <p style="margin:0 0 10px 0; font-size:13px; color:${CREAM}; opacity:0.9;">
+                        <p style="margin:0 0 8px 0; font-size:13px; color:${CREAM}; opacity:0.9;">
                           <span style="color:${CYAN}; margin-right:8px;">·</span>${esc(d)}
                         </p>`
                         )
@@ -294,7 +277,7 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
 
             <!-- Divider before featured -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding: 28px 56px 0 56px;">
+              <td class="px-lg" style="background-color:${NAVY}; padding: 20px 40px 0 40px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="border-top:1px solid rgba(88,195,232,0.15); height:1px; font-size:0; line-height:0;">&nbsp;</td>
@@ -303,27 +286,23 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
               </td>
             </tr>
 
-            <!-- Featured Zen Legacy -->
+            <!-- Featured Zen Legacy — compact -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:28px 56px 24px 56px;">
-                <p style="margin:0 0 10px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:20px 40px 16px 40px;">
+                <p style="margin:0 0 8px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; font-weight:500;">
                   ${esc(copy.featuredKicker)} · <span style="color:${CREAM}; opacity:0.65;">${esc(copy.featuredBadge)}</span>
                 </p>
-                <h3 style="margin:0 0 12px 0; font-size:30px; line-height:1.1; letter-spacing:-0.01em; color:${CREAM}; font-weight:500;">
+                <h3 style="margin:0 0 8px 0; font-size:22px; line-height:1.1; letter-spacing:-0.01em; color:${CREAM}; font-weight:500;">
                   ${esc(copy.featuredName)}
                 </h3>
-                <p style="margin:0 0 20px 0;">
-                  <span class="featured-price" style="font-size:44px; font-weight:500; color:${CYAN}; letter-spacing:-0.01em;">${esc(copy.featuredPrice)}</span>
-                  <span style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:${CREAM}; opacity:0.65; margin-left:10px;">${esc(copy.featuredPriceUnit)}</span>
+                <p style="margin:0 0 16px 0;">
+                  <span class="featured-price" style="font-size:32px; font-weight:500; color:${CYAN}; letter-spacing:-0.01em;">${esc(copy.featuredPrice)}</span>
+                  <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:${CREAM}; opacity:0.65; margin-left:8px;">${esc(copy.featuredPriceUnit)}</span>
                 </p>
-                <p style="margin:0 0 20px 0; font-size:14px; line-height:1.65; color:${CREAM}; opacity:0.8;">
-                  ${esc(copy.featuredIntro)}
-                </p>
-                <!-- includes bullets -->
                 ${copy.featuredIncludes
                   .map(
                     (line) => `
-                  <p style="margin:0 0 10px 0; font-size:13px; line-height:1.5; color:${CREAM}; opacity:0.9;">
+                  <p style="margin:0 0 8px 0; font-size:13px; line-height:1.5; color:${CREAM}; opacity:0.9;">
                     <span style="color:${CYAN}; margin-right:10px;">✓</span>${esc(line)}
                   </p>`
                   )
@@ -331,13 +310,13 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
               </td>
             </tr>
 
-            <!-- Impact quote -->
+            <!-- Impact quote — brief -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:12px 56px 28px 56px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0 0 0; border-left:2px solid ${CYAN};">
+              <td class="px-lg" style="background-color:${NAVY}; padding:8px 40px 8px 40px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 16px 0 0 0; border-left:2px solid ${CYAN};">
                   <tr>
-                    <td style="padding: 4px 0 4px 20px;">
-                      <p style="margin:0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:17px; line-height:1.5; color:${CREAM}; opacity:0.9;">
+                    <td style="padding: 2px 0 2px 16px;">
+                      <p style="margin:0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:15px; line-height:1.45; color:${CREAM}; opacity:0.9;">
                         ${esc(copy.impactLine)}
                       </p>
                     </td>
@@ -348,18 +327,18 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
 
             <!-- Primary CTA -->
             <tr>
-              <td class="px-lg" align="center" style="background-color:${NAVY}; padding:16px 56px 44px 56px;">
+              <td class="px-lg" align="center" style="background-color:${NAVY}; padding:20px 40px 12px 40px;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="border-radius:32px; background-color:${CYAN};">
                       <a href="${formHref}" target="_blank"
-                        style="display:inline-block; padding:16px 36px; font-size:15px; font-weight:500; letter-spacing:0.04em; color:${NAVY}; text-decoration:none; border-radius:32px;">
+                        style="display:inline-block; padding:14px 30px; font-size:14px; font-weight:500; letter-spacing:0.04em; color:${NAVY}; text-decoration:none; border-radius:32px;">
                         ${esc(copy.ctaLabel)} &nbsp;→
                       </a>
                     </td>
                   </tr>
                 </table>
-                <p style="margin:16px 0 0 0; font-size:11px; letter-spacing:2px; text-transform:uppercase;">
+                <p style="margin:12px 0 0 0; font-size:10px; letter-spacing:2px; text-transform:uppercase;">
                   <a href="${landingHref}" target="_blank" style="color:${CYAN}; text-decoration:none; opacity:0.85;">
                     ${esc(copy.seeFullOnline)}
                   </a>
@@ -367,24 +346,16 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
               </td>
             </tr>
 
-            <!-- Closing italic block + signature -->
+            <!-- Closing italic line (single-row) + signature -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:0 56px 32px 56px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-left:2px solid ${CYAN};">
-                  <tr>
-                    <td style="padding:6px 0 6px 20px;">
-                      <p style="margin:0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:18px; line-height:1.4; color:${CREAM};">
-                        ${esc(copy.closingLine1)}<br />
-                        ${esc(copy.closingLine2)}<br />
-                        ${esc(copy.closingLine3)}
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-                <p style="margin:24px 0 0 0; font-size:14px; line-height:1.5; color:${CREAM};">
+              <td class="px-lg" style="background-color:${NAVY}; padding:20px 40px 24px 40px;">
+                <p style="margin:0 0 16px 0; font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-size:14px; line-height:1.5; color:${CREAM}; opacity:0.7; text-align:center;">
+                  ${esc(copy.closingLine)}
+                </p>
+                <p style="margin:0; font-size:13px; line-height:1.5; color:${CREAM};">
                   ${esc(copy.signature)}
                 </p>
-                <p style="margin:0; font-size:11px; line-height:1.5; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.75;">
+                <p style="margin:0; font-size:10px; line-height:1.5; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.75;">
                   ${esc(copy.signatureRole)}
                 </p>
               </td>
@@ -392,7 +363,7 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
 
             <!-- Divider -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:0 56px;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:0 40px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="border-top:1px solid rgba(88,195,232,0.15); height:1px; font-size:0; line-height:0;">&nbsp;</td>
@@ -401,26 +372,24 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
               </td>
             </tr>
 
-            <!-- Contact -->
+            <!-- Contact (compact 2-col) -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:28px 56px;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:20px 40px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td style="padding-bottom:16px;">
-                      <p style="margin:0 0 6px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.7; font-weight:500;">
+                    <td class="disc-col" style="width:50%; padding-right:14px; vertical-align:top;">
+                      <p style="margin:0 0 4px 0; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:${CYAN}; opacity:0.7; font-weight:500;">
                         ${esc(copy.whatsappLabel)}
                       </p>
-                      <a href="${CONTACT.whatsappHref}" target="_blank" style="font-size:15px; color:${CREAM}; text-decoration:none;">
+                      <a href="${CONTACT.whatsappHref}" target="_blank" style="font-size:14px; color:${CREAM}; text-decoration:none;">
                         ${CONTACT.whatsappPhone}
                       </a>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p style="margin:0 0 6px 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.7; font-weight:500;">
+                    <td class="disc-col" style="width:50%; padding-left:14px; vertical-align:top;">
+                      <p style="margin:0 0 4px 0; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:${CYAN}; opacity:0.7; font-weight:500;">
                         ${esc(copy.emailLabel)}
                       </p>
-                      <a href="${CONTACT.emailHref}" target="_blank" style="font-size:15px; color:${CYAN}; text-decoration:none;">
+                      <a href="${CONTACT.emailHref}" target="_blank" style="font-size:14px; color:${CYAN}; text-decoration:none;">
                         ${CONTACT.emailAddress}
                       </a>
                     </td>
@@ -431,11 +400,11 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
 
             <!-- Footer -->
             <tr>
-              <td class="px-lg" style="background-color:${NAVY}; padding:24px 56px 40px 56px; border-top:1px solid rgba(88,195,232,0.10);">
-                <p style="margin:0; font-size:10px; line-height:1.6; color:${CREAM}; opacity:0.4;">
+              <td class="px-lg" style="background-color:${NAVY}; padding:16px 40px 28px 40px; border-top:1px solid rgba(88,195,232,0.10);">
+                <p style="margin:0; font-size:9px; line-height:1.55; color:${CREAM}; opacity:0.4;">
                   ${esc(copy.footer)}
                 </p>
-                <p style="margin:16px 0 0 0; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.55;">
+                <p style="margin:12px 0 0 0; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:${CYAN}; opacity:0.55;">
                   © ${new Date().getFullYear()} Zen Hospitality · Costa Rica
                 </p>
               </td>
@@ -459,19 +428,18 @@ export function renderOwnersOutreachEmail(locale: Locale = "en"): {
     copy.opening,
     "",
     copy.servicesLabel.toUpperCase(),
-    copy.servicesIntro,
+    ...copy.disciplinesCompact.map((d) => `  · ${d}`),
     "",
     `${copy.featuredKicker.toUpperCase()} — ${copy.featuredName}`,
     `${copy.featuredPrice} ${copy.featuredPriceUnit}`,
-    copy.featuredIntro,
-    ...copy.featuredIncludes.map((l) => `  · ${l}`),
+    ...copy.featuredIncludes.map((l) => `  ✓ ${l}`),
     "",
     copy.impactLine,
     "",
     `${copy.ctaLabel}: ${formHref}`,
     `${copy.seeFullOnline}: ${landingHref}`,
     "",
-    `${copy.closingLine1} ${copy.closingLine2} ${copy.closingLine3}`,
+    copy.closingLine,
     "",
     copy.signature,
     copy.signatureRole,

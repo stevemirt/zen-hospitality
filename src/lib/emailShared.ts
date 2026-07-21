@@ -10,7 +10,7 @@ export const NAVY = "#042b59";
 export const CYAN = "#58c3e8";
 export const CREAM = "#eaf1f6";
 
-export const PUBLIC_URL = "https://web-zenhospitality.vercel.app";
+export const PUBLIC_URL = "https://property.zen-hospitality.com";
 export const HERO_PHOTO_URL = `${PUBLIC_URL}/zen/aerial-resort.jpg`;
 export const POOL_PHOTO_URL = `${PUBLIC_URL}/zen/hero-pool.jpg`;
 export const LOGO_LIGHT_URL = `${PUBLIC_URL}/brand/logos/logo-light.png`;
