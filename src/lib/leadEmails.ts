@@ -9,7 +9,12 @@
  * Inline-styled HTML so it renders consistently across Gmail / Apple Mail /
  * Outlook / mobile clients. No external CSS, no JS. Uses a max-width 600px
  * table layout — the email industry standard.
+ *
+ * Shared primitives (colors, PUBLIC_URL, CONTACT, esc) live in
+ * `src/lib/emailShared.ts` so this file and outreachEmails.ts never drift.
  */
+
+import { NAVY, CYAN, CREAM, HERO_PHOTO_URL, CONTACT, esc } from "./emailShared";
 
 type LeadData = {
   name: string;
@@ -21,20 +26,6 @@ type LeadData = {
   amenities: string;
   locale?: "en" | "es";
 };
-
-const PUBLIC_URL = "https://web-zenhospitality.vercel.app";
-const HERO_PHOTO_URL = `${PUBLIC_URL}/zen/aerial-resort.jpg`;
-const LOGO_URL = `${PUBLIC_URL}/brand/logos/logo-dark.png`;
-
-const NAVY = "#042b59";
-const CYAN = "#58c3e8";
-const CREAM = "#eaf1f6";
-
-const esc = (s: string | number) =>
-  String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
 
 /* ─────────────────────────── CONFIRMATION TO USER ─────────────────────────── */
 
@@ -107,14 +98,6 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     footer:
       "Recibe este correo porque envió una solicitud a través de web-zenhospitality.vercel.app. Si no fue usted, por favor ignore este mensaje.",
   },
-};
-
-const CONTACT = {
-  whatsappPhone: "+506 8729 1276",
-  whatsappHref: "https://wa.me/50687291276",
-  emailAddress: "eduardoc@zen-hospitality.com",
-  emailHref: "mailto:eduardoc@zen-hospitality.com",
-  siteUrl: PUBLIC_URL,
 };
 
 export function renderConfirmationEmail(lead: LeadData): {

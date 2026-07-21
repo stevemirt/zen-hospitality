@@ -421,5 +421,112 @@
     "open24": "Abierto 24 / 7",
     "legal": "© 2026 Zen Hospitality. Todos los derechos reservados.",
     "language": "Idioma"
+  },
+  "owners": {
+    "meta": {
+      "title": "Propietarios · Descubra el potencial de su propiedad",
+      "description": "Un programa refinado de administración y alquiler a corto plazo para propietarios de residencias excepcionales en Costa Rica. Zen Hospitality opera; usted conserva el activo y los retornos."
+    },
+    "hero": {
+      "eyebrow": "Para Propietarios",
+      "headlineLine1": "Su residencia",
+      "headlineLine2": "como activo.",
+      "sub": "Un programa refinado de administración y alquiler a corto plazo para residencias excepcionales en la costa Pacífica de Costa Rica. Usted conserva el activo. Nosotros operamos.",
+      "ctaLabel": "Descubra el potencial",
+      "trustLine": "Conversación gratuita y confidencial en un plazo de 24 horas."
+    },
+    "promise": {
+      "kicker": "La promesa",
+      "headline": "Hospitalidad refinada,",
+      "headlineHighlight": "valor inquebrantable.",
+      "body": "Elevamos las estancias de lujo para huéspedes exigentes a la vez que maximizamos el valor y los retornos a largo plazo para los propietarios, mediante una gestión cuidada, sostenible y una hospitalidad refinada.",
+      "pillars": [
+        { "title": "Protección del activo", "body": "Mantenimiento preventivo, informes mensuales y control de calidad. Su residencia se trata como una inversión, no solo como una casa." },
+        { "title": "Ingresos orientados al desempeño", "body": "Precios dinámicos, acceso a Marriott Homes & Villas, reservas directas y distribución en OTAs, diseñado para maximizar el ingreso neto." },
+        { "title": "Operación remota sin esfuerzo", "body": "El modelo está diseñado para propietarios que viven fuera del país. Usted puede estar donde quiera; nosotros operamos en el terreno." }
+      ]
+    },
+    "services": {
+      "kicker": "Diez disciplinas, una operación",
+      "headline": "Todo lo que la propiedad necesita,",
+      "headlineHighlight": "coordinado de principio a fin.",
+      "sub": "Un solo equipo, diez disciplinas medidas, una operación responsable.",
+      "disciplines": [
+        { "n": "01", "title": "Gestión de propiedad", "body": "Supervisión del activo, coordinación de proveedores y administración de contratos." },
+        { "n": "02", "title": "Conserjería y huéspedes", "body": "Atención 24/7 al huésped, desde la pre-llegada hasta la salida." },
+        { "n": "03", "title": "Limpieza", "body": "Limpieza rutinaria y profunda, presentación y blancos impecables." },
+        { "n": "04", "title": "Mantenimiento", "body": "Programas preventivos para HVAC, piscina, jardinería y estructura." },
+        { "n": "05", "title": "Emergencias", "body": "Respuesta inmediata y resolución de incidentes, de día o de noche." },
+        { "n": "06", "title": "Ventas y marketing", "body": "Listados, OTAs, precios dinámicos y aliados de viajes de lujo." },
+        { "n": "07", "title": "Informes mensuales", "body": "Informes detallados de desempeño, finanzas y operación." },
+        { "n": "08", "title": "Seguridad", "body": "Control de acceso, protocolos en sitio y cumplimiento normativo." },
+        { "n": "09", "title": "Gestión de calidad", "body": "Auditorías, supervisión de proveedores y planes de mejora continua." },
+        { "n": "10", "title": "Proyectos especiales", "body": "Solicitudes especiales fuera del alcance estándar, coordinadas de principio a fin." }
+      ]
+    },
+    "featured": {
+      "kicker": "Programa destacado",
+      "badge": "El más elegido",
+      "name": "Zen Legacy",
+      "price": "USD $1,659",
+      "priceUnit": "+ IVA / mes",
+      "objective": "Maximizar el desempeño del activo mediante la gestión profesional del alquiler a corto plazo, alineada con los estándares de hospitalidad y la optimización comercial.",
+      "includesLabel": "Qué incluye",
+      "includes": [
+        "Todo lo incluido en Zen Care o Zen Preserve",
+        "Listado y optimización en OTAs",
+        "Precios dinámicos y marketing digital",
+        "Gestión integral de reservas, de principio a fin",
+        "Atención al huésped antes, durante y después de la estancia",
+        "Centro de soporte 24/7"
+      ],
+      "note": "Zen Legacy opera sobre Zen Preserve para garantizar consistencia en limpieza, mantenimiento y control de calidad.",
+      "ctaLabel": "Hablar con un asesor"
+    },
+    "trust": {
+      "kicker": "Confianza medible",
+      "stats": [
+        { "value": "24/7", "label": "Soporte" },
+        { "value": "5/5", "label": "Reseñas en línea" }
+      ],
+      "guestBullets": [
+        "Bienvenida curada que eleva primeras impresiones, reseñas y tarifas por noche.",
+        "Conserje digital 24/7 que impulsa reservas recurrentes sin sumar costos fijos.",
+        "Amenidades y detalles locales que convierten cada estancia en una historia."
+      ]
+    },
+    "impact": {
+      "kicker": "Más allá de la estancia",
+      "quote": "El verdadero lujo está enraizado en el impacto positivo que creamos.",
+      "quoteAttr": "Zen Hospitality",
+      "closing": "Cada residencia gestionada contribuye a tres aliados verificados en Guanacaste y Nicoya: CEPIA, The Clean Wave y Sibu Wildlife Sanctuary."
+    },
+    "finalCta": {
+      "kicker": "Siguiente paso",
+      "headline": "Una conversación.",
+      "headlineHighlight": "Sin compromiso.",
+      "sub": "Comparta algunos datos sobre su residencia. Un asesor de Zen Hospitality se pondrá en contacto en un plazo de 24 horas, de forma privada y sin costo.",
+      "primary": "Complete el formulario",
+      "secondaryWhatsapp": "O escríbanos por WhatsApp",
+      "secondaryEmail": "O envíenos un correo"
+    },
+    "email": {
+      "subject": "Zen Hospitality · Una operación refinada para su residencia en Costa Rica",
+      "preheader": "Un programa privado de administración y alquiler a corto plazo diseñado para propiedades excepcionales en la costa Pacífica.",
+      "greeting": "Estimado propietario,",
+      "opening": "Su residencia es más que una casa. Es un activo. Le presentamos una operación refinada, diseñada para proteger su valor mientras libera su potencial como alquiler a corto plazo.",
+      "servicesLabel": "Diez disciplinas · una operación",
+      "servicesIntro": "Un único equipo responsable de administración, experiencia del huésped, limpieza, mantenimiento, seguridad, ventas e informes — diseñado para operar de forma remota, para que usted pueda vivir donde quiera.",
+      "featuredIntro": "Nuestro programa más elegido alinea los estándares de hospitalidad con la optimización comercial para maximizar el ingreso neto.",
+      "impactLine": "Cada residencia gestionada contribuye a tres aliados verificados en Guanacaste y Nicoya. El verdadero lujo está enraizado en el impacto positivo que creamos.",
+      "ctaLabel": "Descubra el potencial de su propiedad",
+      "closingLine1": "Precisión silenciosa.",
+      "closingLine2": "Retornos medibles.",
+      "closingLine3": "Un estándar, no un servicio.",
+      "signature": "Eduardo C.",
+      "signatureRole": "Zen Hospitality",
+      "seeFullOnline": "Leer la propuesta completa en línea →",
+      "footer": "Recibe este correo porque Zen Hospitality considera que su residencia puede encajar en nuestro programa de gestión. Si no es su caso, por favor ignore este mensaje."
+    }
   }
 }
