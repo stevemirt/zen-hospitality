@@ -11,6 +11,7 @@
  */
 
 import { PRICE_BY_ID, SERVICE_NAMES, VAT_RATE } from "./quoteServices";
+import { NAVY, CYAN, CREAM, HERO_PHOTO_URL, CONTACT, esc } from "./emailShared";
 
 type QuoteData = {
   name: string;
@@ -27,29 +28,8 @@ type QuoteData = {
   total: number;
 };
 
-const PUBLIC_URL = "https://web-zenhospitality.vercel.app";
-const HERO_PHOTO_URL = `${PUBLIC_URL}/zen/aerial-resort.jpg`;
-
-const NAVY = "#042b59";
-const CYAN = "#58c3e8";
-const CREAM = "#eaf1f6";
-
-const esc = (s: string | number) =>
-  String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-
 const money = (n: number) =>
   `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-const CONTACT = {
-  whatsappPhone: "+506 8729 1276",
-  whatsappHref: "https://wa.me/50687291276",
-  emailAddress: "eduardoc@zen-hospitality.com",
-  emailHref: "mailto:eduardoc@zen-hospitality.com",
-  siteUrl: PUBLIC_URL,
-};
 
 /* ─────────────────────────── CONFIRMATION TO USER ─────────────────────────── */
 
@@ -108,7 +88,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     whatsappLabel: "WhatsApp",
     emailLabel: "Email",
     footer:
-      "You are receiving this email because you requested a custom plan through web-zenhospitality.vercel.app. If this was not you, please disregard this message.",
+      "You are receiving this email because you requested a custom plan through property.zen-hospitality.com. If this was not you, please disregard this message.",
   },
   es: {
     subject: "Hemos recibido su solicitud de plan personalizado — Zen Hospitality",
@@ -138,7 +118,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     whatsappLabel: "WhatsApp",
     emailLabel: "Correo",
     footer:
-      "Recibe este correo porque solicitó un plan personalizado a través de web-zenhospitality.vercel.app. Si no fue usted, por favor ignore este mensaje.",
+      "Recibe este correo porque solicitó un plan personalizado a través de property.zen-hospitality.com. Si no fue usted, por favor ignore este mensaje.",
   },
 };
 
