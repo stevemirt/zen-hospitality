@@ -208,6 +208,34 @@
       }
     ]
   },
+  "customizePlan": {
+    "kicker": "Customize Plan",
+    "headlineLine1": "Build the plan",
+    "headlineLine2": "your property needs.",
+    "descriptor": "Select the services your residence requires and get an instant estimate — then request your tailored proposal.",
+    "start": "Start",
+    "selectPrompt": "Select the services you need",
+    "services": [
+      { "id": "landscaping", "name": "Landscaping & Gardening", "unit": "/ month" },
+      { "id": "pool", "name": "Pool Maintenance", "unit": "/ month" },
+      { "id": "hvac", "name": "HVAC Preventive Maintenance", "unit": "/ quarterly service" },
+      { "id": "pest", "name": "Pest Control Program", "unit": "/ quarterly service" },
+      { "id": "housekeeping", "name": "Professional Housekeeping", "unit": "/ month" },
+      { "id": "emergency", "name": "24/7 Emergency Coordination", "unit": "/ month" },
+      { "id": "pm", "name": "PM Services (Property Management)", "unit": "/ month" }
+    ],
+    "subtotalLabel": "Subtotal",
+    "vatLabel": "VAT 13%",
+    "totalLabel": "Estimated total",
+    "estimateNote": "Includes 13% VAT. This estimate is indicative — a Zen Hospitality advisor confirms your final tailored figure.",
+    "continue": "Continue",
+    "back": "Back",
+    "summaryTitle": "Your selection",
+    "submit": "Request quote",
+    "submitting": "Sending…",
+    "success": "Thank you, a Zen Hospitality advisor will review your plan and reach out within 24 hours.",
+    "error": "Something went wrong. Please try again or email eduardoc@zen-hospitality.com."
+  },
   "journey": {
     "kicker": "Our Operations",
     "headline": "Your property journey with Zen Hospitality",

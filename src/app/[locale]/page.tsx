@@ -8,6 +8,7 @@ import { Collection } from "@/components/editorial/Collection";
 import { ServicesGrid } from "@/components/editorial/ServicesGrid";
 import { TwoPaths } from "@/components/editorial/TwoPaths";
 import { Packages } from "@/components/editorial/Packages";
+import { CustomizePlan } from "@/components/editorial/CustomizePlan";
 import { Operations } from "@/components/editorial/Operations";
 import { Journey } from "@/components/editorial/Journey";
 import { LocallyRootedAndExperience } from "@/components/editorial/LocallyRootedAndExperience";
@@ -55,6 +56,9 @@ export default async function HomePage({
 
         {/* 8. Packages — three pricing cards */}
         <Packages />
+
+        {/* 8b. Customize Plan — interactive à-la-carte quote calculator */}
+        <CustomizePlan />
 
         {/* 9. Our Operations — aerial beach banner + 4 nav cards */}
         <Operations />

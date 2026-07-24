@@ -99,6 +99,7 @@ src/
 6. **Services Grid** — 10 discipline icons + descriptions
 7. **Two Paths** — Property Management vs Vacation Rentals comparison
 8. **Packages** — 3 pricing tiers: Zen Care, Zen Preserve, Zen Legacy
+   - **8b. Customize Plan** — Interactive à-la-carte quote calculator card embedded below Packages (`CustomizePlan.tsx`). Start-gated; 7 selectable services with a live subtotal → 13% IVA → total, then the lead form.
 9. **Our Operations** — Aerial beach banner + 4 nav cards
 10. **Property Journey** — 5-step sticky-photo timeline
 11. **Locally Rooted** — Community editorial cards + surfer photo (Tamarindo)
@@ -142,6 +143,42 @@ src/
 RESEND_API_KEY=re_...
 LEAD_NOTIFY_EMAIL=hello@zen-hospitality.com
 LEAD_FROM_EMAIL=Zen Hospitality <noreply@zen-hospitality.com>
+ZAPIER_QUOTE_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/.../...   # Customize Plan calculator (separate Zap)
+```
+
+---
+
+## Custom Plan Quote Flow (Customize Plan calculator)
+
+A **second, parallel** lead stream — deliberately kept separate from the normal
+`JoinForm` flow so submissions never get mixed.
+
+- **Component** `CustomizePlan.tsx` (rendered right after `<Packages />`) → **POST** `/api/quote`
+- **Pricing source of truth** `src/lib/quoteServices.ts` — numeric prices + `computeQuote()`
+  (`subtotal = Σ selected prices`, `vat = subtotal × 13%`, `total = subtotal + vat`, straight sum
+  across monthly/quarterly cadence). Bilingual service labels live in `customizePlan.services` (content JSON).
+- Validated with Zod (`quoteSchema.ts` = `leadSchema` + `services[]` + `subtotal/vat/total`), honeypot `website`.
+- **Server recomputes** `subtotal/vat/total` from `services` before emailing/firing the webhook (anti-tamper) —
+  client-sent figures are ignored.
+- **Resend** sends 2 emails (`quoteEmails.ts`): team notification (with priced service breakdown) + client confirmation.
+- **Separate Zapier webhook** via `ZAPIER_QUOTE_WEBHOOK_URL` (not the normal form's hardcoded hook). Skipped safely
+  if the env var is unset. Payload adds `services`, `services_label`, `subtotal`, `vat`, `total` on top of the
+  normal lead fields + `locale` + UTMs.
+- **GTM event** `generate_quote` (PII-free) on success — distinct from the form's `generate_lead`.
+- UTM capture + floating-label field are shared with `JoinForm` via `src/components/ui/UTMCapture.tsx`,
+  `src/lib/utm.ts`, and `src/components/ui/FloatingField.tsx`.
+
+### Quote Webhook Payload
+
+```json
+{
+  "name": "...", "email": "...", "phone": "...", "location": "...",
+  "rooms": 3, "bathrooms": 2, "amenities": "...", "locale": "en",
+  "utm_source": "...", "utm_medium": "...", "utm_campaign": "...", "utm_term": "...", "utm_content": "...",
+  "services": ["pool", "housekeeping"],
+  "services_label": "Pool Maintenance; Professional Housekeeping",
+  "subtotal": 593.74, "vat": 77.19, "total": 670.93
+}
 ```
 
 ---

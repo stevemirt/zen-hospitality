@@ -208,6 +208,34 @@
       }
     ]
   },
+  "customizePlan": {
+    "kicker": "Plan Personalizado",
+    "headlineLine1": "Arme el plan",
+    "headlineLine2": "que su propiedad necesita.",
+    "descriptor": "Elija los servicios que requiere su residencia y obtenga un estimado al instante; luego solicite su propuesta a la medida.",
+    "start": "Comenzar",
+    "selectPrompt": "Seleccione los servicios que necesita",
+    "services": [
+      { "id": "landscaping", "name": "Jardinería y paisajismo", "unit": "/ mes" },
+      { "id": "pool", "name": "Mantenimiento de piscina", "unit": "/ mes" },
+      { "id": "hvac", "name": "Mantenimiento preventivo de HVAC", "unit": "/ servicio trimestral" },
+      { "id": "pest", "name": "Programa de control de plagas", "unit": "/ servicio trimestral" },
+      { "id": "housekeeping", "name": "Limpieza profesional (housekeeping)", "unit": "/ mes" },
+      { "id": "emergency", "name": "Coordinación de emergencias 24/7", "unit": "/ mes" },
+      { "id": "pm", "name": "Servicios de administración (PM)", "unit": "/ mes" }
+    ],
+    "subtotalLabel": "Subtotal",
+    "vatLabel": "IVA 13%",
+    "totalLabel": "Total estimado",
+    "estimateNote": "Incluye 13% de IVA. Este estimado es indicativo — un asesor de Zen Hospitality confirmará su cifra final a la medida.",
+    "continue": "Continuar",
+    "back": "Atrás",
+    "summaryTitle": "Su selección",
+    "submit": "Solicitar cotización",
+    "submitting": "Enviando…",
+    "success": "Gracias, un asesor de Zen Hospitality revisará su plan y se pondrá en contacto con usted en un plazo de 24 horas.",
+    "error": "Algo salió mal. Por favor intente de nuevo o escriba a eduardoc@zen-hospitality.com."
+  },
   "journey": {
     "kicker": "Nuestras operaciones",
     "headline": "El recorrido de su propiedad con Zen Hospitality",
