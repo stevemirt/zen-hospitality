@@ -73,6 +73,7 @@ export async function POST(req: Request) {
     bathrooms: input.bathrooms,
     amenities: input.amenities,
     locale,
+    date: input.date ?? new Date().toISOString(),
     utm_source: input.utm_source,
     utm_medium: input.utm_medium,
     utm_campaign: input.utm_campaign,

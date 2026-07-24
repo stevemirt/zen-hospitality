@@ -174,6 +174,7 @@ A **second, parallel** lead stream — deliberately kept separate from the norma
 {
   "name": "...", "email": "...", "phone": "...", "location": "...",
   "rooms": 3, "bathrooms": 2, "amenities": "...", "locale": "en",
+  "date": "2026-07-23T20:15:00.000Z",
   "utm_source": "...", "utm_medium": "...", "utm_campaign": "...", "utm_term": "...", "utm_content": "...",
   "services": ["pool", "housekeeping"],
   "services_label": "Pool Maintenance; Professional Housekeeping",

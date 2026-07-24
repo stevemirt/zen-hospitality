@@ -96,10 +96,12 @@ export function CustomizePlan() {
 
   const onSubmit = async (data: QuoteInput) => {
     try {
+      // Stamp the actual submission moment (ISO 8601) and send it to Zapier.
+      const payload = { ...data, date: new Date().toISOString() };
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("submit failed");
       setSubmitted("ok");
@@ -460,6 +462,7 @@ export function CustomizePlan() {
                       </FloatingField>
 
                       <input type="hidden" {...register("locale")} />
+                      <input type="hidden" {...register("date")} />
 
                       <div className="pt-8 flex flex-wrap items-center gap-6">
                         <button

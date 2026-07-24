@@ -15,6 +15,8 @@ export const quoteSchema = leadSchema.extend({
   subtotal: z.coerce.number().nonnegative(),
   vat: z.coerce.number().nonnegative(),
   total: z.coerce.number().nonnegative(),
+  // Submission timestamp (ISO 8601), set client-side and forwarded to Zapier.
+  date: z.string().max(40).optional(),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;
