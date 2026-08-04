@@ -73,7 +73,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     whatsappLabel: "WhatsApp",
     emailLabel: "Email",
     footer:
-      "You are receiving this email because you submitted an inquiry through web-zenhospitality.vercel.app. If this was not you, please disregard this message.",
+      "You are receiving this email because you submitted an inquiry through property.zen-hospitality.com. If this was not you, please disregard this message.",
   },
   es: {
     subject: "Bienvenido a Zen Hospitality, hemos recibido su solicitud",
@@ -96,7 +96,7 @@ const COPY: Record<"en" | "es", ConfirmationCopy> = {
     whatsappLabel: "WhatsApp",
     emailLabel: "Correo",
     footer:
-      "Recibe este correo porque envió una solicitud a través de web-zenhospitality.vercel.app. Si no fue usted, por favor ignore este mensaje.",
+      "Recibe este correo porque envió una solicitud a través de property.zen-hospitality.com. Si no fue usted, por favor ignore este mensaje.",
   },
 };
 
