@@ -19,7 +19,13 @@ import { Reveal } from "@/components/ui/Reveal";
 import { UTMCapture } from "@/components/ui/UTMCapture";
 import { FloatingField, floatingInputCls } from "@/components/ui/FloatingField";
 
-type ServiceCopy = { id: string; name: string; unit: string };
+type ServiceCopy = {
+  id: string;
+  name: string;
+  unit: string;
+  /** Optional scope note rendered in parentheses after the unit. */
+  note?: string;
+};
 
 const PILL =
   "group inline-flex items-center gap-3 bg-[#58c3e8] hover:bg-[#eaf1f6] text-[#042b59] px-9 py-4 text-sm font-medium tracking-[0.04em] rounded-full transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_8px_32px_rgba(88,195,232,0.18)] hover:shadow-[0_12px_48px_rgba(88,195,232,0.32)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eaf1f6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#042b59]";
@@ -41,20 +47,19 @@ function ArrowChip() {
   );
 }
 
-/** Square check box. `mixed` renders the partial-selection dash. */
-function CheckBox({ checked, mixed }: { checked: boolean; mixed?: boolean }) {
-  const filled = checked || mixed;
+/** Square check box. */
+function CheckBox({ checked }: { checked: boolean }) {
   return (
     <span
       aria-hidden
       className={clsx(
         "relative shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-[4px] border transition-all duration-300",
-        filled
+        checked
           ? "bg-[#58c3e8] border-[#58c3e8]"
           : "border-[#58c3e8]/40 group-hover:border-[#58c3e8]"
       )}
     >
-      {filled && (
+      {checked && (
         <svg
           viewBox="0 0 16 16"
           fill="none"
@@ -64,7 +69,7 @@ function CheckBox({ checked, mixed }: { checked: boolean; mixed?: boolean }) {
           strokeLinejoin="round"
           className="w-3.5 h-3.5"
         >
-          <path d={mixed ? "M4 8h8" : "M3 8.5l3 3 7-8"} />
+          <path d="M3 8.5l3 3 7-8" />
         </svg>
       )}
     </span>
@@ -110,7 +115,6 @@ export function CustomizePlan() {
   const { subtotal, vat, total } = computeQuote(ids);
 
   const allSelected = ids.length === QUOTE_SERVICE_IDS.length;
-  const someSelected = ids.length > 0 && !allSelected;
 
   // Keep the RHF values in sync with the calculator so they validate + submit.
   useEffect(() => {
@@ -231,13 +235,11 @@ export function CustomizePlan() {
                     <button
                       type="button"
                       role="checkbox"
-                      aria-checked={
-                        allSelected ? true : someSelected ? "mixed" : false
-                      }
+                      aria-checked={allSelected}
                       onClick={toggleAll}
                       className="group w-full flex items-center gap-4 py-4 text-left border-b border-[#58c3e8]/30"
                     >
-                      <CheckBox checked={allSelected} mixed={someSelected} />
+                      <CheckBox checked={allSelected} />
                       <span className="flex-1 min-w-0">
                         <span
                           className={clsx(
@@ -285,6 +287,12 @@ export function CustomizePlan() {
                                 </span>
                                 <span className="block text-[11px] uppercase tracking-[0.18em] text-[#eaf1f6]/45">
                                   {s.unit}
+                                  {s.note && (
+                                    <span className="normal-case tracking-normal text-[#eaf1f6]/35">
+                                      {" "}
+                                      ({s.note})
+                                    </span>
+                                  )}
                                 </span>
                               </span>
                               <span

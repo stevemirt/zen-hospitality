@@ -222,7 +222,7 @@
       { "id": "pool", "name": "Pool Maintenance", "unit": "/ month" },
       { "id": "hvac", "name": "HVAC Preventive Maintenance", "unit": "/ quarterly service" },
       { "id": "pest", "name": "Pest Control Program", "unit": "/ quarterly service" },
-      { "id": "housekeeping", "name": "Professional Housekeeping", "unit": "/ month" },
+      { "id": "housekeeping", "name": "Professional Housekeeping", "unit": "/ month", "note": "weekly cleaning and monthly deep clean" },
       { "id": "emergency", "name": "24/7 Emergency Coordination", "unit": "/ month" },
       { "id": "pm", "name": "PM Services (Property Management)", "unit": "/ month" }
     ],
