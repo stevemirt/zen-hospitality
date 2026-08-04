@@ -215,6 +215,8 @@
     "descriptor": "Select the services your residence requires and get an instant estimate — then request your tailored proposal.",
     "start": "Start",
     "selectPrompt": "Select the services you need",
+    "selectAll": "Select all",
+    "selectAllUnit": "All {count} services",
     "services": [
       { "id": "landscaping", "name": "Landscaping & Gardening", "unit": "/ month" },
       { "id": "pool", "name": "Pool Maintenance", "unit": "/ month" },

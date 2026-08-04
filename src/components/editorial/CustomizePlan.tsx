@@ -10,6 +10,7 @@ import { quoteSchema, type QuoteInput } from "@/lib/quoteSchema";
 import {
   QUOTE_SERVICE_IDS,
   PRICE_BY_ID,
+  ALL_SERVICES_SUBTOTAL,
   computeQuote,
 } from "@/lib/quoteServices";
 import { UTM_KEYS } from "@/lib/utm";
@@ -36,6 +37,36 @@ function ArrowChip() {
       className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#042b59] text-[#58c3e8] text-[11px] transition-transform duration-300 group-hover:translate-x-1"
     >
       →
+    </span>
+  );
+}
+
+/** Square check box. `mixed` renders the partial-selection dash. */
+function CheckBox({ checked, mixed }: { checked: boolean; mixed?: boolean }) {
+  const filled = checked || mixed;
+  return (
+    <span
+      aria-hidden
+      className={clsx(
+        "relative shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-[4px] border transition-all duration-300",
+        filled
+          ? "bg-[#58c3e8] border-[#58c3e8]"
+          : "border-[#58c3e8]/40 group-hover:border-[#58c3e8]"
+      )}
+    >
+      {filled && (
+        <svg
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="#042b59"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-3.5 h-3.5"
+        >
+          <path d={mixed ? "M4 8h8" : "M3 8.5l3 3 7-8"} />
+        </svg>
+      )}
     </span>
   );
 }
@@ -78,6 +109,9 @@ export function CustomizePlan() {
   );
   const { subtotal, vat, total } = computeQuote(ids);
 
+  const allSelected = ids.length === QUOTE_SERVICE_IDS.length;
+  const someSelected = ids.length > 0 && !allSelected;
+
   // Keep the RHF values in sync with the calculator so they validate + submit.
   useEffect(() => {
     setValue("services", ids);
@@ -93,6 +127,14 @@ export function CustomizePlan() {
       else next.add(id);
       return next;
     });
+
+  /** One click selects every service; clicking again clears the whole list. */
+  const toggleAll = () =>
+    setSelected((prev) =>
+      prev.size === QUOTE_SERVICE_IDS.length
+        ? new Set<string>()
+        : new Set<string>(QUOTE_SERVICE_IDS)
+    );
 
   const onSubmit = async (data: QuoteInput) => {
     try {
@@ -180,62 +222,87 @@ export function CustomizePlan() {
                     </p>
                   </div>
 
-                  <ul className="border-y border-[#58c3e8]/12 divide-y divide-[#58c3e8]/12">
-                    {services.map((s) => {
-                      const checked = selected.has(s.id);
-                      const price = PRICE_BY_ID[s.id] ?? 0;
-                      return (
-                        <li key={s.id}>
-                          <button
-                            type="button"
-                            role="checkbox"
-                            aria-checked={checked}
-                            onClick={() => toggle(s.id)}
-                            className="group w-full flex items-center gap-4 py-4 text-left"
-                          >
-                            <span
-                              className={clsx(
-                                "relative shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-[4px] border transition-all duration-300",
-                                checked
-                                  ? "bg-[#58c3e8] border-[#58c3e8]"
-                                  : "border-[#58c3e8]/40 group-hover:border-[#58c3e8]"
-                              )}
+                  <div
+                    role="group"
+                    aria-label={t("selectPrompt")}
+                    className="border-y border-[#58c3e8]/12"
+                  >
+                    {/* Select-all header row */}
+                    <button
+                      type="button"
+                      role="checkbox"
+                      aria-checked={
+                        allSelected ? true : someSelected ? "mixed" : false
+                      }
+                      onClick={toggleAll}
+                      className="group w-full flex items-center gap-4 py-4 text-left border-b border-[#58c3e8]/30"
+                    >
+                      <CheckBox checked={allSelected} mixed={someSelected} />
+                      <span className="flex-1 min-w-0">
+                        <span
+                          className={clsx(
+                            "block text-sm uppercase tracking-[0.18em] transition-colors",
+                            allSelected
+                              ? "text-[#58c3e8]"
+                              : "text-[#eaf1f6] group-hover:text-[#58c3e8]"
+                          )}
+                        >
+                          {t("selectAll")}
+                        </span>
+                        <span className="block text-[11px] uppercase tracking-[0.18em] text-[#eaf1f6]/45">
+                          {t("selectAllUnit", {
+                            count: QUOTE_SERVICE_IDS.length,
+                          })}
+                        </span>
+                      </span>
+                      <span
+                        className={clsx(
+                          "shrink-0 h-display text-lg md:text-xl transition-colors",
+                          allSelected ? "text-[#58c3e8]" : "text-[#eaf1f6]/70"
+                        )}
+                      >
+                        {money(ALL_SERVICES_SUBTOTAL)}
+                      </span>
+                    </button>
+
+                    <ul className="divide-y divide-[#58c3e8]/12">
+                      {services.map((s) => {
+                        const checked = selected.has(s.id);
+                        const price = PRICE_BY_ID[s.id] ?? 0;
+                        return (
+                          <li key={s.id}>
+                            <button
+                              type="button"
+                              role="checkbox"
+                              aria-checked={checked}
+                              onClick={() => toggle(s.id)}
+                              className="group w-full flex items-center gap-4 py-4 text-left"
                             >
-                              {checked && (
-                                <svg
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  stroke="#042b59"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  className="w-3.5 h-3.5"
-                                >
-                                  <path d="M3 8.5l3 3 7-8" />
-                                </svg>
-                              )}
-                            </span>
-                            <span className="flex-1 min-w-0">
-                              <span className="block text-[#eaf1f6] text-base md:text-lg">
-                                {s.name}
+                              <CheckBox checked={checked} />
+                              <span className="flex-1 min-w-0">
+                                <span className="block text-[#eaf1f6] text-base md:text-lg">
+                                  {s.name}
+                                </span>
+                                <span className="block text-[11px] uppercase tracking-[0.18em] text-[#eaf1f6]/45">
+                                  {s.unit}
+                                </span>
                               </span>
-                              <span className="block text-[11px] uppercase tracking-[0.18em] text-[#eaf1f6]/45">
-                                {s.unit}
+                              <span
+                                className={clsx(
+                                  "shrink-0 h-display text-lg md:text-xl transition-colors",
+                                  checked
+                                    ? "text-[#58c3e8]"
+                                    : "text-[#eaf1f6]/70"
+                                )}
+                              >
+                                {money(price)}
                               </span>
-                            </span>
-                            <span
-                              className={clsx(
-                                "shrink-0 h-display text-lg md:text-xl transition-colors",
-                                checked ? "text-[#58c3e8]" : "text-[#eaf1f6]/70"
-                              )}
-                            >
-                              {money(price)}
-                            </span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
 
                   {/* Totals */}
                   <div className="mt-8 ml-auto max-w-sm space-y-3">

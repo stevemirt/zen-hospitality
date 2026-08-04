@@ -215,6 +215,8 @@
     "descriptor": "Elija los servicios que requiere su residencia y obtenga un estimado al instante; luego solicite su propuesta a la medida.",
     "start": "Comenzar",
     "selectPrompt": "Seleccione los servicios que necesita",
+    "selectAll": "Seleccionar todo",
+    "selectAllUnit": "Los {count} servicios",
     "services": [
       { "id": "landscaping", "name": "Jardinería y paisajismo", "unit": "/ mes" },
       { "id": "pool", "name": "Mantenimiento de piscina", "unit": "/ mes" },

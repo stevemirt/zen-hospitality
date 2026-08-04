@@ -86,6 +86,9 @@ export function computeQuote(ids: string[]): {
   return { subtotal, vat, total };
 }
 
+/** Pre-VAT sum of every service — shown on the "select all" row. */
+export const ALL_SERVICES_SUBTOTAL = computeQuote([...QUOTE_SERVICE_IDS]).subtotal;
+
 /** Human-readable list of selected services, e.g. "Pool Maintenance; Housekeeping". */
 export function serviceLabel(ids: string[], locale: "en" | "es" = "en"): string {
   const names = SERVICE_NAMES[locale] ?? SERVICE_NAMES.en;
