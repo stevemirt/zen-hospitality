@@ -11,6 +11,10 @@
     "backToOperations": "Volver a Nuestras Operaciones",
     "backToCollection": "Volver a Nuestra Colección"
   },
+  "cta": {
+    "requestInfo": "Solicitar información",
+    "join": "Únase a nuestra colección"
+  },
   "hero": {
     "eyebrow": "Zen Hospitality",
     "headline": "Descubra el potencial de su propiedad.",

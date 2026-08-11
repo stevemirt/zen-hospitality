@@ -105,8 +105,17 @@ src/
 11. **Locally Rooted** — Community editorial cards + surfer photo (Tamarindo)
 12. **Guest Experience** — 8 mini-card grid
 13. **Beyond the Stay** — NGO partners: CEPIA, The Clean Wave, Sibu Wildlife
-14. **FAQs** — Categorized accordion, auto-syncing sidebar
-15. **Join Our Collection** — Lead form with floating labels
+14. **Join Our Collection** — Lead form with floating labels
+15. **FAQs** — Categorized accordion, auto-syncing sidebar (supporting material *after* the form)
+
+### Section CTAs
+
+Seven closing CTAs (`src/components/ui/SectionCta.tsx`) sit at the bottom of the sections above,
+all anchored to `#join`, alternating copy between *Request information* (`cta.requestInfo`) and
+*Join our Collection* (`cta.join`), starting and ending on *Request information*:
+Who We Are → Why Costa Rica → Collection → Services → Journey → Guest Experience → Beyond the Stay.
+`tone="light"` on white/mist sections, `tone="dark"` on midnight. The component has no `"use client"`
+so `ServicesGrid` stays a Server Component.
 
 ---
 

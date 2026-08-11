@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 
 type PlaceLocalized = { region: string; subtitle: string; alt: string };
 
@@ -104,6 +105,7 @@ export function Collection() {
           </Reveal>
         ))}
       </div>
+      <SectionCta variant="request" tone="dark" />
     </Section>
   );
 }

@@ -13,8 +13,8 @@ import { Operations } from "@/components/editorial/Operations";
 import { Journey } from "@/components/editorial/Journey";
 import { LocallyRootedAndExperience } from "@/components/editorial/LocallyRootedAndExperience";
 import { BeyondTheStay } from "@/components/editorial/BeyondTheStay";
-import { FAQs } from "@/components/editorial/FAQs";
 import { JoinForm } from "@/components/editorial/JoinForm";
+import { FAQs } from "@/components/editorial/FAQs";
 import { Footer } from "@/components/editorial/Footer";
 
 export default async function HomePage({
@@ -72,11 +72,11 @@ export default async function HomePage({
         {/* 12. Beyond the Stay Program — 3 NGOs */}
         <BeyondTheStay />
 
-        {/* 13. FAQs — accordion */}
-        <FAQs />
-
-        {/* 14. Join our Collection — form on midnight */}
+        {/* 13. Join our Collection — form on midnight */}
         <JoinForm />
+
+        {/* 14. FAQs — accordion, supporting material after the form */}
+        <FAQs />
       </main>
       <Footer />
       <SchemaOrg description={schemaDescription} />

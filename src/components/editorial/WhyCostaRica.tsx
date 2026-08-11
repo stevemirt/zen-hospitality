@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { CostaRicaMap } from "./CostaRicaMap";
 
@@ -60,6 +61,7 @@ export function WhyCostaRica() {
           </Reveal>
         ))}
       </div>
+      <SectionCta variant="join" tone="dark" />
     </Section>
   );
 }

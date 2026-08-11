@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 import { BackToSection } from "@/components/ui/BackToSection";
 
 type Partner = { name: string; body: string; est?: string };
@@ -226,6 +227,7 @@ export function BeyondTheStay() {
           </Reveal>
         </div>
       </div>
+      <SectionCta variant="request" tone="dark" />
     </Section>
   );
 }

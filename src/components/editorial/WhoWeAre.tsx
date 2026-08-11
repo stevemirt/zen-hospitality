@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 
 export function WhoWeAre() {
   const t = useTranslations("whoWeAre");
@@ -163,6 +164,7 @@ export function WhoWeAre() {
           </Reveal>
         ))}
       </div>
+      <SectionCta variant="request" tone="light" />
     </Section>
   );
 }

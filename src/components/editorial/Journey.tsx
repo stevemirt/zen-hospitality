@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 import clsx from "clsx";
 
 type Step = { n: string; title: string; when: string; body: string };
@@ -275,6 +276,7 @@ export function Journey() {
           </ol>
         </div>
       </div>
+      <SectionCta variant="request" tone="light" />
     </Section>
   );
 }

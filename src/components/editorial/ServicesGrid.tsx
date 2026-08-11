@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 
 /**
  * Dual-tone service icons — adapted for dark-navy backdrop.
@@ -167,6 +168,7 @@ export function ServicesGrid() {
           </Reveal>
         ))}
       </div>
+      <SectionCta variant="join" tone="dark" />
     </Section>
   );
 }

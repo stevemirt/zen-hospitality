@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Section } from "./Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCta } from "@/components/ui/SectionCta";
 import { BackToSection } from "@/components/ui/BackToSection";
 
 // 5 symbolic icons for "A Locally Rooted Approach"
@@ -247,6 +248,7 @@ export function LocallyRootedAndExperience() {
             </Reveal>
           ))}
         </div>
+        <SectionCta variant="join" tone="dark" />
       </Section>
     </>
   );
